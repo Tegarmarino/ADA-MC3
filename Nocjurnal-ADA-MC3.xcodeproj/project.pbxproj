@@ -16,6 +16,25 @@
 		9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA3E2C3FCE1A0098E196 /* JournalView.swift */; };
 		9B0ECA412C3FCE240098E196 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA402C3FCE240098E196 /* FriendView.swift */; };
 		9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA422C3FCE2B0098E196 /* ProfileView.swift */; };
+		9B0ECA452C3FCF390098E196 /* MoodPickingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA442C3FCF390098E196 /* MoodPickingView.swift */; };
+		9B0ECA4F2C3FD2A30098E196 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA4E2C3FD2A30098E196 /* Color.swift */; };
+		9B0ECA542C3FD5380098E196 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA532C3FD5380098E196 /* BackButton.swift */; };
+		9B0ECA562C3FD7340098E196 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA552C3FD7340098E196 /* NextButton.swift */; };
+		9B0ECA582C3FD93C0098E196 /* JournalToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA572C3FD93C0098E196 /* JournalToolBar.swift */; };
+		9B8398152C3FDE8D00399E19 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8398142C3FDE8D00399E19 /* TabBar.swift */; };
+		9B8398172C3FE35700399E19 /* FontWeightFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8398162C3FE35700399E19 /* FontWeightFormat.swift */; };
+		9B8398282C3FEBBA00399E19 /* Kodchasan-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8398202C3FE7D200399E19 /* Kodchasan-Bold.ttf */; };
+		9B8398292C3FEBBA00399E19 /* Kodchasan-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8398232C3FE7D200399E19 /* Kodchasan-BoldItalic.ttf */; };
+		9B83982A2C3FEBBA00399E19 /* Kodchasan-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B83981B2C3FE7D200399E19 /* Kodchasan-ExtraLight.ttf */; };
+		9B83982B2C3FEBBA00399E19 /* Kodchasan-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B83981A2C3FE7D200399E19 /* Kodchasan-ExtraLightItalic.ttf */; };
+		9B83982C2C3FEBBA00399E19 /* Kodchasan-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8398212C3FE7D200399E19 /* Kodchasan-Italic.ttf */; };
+		9B83982D2C3FEBBA00399E19 /* Kodchasan-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8398192C3FE7D200399E19 /* Kodchasan-Light.ttf */; };
+		9B83982E2C3FEBBA00399E19 /* Kodchasan-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B83981E2C3FE7D200399E19 /* Kodchasan-LightItalic.ttf */; };
+		9B83982F2C3FEBBA00399E19 /* Kodchasan-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B83981F2C3FE7D200399E19 /* Kodchasan-Medium.ttf */; };
+		9B8398302C3FEBBA00399E19 /* Kodchasan-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8398242C3FE7D200399E19 /* Kodchasan-MediumItalic.ttf */; };
+		9B8398312C3FEBBA00399E19 /* Kodchasan-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B83981C2C3FE7D200399E19 /* Kodchasan-Regular.ttf */; };
+		9B8398322C3FEBBA00399E19 /* Kodchasan-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B83981D2C3FE7D200399E19 /* Kodchasan-SemiBold.ttf */; };
+		9B8398332C3FEBBA00399E19 /* Kodchasan-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8398222C3FE7D200399E19 /* Kodchasan-SemiBoldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +48,26 @@
 		9B0ECA3E2C3FCE1A0098E196 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		9B0ECA402C3FCE240098E196 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		9B0ECA422C3FCE2B0098E196 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9B0ECA442C3FCF390098E196 /* MoodPickingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPickingView.swift; sourceTree = "<group>"; };
+		9B0ECA4E2C3FD2A30098E196 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		9B0ECA532C3FD5380098E196 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		9B0ECA552C3FD7340098E196 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		9B0ECA572C3FD93C0098E196 /* JournalToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalToolBar.swift; sourceTree = "<group>"; };
+		9B8398142C3FDE8D00399E19 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		9B8398162C3FE35700399E19 /* FontWeightFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeightFormat.swift; sourceTree = "<group>"; };
+		9B8398192C3FE7D200399E19 /* Kodchasan-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-Light.ttf"; sourceTree = "<group>"; };
+		9B83981A2C3FE7D200399E19 /* Kodchasan-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		9B83981B2C3FE7D200399E19 /* Kodchasan-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-ExtraLight.ttf"; sourceTree = "<group>"; };
+		9B83981C2C3FE7D200399E19 /* Kodchasan-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-Regular.ttf"; sourceTree = "<group>"; };
+		9B83981D2C3FE7D200399E19 /* Kodchasan-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-SemiBold.ttf"; sourceTree = "<group>"; };
+		9B83981E2C3FE7D200399E19 /* Kodchasan-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-LightItalic.ttf"; sourceTree = "<group>"; };
+		9B83981F2C3FE7D200399E19 /* Kodchasan-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-Medium.ttf"; sourceTree = "<group>"; };
+		9B8398202C3FE7D200399E19 /* Kodchasan-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-Bold.ttf"; sourceTree = "<group>"; };
+		9B8398212C3FE7D200399E19 /* Kodchasan-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-Italic.ttf"; sourceTree = "<group>"; };
+		9B8398222C3FE7D200399E19 /* Kodchasan-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		9B8398232C3FE7D200399E19 /* Kodchasan-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-BoldItalic.ttf"; sourceTree = "<group>"; };
+		9B8398242C3FE7D200399E19 /* Kodchasan-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-MediumItalic.ttf"; sourceTree = "<group>"; };
+		9B8398252C3FE7F500399E19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +103,12 @@
 				9B0ECA352C3FCCCF0098E196 /* ViewModel */,
 				9B0ECA362C3FCCD40098E196 /* View */,
 				9B0ECA342C3FCCC70098E196 /* Model */,
-				9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */,
+				9B0ECA4B2C3FD28B0098E196 /* Others */,
 				9B0ECA122C3FC4AC0098E196 /* ContentView.swift */,
+				9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */,
 				9B0ECA142C3FC4AD0098E196 /* Assets.xcassets */,
 				9B0ECA162C3FC4AD0098E196 /* Preview Content */,
+				9B8398252C3FE7F500399E19 /* Info.plist */,
 			);
 			path = "Nocjurnal-ADA-MC3";
 			sourceTree = "<group>";
@@ -126,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				9B0ECA3E2C3FCE1A0098E196 /* JournalView.swift */,
+				9B0ECA442C3FCF390098E196 /* MoodPickingView.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -144,6 +186,71 @@
 				9B0ECA422C3FCE2B0098E196 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		9B0ECA4B2C3FD28B0098E196 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				9B8398182C3FE79C00399E19 /* Fonts */,
+				9B0ECA4D2C3FD2980098E196 /* Extensions */,
+				9B0ECA4C2C3FD2910098E196 /* Components */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		9B0ECA4C2C3FD2910098E196 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA592C3FD9490098E196 /* Navigation */,
+				9B0ECA502C3FD4F60098E196 /* NavigationButton */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9B0ECA4D2C3FD2980098E196 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA4E2C3FD2A30098E196 /* Color.swift */,
+				9B8398162C3FE35700399E19 /* FontWeightFormat.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9B0ECA502C3FD4F60098E196 /* NavigationButton */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA532C3FD5380098E196 /* BackButton.swift */,
+				9B0ECA552C3FD7340098E196 /* NextButton.swift */,
+			);
+			path = NavigationButton;
+			sourceTree = "<group>";
+		};
+		9B0ECA592C3FD9490098E196 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA572C3FD93C0098E196 /* JournalToolBar.swift */,
+				9B8398142C3FDE8D00399E19 /* TabBar.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		9B8398182C3FE79C00399E19 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9B8398202C3FE7D200399E19 /* Kodchasan-Bold.ttf */,
+				9B8398232C3FE7D200399E19 /* Kodchasan-BoldItalic.ttf */,
+				9B83981B2C3FE7D200399E19 /* Kodchasan-ExtraLight.ttf */,
+				9B83981A2C3FE7D200399E19 /* Kodchasan-ExtraLightItalic.ttf */,
+				9B8398212C3FE7D200399E19 /* Kodchasan-Italic.ttf */,
+				9B8398192C3FE7D200399E19 /* Kodchasan-Light.ttf */,
+				9B83981E2C3FE7D200399E19 /* Kodchasan-LightItalic.ttf */,
+				9B83981F2C3FE7D200399E19 /* Kodchasan-Medium.ttf */,
+				9B8398242C3FE7D200399E19 /* Kodchasan-MediumItalic.ttf */,
+				9B83981C2C3FE7D200399E19 /* Kodchasan-Regular.ttf */,
+				9B83981D2C3FE7D200399E19 /* Kodchasan-SemiBold.ttf */,
+				9B8398222C3FE7D200399E19 /* Kodchasan-SemiBoldItalic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +311,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B8398282C3FEBBA00399E19 /* Kodchasan-Bold.ttf in Resources */,
+				9B8398292C3FEBBA00399E19 /* Kodchasan-BoldItalic.ttf in Resources */,
+				9B83982A2C3FEBBA00399E19 /* Kodchasan-ExtraLight.ttf in Resources */,
+				9B83982B2C3FEBBA00399E19 /* Kodchasan-ExtraLightItalic.ttf in Resources */,
+				9B83982C2C3FEBBA00399E19 /* Kodchasan-Italic.ttf in Resources */,
+				9B83982D2C3FEBBA00399E19 /* Kodchasan-Light.ttf in Resources */,
+				9B83982E2C3FEBBA00399E19 /* Kodchasan-LightItalic.ttf in Resources */,
+				9B83982F2C3FEBBA00399E19 /* Kodchasan-Medium.ttf in Resources */,
+				9B8398302C3FEBBA00399E19 /* Kodchasan-MediumItalic.ttf in Resources */,
+				9B8398312C3FEBBA00399E19 /* Kodchasan-Regular.ttf in Resources */,
+				9B8398322C3FEBBA00399E19 /* Kodchasan-SemiBold.ttf in Resources */,
+				9B8398332C3FEBBA00399E19 /* Kodchasan-SemiBoldItalic.ttf in Resources */,
 				9B0ECA182C3FC4AD0098E196 /* Preview Assets.xcassets in Resources */,
 				9B0ECA152C3FC4AD0098E196 /* Assets.xcassets in Resources */,
 			);
@@ -217,12 +336,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */,
+				9B0ECA582C3FD93C0098E196 /* JournalToolBar.swift in Sources */,
 				9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */,
 				9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */,
 				9B0ECA3D2C3FCE110098E196 /* ReportView.swift in Sources */,
+				9B0ECA542C3FD5380098E196 /* BackButton.swift in Sources */,
+				9B8398172C3FE35700399E19 /* FontWeightFormat.swift in Sources */,
 				9B0ECA412C3FCE240098E196 /* FriendView.swift in Sources */,
+				9B0ECA562C3FD7340098E196 /* NextButton.swift in Sources */,
 				9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */,
+				9B8398152C3FDE8D00399E19 /* TabBar.swift in Sources */,
 				9B0ECA112C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift in Sources */,
+				9B0ECA452C3FCF390098E196 /* MoodPickingView.swift in Sources */,
+				9B0ECA4F2C3FD2A30098E196 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Nocjurnal-ADA-MC3/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -338,6 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Nocjurnal-ADA-MC3/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;

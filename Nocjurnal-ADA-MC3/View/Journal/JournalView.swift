@@ -9,7 +9,11 @@ import SwiftUI
 
 struct JournalView: View {
     var body: some View {
-        Text("Journaling View")
+        NavigationStack{
+            VStack{
+                BackButton()
+            }
+        }
     }
 }
 
