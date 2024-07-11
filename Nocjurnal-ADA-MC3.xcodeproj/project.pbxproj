@@ -12,6 +12,10 @@
 		9B0ECA152C3FC4AD0098E196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B0ECA142C3FC4AD0098E196 /* Assets.xcassets */; };
 		9B0ECA182C3FC4AD0098E196 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B0ECA172C3FC4AD0098E196 /* Preview Assets.xcassets */; };
 		9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA322C3FCC780098E196 /* HomeView.swift */; };
+		9B0ECA3D2C3FCE110098E196 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA3C2C3FCE110098E196 /* ReportView.swift */; };
+		9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA3E2C3FCE1A0098E196 /* JournalView.swift */; };
+		9B0ECA412C3FCE240098E196 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA402C3FCE240098E196 /* FriendView.swift */; };
+		9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA422C3FCE2B0098E196 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		9B0ECA142C3FC4AD0098E196 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B0ECA172C3FC4AD0098E196 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9B0ECA322C3FCC780098E196 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9B0ECA3C2C3FCE110098E196 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		9B0ECA3E2C3FCE1A0098E196 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		9B0ECA402C3FCE240098E196 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		9B0ECA422C3FCE2B0098E196 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +61,13 @@
 		9B0ECA0F2C3FC4AC0098E196 /* Nocjurnal-ADA-MC3 */ = {
 			isa = PBXGroup;
 			children = (
+				9B0ECA352C3FCCCF0098E196 /* ViewModel */,
+				9B0ECA362C3FCCD40098E196 /* View */,
+				9B0ECA342C3FCCC70098E196 /* Model */,
 				9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */,
 				9B0ECA122C3FC4AC0098E196 /* ContentView.swift */,
 				9B0ECA142C3FC4AD0098E196 /* Assets.xcassets */,
 				9B0ECA162C3FC4AD0098E196 /* Preview Content */,
-				9B0ECA322C3FCC780098E196 /* HomeView.swift */,
 			);
 			path = "Nocjurnal-ADA-MC3";
 			sourceTree = "<group>";
@@ -68,6 +78,72 @@
 				9B0ECA172C3FC4AD0098E196 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9B0ECA342C3FCCC70098E196 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B0ECA352C3FCCCF0098E196 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9B0ECA362C3FCCD40098E196 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA3B2C3FCD040098E196 /* Profile */,
+				9B0ECA3A2C3FCCFA0098E196 /* Friend */,
+				9B0ECA392C3FCCF40098E196 /* Journal */,
+				9B0ECA382C3FCCED0098E196 /* Report */,
+				9B0ECA372C3FCCE40098E196 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9B0ECA372C3FCCE40098E196 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA322C3FCC780098E196 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9B0ECA382C3FCCED0098E196 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA3C2C3FCE110098E196 /* ReportView.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		9B0ECA392C3FCCF40098E196 /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA3E2C3FCE1A0098E196 /* JournalView.swift */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		9B0ECA3A2C3FCCFA0098E196 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA402C3FCE240098E196 /* FriendView.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		9B0ECA3B2C3FCD040098E196 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9B0ECA422C3FCE2B0098E196 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +217,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */,
+				9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */,
 				9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */,
+				9B0ECA3D2C3FCE110098E196 /* ReportView.swift in Sources */,
+				9B0ECA412C3FCE240098E196 /* FriendView.swift in Sources */,
+				9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */,
 				9B0ECA112C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

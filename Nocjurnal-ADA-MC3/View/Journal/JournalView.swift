@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  JournalView.swift
 //  Nocjurnal-ADA-MC3
 //
 //  Created by Tegar marino on 11/07/24.
@@ -7,15 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct JournalView: View {
     var body: some View {
-        VStack {
-           HomeView()
-        }
-        .padding()
+        Text("Journaling View")
     }
 }
 
 #Preview {
-    ContentView()
+    JournalView()
 }

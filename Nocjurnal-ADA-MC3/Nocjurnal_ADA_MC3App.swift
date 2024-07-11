@@ -11,8 +11,7 @@ import SwiftUI
 struct Nocjurnal_ADA_MC3App: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            HomeView()
+            ContentView()
         }
     }
 }
