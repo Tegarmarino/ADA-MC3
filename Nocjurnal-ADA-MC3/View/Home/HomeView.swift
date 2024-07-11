@@ -8,27 +8,47 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var selectedIndex = 0
+
     var body: some View {
-        TabView{
-            VStack{
-                Text("Home View")
-                    .font(FontWeightFormat().textHeadlineOne)
-                Text("Home View")
-                    .font(FontWeightFormat().textHeadlineTwo)
-                Text("Home View")
-                    .font(.custom("Kodchasan-Bold", size: 24))
+        NavigationStack{
+            VStack {
+                ZStack {
+                    switch selectedIndex {
+                    case 0:
+                        VStack {
+                            HStack{
+                                NavigationLink(destination: ShopView()){
+                                    CircleButton(icon: "bag.fill")
+                                }
+                                Spacer()
+                                NavigationLink(destination: ProfileView()) {
+                                    CircleButton(icon: "person.fill")
+                                }
+                            }
+                            .padding(.horizontal, 10)
+                        }
+                    case 1:
+                        ReportView()
+                    case 2:
+                        FriendView()
+                    default:
+                        VStack {
+                            Text("Home View")
+                                .font(FontWeightFormat().textHeadlineOne)
+                            Text("Home View")
+                                .font(FontWeightFormat().textHeadlineTwo)
+                            Text("Home View")
+                                .font(.custom("Kodchasan-Bold", size: 24))
+                        }
+                    }
+                }
+                Spacer()
+                TabBar(tabBarIcon: ["house.fill", "chart.bar", "person.2"], tabBarTitle: ["Home", "Growth", "Friends"], selectedIndex: $selectedIndex)
             }
-                .tabItem { Image(systemName: "house.fill") }
-            ReportView()
-                .tabItem { Image(systemName: "chart.bar.fill") }
-            MoodPickingView()
-                .tabItem { Image(systemName: "book.closed.fill") }
-            FriendView()
-                .tabItem { Image(systemName: "person.2.fill") }
-            ProfileView()
-                .tabItem { Image(systemName: "person.fill") }
         }
-        
+        .navigationBarBackButtonHidden()
+        .navigationBarBackButtonHidden(true)
     }
 }
 

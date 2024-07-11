@@ -1,5 +1,5 @@
 //
-//  ProfileView.swift
+//  ShopView.swift
 //  Nocjurnal-ADA-MC3
 //
 //  Created by Tegar marino on 11/07/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct ShopView: View {
     var body: some View {
         VStack{
             HStack {
@@ -16,7 +16,7 @@ struct ProfileView: View {
             }
             
             Spacer()
-            Text("Profile View")
+            Text("Shop View")
         }
         .padding(.horizontal, 10)
         .navigationBarBackButtonHidden()
@@ -25,5 +25,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    ShopView()
 }

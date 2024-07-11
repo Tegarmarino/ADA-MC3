@@ -15,7 +15,6 @@ struct BackButton: View {
         Button(action: {
             presentationMode.wrappedValue.dismiss()
         }) {
-//            Text("ada")
             Image(systemName: "arrow.left")
                 .resizable()
                 .aspectRatio(contentMode: .fit)

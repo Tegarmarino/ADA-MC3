@@ -9,16 +9,42 @@ import SwiftUI
 
 struct MoodPickingView: View {
     var body: some View {
-        NavigationStack{
-            VStack {
-                NavigationLink(destination: JournalView()){
-                    Text("Pergi ke journal view")
-                }
-                NavigationLink(destination: JournalView()) {
-                    NextButton(title: "Begin Writing")
-                }
+        VStack{
+            HStack {
+                BackButton()
+                Spacer()
             }
+            
+            
+            Text("How are you feeling today?")
+                .font(FontWeightFormat().textHeadlineOne)
+            HStack(spacing: 10) {
+                Rectangle()
+                    .fill(Color.theme.primaryColorTheme)
+                    .frame(height: 7)
+                    .cornerRadius(5)
+                                
+                Rectangle()
+                    .fill(Color.theme.primaryColorTheme.opacity(0.2))
+                    .frame(height: 7)
+                    .cornerRadius(5)
+                                
+                Rectangle()
+                    .fill(Color.theme.primaryColorTheme.opacity(0.2))
+                    .frame(height: 7)
+                    .cornerRadius(5)
+            }
+            .padding(.vertical, 20)
+            Spacer()
+            
+            NavigationLink(destination: JournalView()) {
+                NextButton(title: "Begin Writing")
+            }
+            
         }
+        .padding(.horizontal, 10)
+        .background(Color.theme.backgroundColorOne.ignoresSafeArea())
+        .navigationBarBackButtonHidden(true)
     }
 }
 

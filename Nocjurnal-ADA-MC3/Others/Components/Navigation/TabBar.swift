@@ -11,8 +11,8 @@ struct TabBar: View {
     
     var tabBarIcon: [String]
     var tabBarTitle: [String]
-
-    @State var selectedIndex = 0
+    
+    @Binding var selectedIndex: Int
     
     var body: some View {
         HStack {
@@ -28,33 +28,36 @@ struct TabBar: View {
                 
                         Text(tabBarTitle[index])
                             .font(.caption)
-                            .padding(.horizontal)
+                            .padding(.horizontal, 13)
                     }
                     .padding(.vertical,20)
-//                    .foregroundColor(Color.theme.primaryColorTheme)
-                    .foregroundColor(.white)
-//                    .padding(.horizontal)
+                    .foregroundColor(selectedIndex == index ? Color.theme.primaryColorTheme : .white)
+                    .onTapGesture {
+                        withAnimation(.easeInOut) {
+                            selectedIndex = index
+                        }
+                    }
                 }
             }
             .padding(.horizontal)
             .background(.black.opacity(0.70))
             .cornerRadius(.infinity)
             
-//            Spacer()
-            
-            Image(systemName: "pencil.and.scribble")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 45, height: 45)
-                .padding()
-                .background(Color.theme.primaryColorTheme)
-                .clipShape(Circle())
-                .foregroundColor(.black)
+            NavigationLink(destination: MoodPickingView()) {
+                Image(systemName: "pencil.and.scribble")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 45, height: 45)
+                    .padding()
+                    .background(Color.theme.primaryColorTheme)
+                    .clipShape(Circle())
+                    .foregroundColor(.black)
+            }
         }
         .padding(.horizontal)
     }
 }
 
 #Preview {
-    TabBar(tabBarIcon: ["house.fill", "chart.bar", "person.2"], tabBarTitle: ["Home", "Growth", "Sharing"])
+    TabBar(tabBarIcon: ["house.fill", "chart.bar", "person.2"], tabBarTitle: ["Home", "Growth", "Sharing"], selectedIndex: .constant(0))
 }
