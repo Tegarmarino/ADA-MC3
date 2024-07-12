@@ -40,10 +40,11 @@ struct MoodPickingView: View {
             NavigationLink(destination: JournalView()) {
                 NextButton(title: "Begin Writing")
             }
+            .padding(.bottom, 30)
             
         }
         .padding(.horizontal, 10)
-        .background(Color.theme.backgroundColorOne.ignoresSafeArea())
+        .background(Color.theme.backgroundColorOneTheme.ignoresSafeArea())
         .navigationBarBackButtonHidden(true)
     }
 }

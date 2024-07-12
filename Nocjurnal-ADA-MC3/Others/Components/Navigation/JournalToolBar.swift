@@ -34,7 +34,7 @@ struct JournalToolBar: View {
                 }
             }
             .padding(.horizontal)
-            .background(.black.opacity(0.5))
+            .background(.white)
             .cornerRadius(.infinity)
             
             NavigationLink(destination: HomeView()) {

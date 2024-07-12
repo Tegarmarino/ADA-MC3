@@ -20,7 +20,7 @@ struct BackButton: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 15, height: 15)
                 .padding()
-                .background(Color.theme.secondaryColorTheme.opacity(0.2))
+                .background(Color.theme.secondaryColorTheme)
                 .clipShape(Circle())
                 .foregroundColor(.black)
         }

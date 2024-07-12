@@ -38,10 +38,11 @@ struct JournalView: View {
             Spacer()
             
             JournalToolBar(JournalToolBarIcon: ["photo.badge.plus", "mic.badge.plus", "bold", "italic", "underline"])
+                .padding(.bottom, 30)
             
         }
         .padding(.horizontal, 10)
-        .background(Color.theme.backgroundColorOne.ignoresSafeArea())
+        .background(Color.theme.backgroundColorOneTheme.ignoresSafeArea())
         .navigationBarBackButtonHidden(true)
     }
 }
