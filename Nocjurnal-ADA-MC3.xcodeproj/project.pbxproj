@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B0614B62C44D56B00C6736F /* RichTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0614B52C44D56B00C6736F /* RichTextEditor.swift */; };
 		9B0ECA112C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */; };
 		9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA122C3FC4AC0098E196 /* ContentView.swift */; };
 		9B0ECA152C3FC4AD0098E196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B0ECA142C3FC4AD0098E196 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B0614B52C44D56B00C6736F /* RichTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextEditor.swift; sourceTree = "<group>"; };
 		9B0ECA0D2C3FC4AC0098E196 /* Nocjurnal-ADA-MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nocjurnal-ADA-MC3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nocjurnal_ADA_MC3App.swift; sourceTree = "<group>"; };
 		9B0ECA122C3FC4AC0098E196 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			children = (
 				9B0ECA592C3FD9490098E196 /* Navigation */,
 				9B0ECA502C3FD4F60098E196 /* NavigationButton */,
+				9B0614B52C44D56B00C6736F /* RichTextEditor.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				9B0ECA3D2C3FCE110098E196 /* ReportView.swift in Sources */,
 				9B0ECA542C3FD5380098E196 /* BackButton.swift in Sources */,
 				9B8398172C3FE35700399E19 /* FontWeightFormat.swift in Sources */,
+				9B0614B62C44D56B00C6736F /* RichTextEditor.swift in Sources */,
 				9B0ECA412C3FCE240098E196 /* FriendView.swift in Sources */,
 				9B0ECA562C3FD7340098E196 /* NextButton.swift in Sources */,
 				9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */,
