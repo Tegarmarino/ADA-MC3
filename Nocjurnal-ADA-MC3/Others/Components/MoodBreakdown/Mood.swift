@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct Mood: View {
+//    var color: Color = .white
+//    var mood: String = ""
+//    var percentage: Int = 100
+//    var focused = false
+    var mood : MoodData
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Circle()
+                .fill(
+                    LinearGradient(
+                        gradient: Gradient(colors: [.white, mood.color]),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+            
+                VStack{
+                    Text(String(mood.percentage) + "%")
+                        .font(FontWeightFormat().textBodyFour)
+
+                    Text(mood.mood)
+                        .font(FontWeightFormat().textBodyFour)
+                }
+            
+        }
     }
 }
 
 #Preview {
-    Mood()
+    Mood(mood: MoodData(color: .blue, mood: "Sad", percentage: 70))
+        .frame(width: 100, height: 100)
 }
