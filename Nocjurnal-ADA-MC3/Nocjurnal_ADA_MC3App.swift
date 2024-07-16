@@ -8,10 +8,30 @@
 import SwiftUI
 
 @main
-struct Nocjurnal_ADA_MC3App: App {
+struct Nocjournal: App {
+    @State private var app = Application()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                NavigationStack(path: $app.path) {
+                    ContentView()
+                        .navigationDestination(for: PageKind.self) { i in
+                            if i == .editor {
+                                JournalView()
+                            } else {
+                                EmptyView()
+                            }
+                        }
+                }
+                
+                VStack(spacing: 0) {
+                    Spacer()
+                    TabBar()
+                }
+            }
+            .environment(app)
         }
+        .modelContainer(for: JournalModel.self)
     }
 }

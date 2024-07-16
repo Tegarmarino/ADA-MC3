@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C29650E2C45123F0027E79D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650D2C45123F0027E79D /* Style.swift */; };
+		8C2965102C4514450027E79D /* ButtonRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650F2C4514450027E79D /* ButtonRegular.swift */; };
+		8C2965122C45184C0027E79D /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965112C45184C0027E79D /* Application.swift */; };
+		8C2965172C46611B0027E79D /* ButtonIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965162C46611B0027E79D /* ButtonIcon.swift */; };
+		8C29651C2C4669A40027E79D /* JournalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29651B2C4669A40027E79D /* JournalModel.swift */; };
+		8C29651F2C466A100027E79D /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29651E2C466A100027E79D /* AttributedText.swift */; };
+		8C2965212C466A8A0027E79D /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965202C466A8A0027E79D /* JournalDetailView.swift */; };
 		9B0614B62C44D56B00C6736F /* RichTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0614B52C44D56B00C6736F /* RichTextEditor.swift */; };
 		9B0ECA112C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */; };
 		9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA122C3FC4AC0098E196 /* ContentView.swift */; };
@@ -41,6 +48,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C29650D2C45123F0027E79D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		8C29650F2C4514450027E79D /* ButtonRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRegular.swift; sourceTree = "<group>"; };
+		8C2965112C45184C0027E79D /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		8C2965162C46611B0027E79D /* ButtonIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonIcon.swift; sourceTree = "<group>"; };
+		8C29651B2C4669A40027E79D /* JournalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalModel.swift; sourceTree = "<group>"; };
+		8C29651E2C466A100027E79D /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
+		8C2965202C466A8A0027E79D /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
 		9B0614B52C44D56B00C6736F /* RichTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextEditor.swift; sourceTree = "<group>"; };
 		9B0ECA0D2C3FC4AC0098E196 /* Nocjurnal-ADA-MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nocjurnal-ADA-MC3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nocjurnal_ADA_MC3App.swift; sourceTree = "<group>"; };
@@ -87,6 +101,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C2965152C4661040027E79D /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				8C29650F2C4514450027E79D /* ButtonRegular.swift */,
+				8C2965162C46611B0027E79D /* ButtonIcon.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		8C29651A2C4669960027E79D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C29651B2C4669A40027E79D /* JournalModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C29651D2C4669BF0027E79D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		9B0ECA042C3FC4AC0098E196 = {
 			isa = PBXGroup;
 			children = (
@@ -106,12 +144,13 @@
 		9B0ECA0F2C3FC4AC0098E196 /* Nocjurnal-ADA-MC3 */ = {
 			isa = PBXGroup;
 			children = (
-				9B0ECA352C3FCCCF0098E196 /* ViewModel */,
+				8C29651D2C4669BF0027E79D /* ViewModel */,
+				8C29651A2C4669960027E79D /* Model */,
 				9B0ECA362C3FCCD40098E196 /* View */,
-				9B0ECA342C3FCCC70098E196 /* Model */,
 				9B0ECA4B2C3FD28B0098E196 /* Others */,
 				9B0ECA122C3FC4AC0098E196 /* ContentView.swift */,
 				9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */,
+				8C2965112C45184C0027E79D /* Application.swift */,
 				9B0ECA142C3FC4AD0098E196 /* Assets.xcassets */,
 				9B0ECA162C3FC4AD0098E196 /* Preview Content */,
 				9B8398252C3FE7F500399E19 /* Info.plist */,
@@ -125,20 +164,6 @@
 				9B0ECA172C3FC4AD0098E196 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		9B0ECA342C3FCCC70098E196 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9B0ECA352C3FCCCF0098E196 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9B0ECA362C3FCCD40098E196 /* View */ = {
@@ -166,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				9B0ECA3C2C3FCE110098E196 /* ReportView.swift */,
+				8C2965202C466A8A0027E79D /* JournalDetailView.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -208,9 +234,11 @@
 		9B0ECA4C2C3FD2910098E196 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8C2965152C4661040027E79D /* Buttons */,
 				9B0ECA592C3FD9490098E196 /* Navigation */,
 				9B0ECA502C3FD4F60098E196 /* NavigationButton */,
 				9B0614B52C44D56B00C6736F /* RichTextEditor.swift */,
+				8C29651E2C466A100027E79D /* AttributedText.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -220,6 +248,7 @@
 			children = (
 				9B0ECA4E2C3FD2A30098E196 /* Color.swift */,
 				9B8398162C3FE35700399E19 /* FontWeightFormat.swift */,
+				8C29650D2C45123F0027E79D /* Style.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -352,21 +381,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2965102C4514450027E79D /* ButtonRegular.swift in Sources */,
+				8C29651C2C4669A40027E79D /* JournalModel.swift in Sources */,
 				9B8398352C401E0900399E19 /* CircleButton.swift in Sources */,
+				8C2965172C46611B0027E79D /* ButtonIcon.swift in Sources */,
 				9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */,
 				9B0ECA582C3FD93C0098E196 /* JournalToolBar.swift in Sources */,
 				9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */,
 				9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */,
 				9B0ECA3D2C3FCE110098E196 /* ReportView.swift in Sources */,
 				9B0ECA542C3FD5380098E196 /* BackButton.swift in Sources */,
+				8C29650E2C45123F0027E79D /* Style.swift in Sources */,
+				8C2965212C466A8A0027E79D /* JournalDetailView.swift in Sources */,
 				9B8398172C3FE35700399E19 /* FontWeightFormat.swift in Sources */,
 				9B0614B62C44D56B00C6736F /* RichTextEditor.swift in Sources */,
 				9B0ECA412C3FCE240098E196 /* FriendView.swift in Sources */,
 				9B0ECA562C3FD7340098E196 /* NextButton.swift in Sources */,
+				8C2965122C45184C0027E79D /* Application.swift in Sources */,
 				9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */,
 				9B8398152C3FDE8D00399E19 /* TabBar.swift in Sources */,
 				9B0ECA112C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift in Sources */,
 				9B0ECA452C3FCF390098E196 /* MoodPickingView.swift in Sources */,
+				8C29651F2C466A100027E79D /* AttributedText.swift in Sources */,
 				9B8398382C401EB300399E19 /* ShopView.swift in Sources */,
 				9B0ECA4F2C3FD2A30098E196 /* Color.swift in Sources */,
 			);
@@ -507,6 +543,7 @@
 				DEVELOPMENT_TEAM = 5KY76F9T73;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -536,6 +573,7 @@
 				DEVELOPMENT_TEAM = 5KY76F9T73;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

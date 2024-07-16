@@ -8,56 +8,63 @@
 import SwiftUI
 
 struct TabBar: View {
+    @Environment(Application.self) private var app
     
-    var tabBarIcon: [String]
-    var tabBarTitle: [String]
+    @State private var pages: [(MainPageKind, String, String)] = [(.home, "house", "Home"), (.growth, "chart.bar", "Growth"), (.sharing, "person.2", "Sharing")]
     
-    @Binding var selectedIndex: Int
+    let VPW = UIScreen.main.bounds.size.width
+    let VPH = UIScreen.main.bounds.size.height
     
     var body: some View {
-        HStack {
-            HStack{
-                ForEach(tabBarIcon.indices, id: \.self) { index in
-                    VStack {
-                        Image(systemName: tabBarIcon[index])
+        HStack(alignment: .center, spacing: 18) {
+            HStack(alignment: .center, spacing: 0) {
+                ForEach(pages, id: \.self.0) { page in
+                    VStack(alignment: .center, spacing: 6) {
+                        Image(systemName: page.1 + (app.page == page.0 ? ".fill" : ""))
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
-                            .padding(.horizontal,20)
-                            
-                
-                        Text(tabBarTitle[index])
-                            .font(.caption)
-                            .padding(.horizontal, 13)
+                            .frame(height: 18)
+                            .scaleEffect(page.0 == app.page ? 1 : 0.9)
+                            .foregroundStyle(page.0 == app.page ? Color.theme.primaryColorTheme : Color.theme.fontTertiaryColorTheme)
+                            .animation(.spring(duration: 0.25), value: page.0 == app.page)
+                        
+                        Text(page.2)
+                            .font(.custom("Kodchasan-Bold", size: 10))
+                            .foregroundStyle(page.0 == app.page ? Color.theme.primaryColorTheme : Color.theme.fontTertiaryColorTheme)
+                            .scaleEffect(page.0 == app.page ? 1 : 0.9)
+                            .animation(.spring(duration: 0.25), value: page.0 == app.page)
+                        
                     }
-                    .padding(.vertical,20)
-                    .foregroundColor(selectedIndex == index ? Color.theme.primaryColorTheme : .white)
+                    .frame(width: (VPW - 156) / 3, height: 72)
                     .onTapGesture {
-                        withAnimation(.easeInOut) {
-                            selectedIndex = index
-                        }
+                        app.page = page.0
                     }
                 }
             }
-            .padding(.horizontal)
-            .background(.black.opacity(0.70))
-            .cornerRadius(.infinity)
+            .padding(.horizontal, 18)
+            .frame(width: VPW - 138, height: 72)
+            .background(
+                ZStack {
+                    RoundedRectangle(cornerRadius: 36)
+                        .fill(.ultraThinMaterial)
+                    RoundedRectangle(cornerRadius: 36)
+                        .fill(Color.theme.fontPrimaryColorTheme)
+                        .opacity(0.75)
+                }
+            )
             
-            NavigationLink(destination: MoodPickingView()) {
+            Button {
+                app.path.append(.editor)
+                print(app.path)
+            } label: {
                 Image(systemName: "pencil.and.scribble")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 45, height: 45)
-                    .padding()
-                    .background(Color.theme.primaryColorTheme)
-                    .clipShape(Circle())
-                    .foregroundColor(.black)
+                    .frame(height: 24)
             }
+            .frame(width: 72, height: 72)
+            .buttonStyle(NocjournalButtonStyle(.fab))
         }
-        .padding(.horizontal)
+        .frame(width: VPW - 48, height: 60)
     }
-}
-
-#Preview {
-    TabBar(tabBarIcon: ["house.fill", "chart.bar", "person.2"], tabBarTitle: ["Home", "Growth", "Sharing"], selectedIndex: .constant(0))
 }

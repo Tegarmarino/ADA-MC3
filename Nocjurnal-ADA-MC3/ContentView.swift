@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(Application.self) private var app
+    
     var body: some View {
-        VStack {
-           HomeView()
+        if app.page == .home {
+            HomeView()
+        } else if app.page == .growth {
+            ReportView()
+        } else if app.page == .sharing {
+            FriendView()
         }
     }
 }

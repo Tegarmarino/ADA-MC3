@@ -15,39 +15,41 @@ struct RichTextEditor: UIViewRepresentable {
     @Binding var isUnderline: Bool
     
     var placeholder: String
-
+    
     class Coordinator: NSObject, UITextViewDelegate {
         var parent: RichTextEditor
         var textView: UITextView?
         var placeholderLabel: UILabel?
-
+        
         init(parent: RichTextEditor) {
             self.parent = parent
         }
-
+        
         func textViewDidChange(_ textView: UITextView) {
-            parent.text = textView.attributedText
+            DispatchQueue.main.async {
+                self.parent.text = NSAttributedString(attributedString: textView.attributedText)
+            }
             updatePlaceholderVisibility(textView: textView)
         }
-
+        
         func textViewDidBeginEditing(_ textView: UITextView) {
             updatePlaceholderVisibility(textView: textView)
         }
-
+        
         func textViewDidEndEditing(_ textView: UITextView) {
             updatePlaceholderVisibility(textView: textView)
         }
-
+        
         func updatePlaceholderVisibility(textView: UITextView) {
             guard let placeholderLabel = placeholderLabel else { return }
             placeholderLabel.isHidden = !textView.text.isEmpty
         }
     }
-
+    
     func makeCoordinator() -> Coordinator {
         return Coordinator(parent: self)
     }
-
+    
     func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
         let placeholderLabel = UILabel()
@@ -78,52 +80,97 @@ struct RichTextEditor: UIViewRepresentable {
         return textView
     }
     
+    func updateAttributes(_ attributes: inout [NSAttributedString.Key: Any], isBold: Bool, isItalic: Bool, isUnderline: Bool) {
+        let currentFont = attributes[.font] as? UIFont ?? UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        let boldTrait = isBold ? UIFontDescriptor.SymbolicTraits.traitBold : UIFontDescriptor.SymbolicTraits()
+        let italicTrait = isItalic ? UIFontDescriptor.SymbolicTraits.traitItalic : UIFontDescriptor.SymbolicTraits()
+        let combinedTraits = UIFontDescriptor.SymbolicTraits(arrayLiteral: boldTrait, italicTrait)
+        
+        if let newFontDescriptor = currentFont.fontDescriptor.withSymbolicTraits(combinedTraits) {
+            attributes[.font] = UIFont(descriptor: newFontDescriptor, size: currentFont.pointSize)
+        }
+        
+        let underlineStyle = isUnderline ? NSUnderlineStyle.single.rawValue : 0
+        attributes[.underlineStyle] = underlineStyle
+    }
+    
     func updateUIView(_ uiView: UITextView, context: Context) {
         guard let textView = context.coordinator.textView else { return }
-
-        // Check if there's a selected range to update the attributes; otherwise, update the typing attributes directly
-        let currentAttributes = textView.typingAttributes
-
-        // Safely extract the font from current attributes or use the default system font
-        var font = (currentAttributes[NSAttributedString.Key.font] as? UIFont) ?? UIFont.systemFont(ofSize: UIFont.systemFontSize)
-        var traits: UIFontDescriptor.SymbolicTraits = font.fontDescriptor.symbolicTraits
-
-        // Apply or remove bold trait
-        if isBold {
-            traits.insert(.traitBold)
-        } else {
-            traits.remove(.traitBold)
+        
+        if textView.attributedText.length == 0 && textView.text.isEmpty {
+            print("Attributed Text is empty")
+            // Ensure we do not apply attributes when there is no text
+            return
         }
-
-        // Apply or remove italic trait
-        if isItalic {
-            traits.insert(.traitItalic)
-        } else {
-            traits.remove(.traitItalic)
+        
+        if let selectedRange = textView.selectedTextRange {
+            let location = textView.offset(from: textView.beginningOfDocument, to: selectedRange.start)
+            let length = textView.offset(from: selectedRange.start, to: selectedRange.end)
+            let nsRange = NSRange(location: location, length: length)
+            
+            // Check if nsRange is valid before attempting to apply attributes
+            if nsRange.location != NSNotFound && nsRange.location < textView.attributedText.length {
+                print("Applying attributes: Location = \(nsRange.location), Length = \(nsRange.length)")
+                let currentAttributes = textView.attributedText.attributes(at: nsRange.location, effectiveRange: nil)
+                var newAttributes = currentAttributes
+                
+                updateAttributes(&newAttributes, isBold: isBold, isItalic: isItalic, isUnderline: isUnderline)
+                
+                if nsRange.location + nsRange.length <= textView.attributedText.length {
+                    textView.attributedText = updateAttributedString(textView.attributedText, range: nsRange, attributes: newAttributes)
+                }
+            } else {
+                print("Attempted to apply attributes out of bounds")
+            }
         }
-
-        // Create a new font descriptor with the updated traits
-        if let descriptor = font.fontDescriptor.withSymbolicTraits(traits) {
-            font = UIFont(descriptor: descriptor, size: font.pointSize)
+        
+        // Always ensure typing attributes are safe to apply
+        updateTypingAttributes(textView)
+        
+        // Update binding text to reflect any changes
+        DispatchQueue.main.async {
+            self.text = NSAttributedString(attributedString: textView.attributedText)
         }
-
-        // Update the typing attributes for new input in the text view
-        textView.typingAttributes[NSAttributedString.Key.font] = font
-
-        // Manage underline style separately, applying or removing it
-        if isUnderline {
-            textView.typingAttributes[NSAttributedString.Key.underlineStyle] = NSUnderlineStyle.single.rawValue
-        } else {
-            textView.typingAttributes.removeValue(forKey: NSAttributedString.Key.underlineStyle)
-        }
-
-        // Ensure the attributed text is updated to reflect any changes if needed
-        if textView.attributedText != text {
-            textView.attributedText = text
-        }
-        context.coordinator.updatePlaceholderVisibility(textView: textView)
     }
-
-
-
+    
+    func updateTypingAttributes(_ textView: UITextView) {
+        var typingAttributes = textView.typingAttributes as [NSAttributedString.Key: Any]
+        let currentFont = typingAttributes[.font] as? UIFont ?? UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        
+        // Apply bold and italic traits
+        let boldTrait = isBold ? UIFontDescriptor.SymbolicTraits.traitBold : UIFontDescriptor.SymbolicTraits()
+        let italicTrait = isItalic ? UIFontDescriptor.SymbolicTraits.traitItalic : UIFontDescriptor.SymbolicTraits()
+        let combinedTraits = UIFontDescriptor.SymbolicTraits(arrayLiteral: boldTrait, italicTrait)
+        
+        if let newFontDescriptor = currentFont.fontDescriptor.withSymbolicTraits(combinedTraits) {
+            typingAttributes[.font] = UIFont(descriptor: newFontDescriptor, size: currentFont.pointSize)
+        }
+        
+        // Apply underline style
+        let underlineStyle = isUnderline ? NSUnderlineStyle.single.rawValue : 0
+        typingAttributes[.underlineStyle] = underlineStyle
+        
+        textView.typingAttributes = typingAttributes
+    }
+    
+    func updateAttributedString(_ attributedString: NSAttributedString, range: NSRange, attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
+        let mutableAttributedString = NSMutableAttributedString(attributedString: attributedString)
+        mutableAttributedString.addAttributes(attributes, range: range)
+        return mutableAttributedString
+    }
+    
+    func updateFontTrait(_ font: UIFont?, trait: UIFontDescriptor.SymbolicTraits, isEnabled: Bool) -> UIFont {
+        guard let font = font else { return UIFont.systemFont(ofSize: UIFont.systemFontSize) }
+        var traits = font.fontDescriptor.symbolicTraits
+        if isEnabled {
+            traits.insert(trait)
+        } else {
+            traits.remove(trait)
+        }
+        if let descriptor = font.fontDescriptor.withSymbolicTraits(traits) {
+            return UIFont(descriptor: descriptor, size: font.pointSize)
+        } else {
+            return font
+        }
+    }
 }

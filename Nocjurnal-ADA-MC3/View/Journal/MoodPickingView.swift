@@ -23,12 +23,12 @@ struct MoodPickingView: View {
                     .fill(Color.theme.primaryColorTheme)
                     .frame(height: 7)
                     .cornerRadius(5)
-                                
+                
                 Rectangle()
                     .fill(Color.theme.primaryColorTheme.opacity(0.2))
                     .frame(height: 7)
                     .cornerRadius(5)
-                                
+                
                 Rectangle()
                     .fill(Color.theme.primaryColorTheme.opacity(0.2))
                     .frame(height: 7)

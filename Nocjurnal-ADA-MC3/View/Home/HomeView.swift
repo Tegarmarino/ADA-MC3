@@ -8,50 +8,28 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var buttonState = ButtonState.idle
     @State private var selectedIndex = 0
-
+    
+    let VPW = UIScreen.main.bounds.size.width
+    let VPH = UIScreen.main.bounds.size.height
+    
     var body: some View {
-        NavigationStack{
-            VStack {
-                ZStack {
-                    switch selectedIndex {
-                    case 0:
-                        VStack {
-                            HStack{
-                                NavigationLink(destination: ShopView()){
-                                    CircleButton(icon: "bag.fill")
-                                }
-                                Spacer()
-                                NavigationLink(destination: ProfileView()) {
-                                    CircleButton(icon: "person.fill")
-                                }
-                            }
-                            .padding(.horizontal, 10)
-                        }
-                    case 1:
-                        ReportView()
-                    case 2:
-                        FriendView()
-                    default:
-                        VStack {
-                            Text("Home View")
-                                .font(FontWeightFormat().textHeadlineOne)
-                            Text("Home View")
-                                .font(FontWeightFormat().textHeadlineTwo)
-                            Text("Home View")
-                                .font(.custom("Kodchasan-Bold", size: 24))
-                        }
-                    }
+        VStack(spacing: 0) {
+            HStack{
+                ButtonIcon("bag", state: $buttonState, type: .secondary) {
+                    
                 }
                 Spacer()
-                TabBar(tabBarIcon: ["house.fill", "chart.bar", "person.2"], tabBarTitle: ["Home", "Growth", "Friends"], selectedIndex: $selectedIndex)
+                ButtonIcon("person", state: $buttonState, type: .secondary) {
+                    
+                }
             }
+            .frame(width: VPW - 48)
+            .padding(.horizontal, 10)
+            
+            Spacer()
         }
-        .navigationBarBackButtonHidden()
-        .navigationBarBackButtonHidden(true)
     }
-}
-
-#Preview {
-    HomeView()
+    
 }

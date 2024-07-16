@@ -6,14 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct JournalView: View {
+    @Environment(\.modelContext) var context
+    @Query private var journalModel: [JournalModel]
+    @State private var navigateToHome: Bool = false
+    
     @State private var text: NSAttributedString = NSAttributedString(string: "")
+    @State private var selectedDate: Date = Date() // Default to today's date
+    
     @State private var isBold: Bool = false
     @State private var isItalic: Bool = false
     @State private var isUnderline: Bool = false
-    @State private var keyboardHeight: CGFloat = 0
-
+    
+    @State private var keyboardHeight: CGFloat = 100
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -22,7 +30,7 @@ struct JournalView: View {
                     Spacer()
                 }
                 .padding(.top, geometry.safeAreaInsets.top)
-
+                
                 VStack {
                     Text("What's on your mind?")
                         .font(FontWeightFormat().textHeadlineOne)
@@ -44,11 +52,27 @@ struct JournalView: View {
                     }
                     .padding(.vertical, 20)
                 }
-
+                
+                DatePicker("Entry Date", selection: $selectedDate, displayedComponents: .date)
+                    .padding()
+                
+                
                 RichTextEditor(text: $text, isBold: $isBold, isItalic: $isItalic, isUnderline: $isUnderline, placeholder: "Type in here...")
                     .frame(height: 480)
                     .cornerRadius(8)
                     .padding(.horizontal, 10)
+                
+                NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
+                    EmptyView()
+                }
+                
+                //                Button("Save") {
+                //                    print("Saving text: \(text.string)") // Debug print to check what text is being saved
+                //                    let newJournal = JournalModel(text: text)
+                //                    context.insert(newJournal)
+                //                    text = NSAttributedString(string: "") // Reset after saving
+                //                    navigateToHome = true
+                //                }
                 
                 Spacer()
             }
@@ -61,11 +85,12 @@ struct JournalView: View {
                     isBold: $isBold,
                     isItalic: $isItalic,
                     isUnderline: $isUnderline,
-                    closeKeyboardAction: closeKeyboard
+                    closeKeyboardAction: closeKeyboard,
+                    saveAction: saveText
                 )
                 .padding(.bottom, geometry.safeAreaInsets.bottom)
-                .background(Color.white) // Or any other background color for the toolbar
-                .frame(height: 50) // Or the height of your toolbar
+                .background(Color.white)
+                .frame(height: 50)
                 .offset(y: keyboardHeight == 0 ? 200 : -keyboardHeight)
                 ,alignment: .bottom
             )
@@ -79,130 +104,26 @@ struct JournalView: View {
             }
         }
     }
-
+    
+    //    private func saveText() {
+    //        print("Saving text: \(text.string)") // Debug print to check what text is being saved
+    //        let newJournal = JournalModel(text: text)
+    //        context.insert(newJournal)
+    //        text = NSAttributedString(string: "") // Reset after saving
+    //        navigateToHome = true
+    //    }
+    
+    private func saveText() {
+        print("Saving text: \(text.string)") // Debug print to check what text is being saved
+        let newJournal = JournalModel(text: text, timestamp: selectedDate)  // Initialize with selected date
+        context.insert(newJournal)
+        text = NSAttributedString(string: "") // Reset after saving
+        navigateToHome = true
+    }
+    
+    
+    
     private func closeKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
-
-
-
-
-//struct JournalView: View {
-//    @State private var text: NSAttributedString = NSAttributedString(string: "")
-//    @State private var isBold: Bool = false
-//    @State private var isItalic: Bool = false
-//    @State private var isUnderline: Bool = false
-//    
-//    var body: some View {
-//        VStack {
-//            HStack {
-//                BackButton()
-//                Spacer()
-//            }
-//            
-//            Text("What's on your mind?")
-//                .font(FontWeightFormat().textHeadlineOne)
-//            HStack(spacing: 10) {
-//                Rectangle()
-//                    .fill(Color.theme.primaryColorTheme)
-//                    .frame(height: 7)
-//                    .cornerRadius(5)
-//                                
-//                Rectangle()
-//                    .fill(Color.theme.primaryColorTheme)
-//                    .frame(height: 7)
-//                    .cornerRadius(5)
-//                                
-//                Rectangle()
-//                    .fill(Color.theme.primaryColorTheme.opacity(0.2))
-//                    .frame(height: 7)
-//                    .cornerRadius(5)
-//            }
-//            .padding(.vertical, 20)
-//            
-//            RichTextEditor(text: $text, isBold: $isBold, isItalic: $isItalic, isUnderline: $isUnderline, placeholder: "Type in here...")
-//                .frame(height: 480)
-//                .cornerRadius(8)
-//                .padding(.horizontal, 10)
-//            Spacer()
-//            
-//            JournalToolBar(
-//                JournalToolBarIcon: ["photo.badge.plus", "mic.badge.plus", "bold", "italic", "underline"],
-//                isBold: $isBold,
-//                isItalic: $isItalic,
-//                isUnderline: $isUnderline
-//            )
-//            .padding(.bottom, 30)
-//        }
-//        .padding(.horizontal, 10)
-//        .background(Color.theme.backgroundColorOneTheme.ignoresSafeArea())
-//        .navigationBarBackButtonHidden(true)
-//        .keyboardResponsive() // Apply the keyboard responsive modifier here
-//    }
-//}
-//
-//#Preview {
-//    JournalView()
-//}
-
-
-
-
-
-//struct JournalView: View {
-//    @State private var text: NSAttributedString = NSAttributedString(string: "")
-//    @State private var isBold: Bool = false
-//    @State private var isItalic: Bool = false
-//    @State private var isUnderline: Bool = false
-//    
-//    var body: some View {
-//        VStack {
-//            HStack {
-//                BackButton()
-//                Spacer()
-//            }
-//            
-//            Text("What's on your mind?")
-//                .font(FontWeightFormat().textHeadlineOne)
-//            HStack(spacing: 10) {
-//                Rectangle()
-//                    .fill(Color.theme.primaryColorTheme)
-//                    .frame(height: 7)
-//                    .cornerRadius(5)
-//                                
-//                Rectangle()
-//                    .fill(Color.theme.primaryColorTheme)
-//                    .frame(height: 7)
-//                    .cornerRadius(5)
-//                                
-//                Rectangle()
-//                    .fill(Color.theme.primaryColorTheme.opacity(0.2))
-//                    .frame(height: 7)
-//                    .cornerRadius(5)
-//            }
-//            .padding(.vertical, 20)
-//            
-//            RichTextEditor(text: $text, isBold: $isBold, isItalic: $isItalic, isUnderline: $isUnderline, placeholder: "Type in here...")
-//                .frame(height: 480)
-//                .cornerRadius(8)
-//                .padding(.horizontal, 10)
-//            Spacer()
-//            
-//            JournalToolBar(
-//                JournalToolBarIcon: ["photo.badge.plus", "mic.badge.plus", "bold", "italic", "underline"],
-//                isBold: $isBold,
-//                isItalic: $isItalic,
-//                isUnderline: $isUnderline
-//            )
-//            .padding(.bottom, 30)
-//        }
-//        .padding(.horizontal, 10)
-//        .background(Color.theme.backgroundColorOneTheme.ignoresSafeArea())
-//        .navigationBarBackButtonHidden(true)
-//    }
-//}
-//
-//#Preview {
-//    JournalView()
-//}

@@ -9,9 +9,9 @@ import SwiftUI
 
 //struct JournalToolBar: View {
 //    var JournalToolBarIcon: [String]
-//    
+//
 ////    @Binding var selectedIndex: Int
-//    
+//
 //    var body: some View {
 //        HStack {
 //            HStack{
@@ -22,7 +22,7 @@ import SwiftUI
 //                            .aspectRatio(contentMode: .fit)
 //                            .frame(width: 20, height: 20)
 //                            .padding(.horizontal,13)
-//                            
+//
 //                    }
 //                    .padding(.vertical,12)
 //                    .foregroundColor(.black)
@@ -36,7 +36,7 @@ import SwiftUI
 //            .padding(.horizontal)
 //            .background(.white)
 //            .cornerRadius(.infinity)
-//            
+//
 //            NavigationLink(destination: HomeView()) {
 //                Image(systemName: "checkmark")
 //                    .resizable()
@@ -58,11 +58,11 @@ import SwiftUI
 //
 //struct JournalToolBar: View {
 //    var JournalToolBarIcon: [String]
-//    
+//
 //    @Binding var isBold: Bool
 //    @Binding var isItalic: Bool
 //    @Binding var isUnderline: Bool
-//    
+//
 //    var body: some View {
 //        HStack {
 //            HStack {
@@ -93,7 +93,7 @@ import SwiftUI
 //            .padding(.horizontal)
 //            .background(.white)
 //            .cornerRadius(.infinity)
-//            
+//
 //            NavigationLink(destination: HomeView()) {
 //                Image(systemName: "checkmark")
 //                    .resizable()
@@ -107,7 +107,7 @@ import SwiftUI
 //        }
 //        .padding(.horizontal)
 //    }
-//    
+//
 //    private func isSelected(icon: String) -> Bool {
 //        switch icon {
 //        case "bold":
@@ -132,59 +132,74 @@ struct JournalToolBar: View {
     @Binding var isItalic: Bool
     @Binding var isUnderline: Bool
     var closeKeyboardAction: () -> Void
+    var saveAction: () -> Void
     
     var body: some View {
-        HStack {
-            ForEach(JournalToolBarIcon.indices, id: \.self) { index in
-                Button(action: {
-                    switch JournalToolBarIcon[index] {
-                    case "bold":
-                        isBold.toggle()
-                    case "italic":
-                        isItalic.toggle()
-                    case "underline":
-                        isUnderline.toggle()
-                    case "keyboard.chevron.compact.down":
-                        closeKeyboardAction()
-                    default:
-                        break
+        HStack{
+            HStack {
+                ForEach(JournalToolBarIcon.indices, id: \.self) { index in
+                    Button(action: {
+                        switch JournalToolBarIcon[index] {
+                            case "bold":
+                                isBold.toggle()
+                            case "italic":
+                                isItalic.toggle()
+                            case "underline":
+                                isUnderline.toggle()
+                            case "keyboard.chevron.compact.down":
+                                closeKeyboardAction()
+                            default:
+                                break
+                        }
+                    }) {
+                        Image(systemName: JournalToolBarIcon[index])
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(isSelected(icon: JournalToolBarIcon[index]) ? .blue : .black)
                     }
-                }) {
-                    Image(systemName: JournalToolBarIcon[index])
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(isSelected(icon: JournalToolBarIcon[index]) ? .blue : .black)
+                    .padding(.horizontal, 13)
+                    .padding(.vertical, 12)
                 }
-                .padding(.horizontal, 13)
-                .padding(.vertical, 12)
+            }
+            .background(.white) // Optional: Change as needed
+            .cornerRadius(.infinity)
+            .padding(.horizontal)
+            
+            //            Image(systemName: "checkmark")
+            //                .resizable()
+            //                .aspectRatio(contentMode: .fit)
+            //                .frame(width: 20, height: 20)
+            //                .padding(.all, 12)
+            //                .background(Color.theme.primaryColorTheme)
+            //                .clipShape(Circle())
+            //                .foregroundColor(.black)
+            Button(action: {
+                saveAction()
+            }) {
+                Image(systemName: "checkmark")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+                    .padding(.all, 12)
+                    .background(Color.theme.primaryColorTheme)
+                    .clipShape(Circle())
+                    .foregroundColor(.black)
             }
         }
-        .background(.white) // Optional: Change as needed
-        .cornerRadius(.infinity)
-        .padding(.horizontal)
+        
     }
     
     private func isSelected(icon: String) -> Bool {
         switch icon {
-        case "bold":
-            return isBold
-        case "italic":
-            return isItalic
-        case "underline":
-            return isUnderline
-        default:
-            return false
+            case "bold":
+                return isBold
+            case "italic":
+                return isItalic
+            case "underline":
+                return isUnderline
+            default:
+                return false
         }
     }
 }
-
-//#Preview {
-//    JournalToolBar(
-//        JournalToolBarIcon: ["photo.badge.plus", "mic.badge.plus", "bold", "italic", "underline"],
-//        isBold: .constant(true),
-//        isItalic: .constant(true),
-//        isUnderline: .constant(true),
-//        closeKeyboardAction: <#T##() -> Void#>
-//    )
-//}
