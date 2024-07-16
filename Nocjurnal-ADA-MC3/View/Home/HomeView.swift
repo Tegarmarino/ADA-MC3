@@ -11,8 +11,6 @@ import SwiftData
 struct HomeView: View {
     
     @State private var selectedIndex = 0
-    @Environment(\.modelContext) var context
-    @Query private var journalModel: [JournalModel]
     @State private var text: NSAttributedString = NSAttributedString(string: "")
 
     var body: some View {
@@ -33,21 +31,22 @@ struct HomeView: View {
                             }
                             .padding(.horizontal, 10)
                             
-                        List{
-                            ForEach (journalModel) { entry in
-                                VStack(alignment: .leading) {
-                                    AttributedText(attributedString: entry.text) // Display styled text
-                                    Text(entry.timestamp, style: .time)
-                                        .font(.caption)
-                                }
-                            }
-                            .onDelete { indexSet in
-                                for index in indexSet {
-                                  context.delete(journalModel[index])
-                                }
-                              }
-                        }
-                        .listStyle(PlainListStyle())
+//                        List{
+//                            ForEach (journalModel) { entry in
+//                                VStack(alignment: .leading) {
+//                                    AttributedText(attributedString: entry.text) // Display styled text
+//                                    Text(entry.timestamp, style: .time)
+//                                        .font(.caption)
+//                                }
+//                            }
+//                            .onDelete { indexSet in
+//                                for index in indexSet {
+//                                  context.delete(journalModel[index])
+//                                }
+//                              }
+//                        }
+//                        .listStyle(PlainListStyle())
+                            
                         }
                     case 1:
                         ReportView()

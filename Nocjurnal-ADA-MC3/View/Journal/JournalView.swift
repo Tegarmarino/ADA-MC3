@@ -14,6 +14,8 @@ struct JournalView: View {
     @State private var navigateToHome: Bool = false
     
     @State private var text: NSAttributedString = NSAttributedString(string: "")
+    @State private var selectedDate: Date = Date() // Default to today's date
+
     @State private var isBold: Bool = false
     @State private var isItalic: Bool = false
     @State private var isUnderline: Bool = false
@@ -51,6 +53,10 @@ struct JournalView: View {
                     .padding(.vertical, 20)
                 }
 
+                DatePicker("Entry Date", selection: $selectedDate, displayedComponents: .date)
+                    .padding()
+
+                
                 RichTextEditor(text: $text, isBold: $isBold, isItalic: $isItalic, isUnderline: $isUnderline, placeholder: "Type in here...")
                     .frame(height: 480)
                     .cornerRadius(8)
@@ -99,13 +105,23 @@ struct JournalView: View {
         }
     }
 
+//    private func saveText() {
+//        print("Saving text: \(text.string)") // Debug print to check what text is being saved
+//        let newJournal = JournalModel(text: text)
+//        context.insert(newJournal)
+//        text = NSAttributedString(string: "") // Reset after saving
+//        navigateToHome = true
+//    }
+    
     private func saveText() {
         print("Saving text: \(text.string)") // Debug print to check what text is being saved
-        let newJournal = JournalModel(text: text)
+        let newJournal = JournalModel(text: text, timestamp: selectedDate)  // Initialize with selected date
         context.insert(newJournal)
         text = NSAttributedString(string: "") // Reset after saving
         navigateToHome = true
     }
+
+
     
     private func closeKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
