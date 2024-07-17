@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30D2970E2C47A79000496B5E /* JournalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2970D2C47A79000496B5E /* JournalCard.swift */; };
+		30D297102C47A7DE00496B5E /* JournalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2970F2C47A7DE00496B5E /* JournalList.swift */; };
 		8C29650E2C45123F0027E79D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650D2C45123F0027E79D /* Style.swift */; };
 		8C2965102C4514450027E79D /* ButtonRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650F2C4514450027E79D /* ButtonRegular.swift */; };
 		8C2965122C45184C0027E79D /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965112C45184C0027E79D /* Application.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30D2970D2C47A79000496B5E /* JournalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCard.swift; sourceTree = "<group>"; };
+		30D2970F2C47A7DE00496B5E /* JournalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalList.swift; sourceTree = "<group>"; };
 		8C29650D2C45123F0027E79D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		8C29650F2C4514450027E79D /* ButtonRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRegular.swift; sourceTree = "<group>"; };
 		8C2965112C45184C0027E79D /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -101,6 +105,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30D2970C2C47A77A00496B5E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				30D2970D2C47A79000496B5E /* JournalCard.swift */,
+				30D2970F2C47A7DE00496B5E /* JournalList.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		8C2965152C4661040027E79D /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,8 +135,9 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = ViewModel;
-			sourceTree = "<group>";
+			name = ViewModel;
+			path = "Nocjurnal-ADA-MC3/ViewModel";
+			sourceTree = SOURCE_ROOT;
 		};
 		9B0ECA042C3FC4AC0098E196 = {
 			isa = PBXGroup;
@@ -234,6 +248,7 @@
 		9B0ECA4C2C3FD2910098E196 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				30D2970C2C47A77A00496B5E /* List */,
 				8C2965152C4661040027E79D /* Buttons */,
 				9B0ECA592C3FD9490098E196 /* Navigation */,
 				9B0ECA502C3FD4F60098E196 /* NavigationButton */,
@@ -388,6 +403,7 @@
 				9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */,
 				9B0ECA582C3FD93C0098E196 /* JournalToolBar.swift in Sources */,
 				9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */,
+				30D297102C47A7DE00496B5E /* JournalList.swift in Sources */,
 				9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */,
 				9B0ECA3D2C3FCE110098E196 /* ReportView.swift in Sources */,
 				9B0ECA542C3FD5380098E196 /* BackButton.swift in Sources */,
@@ -400,6 +416,7 @@
 				8C2965122C45184C0027E79D /* Application.swift in Sources */,
 				9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */,
 				9B8398152C3FDE8D00399E19 /* TabBar.swift in Sources */,
+				30D2970E2C47A79000496B5E /* JournalCard.swift in Sources */,
 				9B0ECA112C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift in Sources */,
 				9B0ECA452C3FCF390098E196 /* MoodPickingView.swift in Sources */,
 				8C29651F2C466A100027E79D /* AttributedText.swift in Sources */,
@@ -540,7 +557,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = 5KY76F9T73;
+				DEVELOPMENT_TEAM = C8496U3L79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
@@ -570,7 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = 5KY76F9T73;
+				DEVELOPMENT_TEAM = C8496U3L79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;

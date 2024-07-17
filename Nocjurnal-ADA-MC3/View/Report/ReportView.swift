@@ -15,25 +15,27 @@ struct ReportView: View {
     
     var body: some View {
         VStack{
-            Text("Journal List")
+            Text("Report")
                 .font(.title)
-            
+                        
             List {
+                Text("Journal List")
+                    .font(.headline)
+                    .listRowSeparator(.hidden)
                 ForEach(groupedJournalEntries.keys.sorted(), id: \.self) { date in
-                    Section(header: Text(date, style: .date)) {
+                    Section(header: 
+                                Text(date, style: .date)) {
                         ForEach(groupedJournalEntries[date]!, id: \.id) { entry in
-                            NavigationLink(destination: JournalDetailView(journalEntry: entry)) {
-                                VStack(alignment: .leading) {
-                                    Text(entry.text.string)  // Convert NSAttributedString to String for use in Text view
-                                        .lineLimit(1)
-                                        .truncationMode(.tail)
-                                        .foregroundColor(.primary)
-                                    
-                                    Text(entry.timestamp, style: .time)
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
+                            ZStack(alignment: .leading) {
+                                NavigationLink(destination: JournalDetailView(journalEntry: entry)) {
+                                   EmptyView()
                                 }
+                                .opacity(0)
+                                JournalCard(title: entry.text.string , time: entry.timestamp)
+                                    .lineLimit(1)
                             }
+                            .listRowSeparator(.hidden)
+
                         }
                         .onDelete { indexSet in
                             for index in indexSet {
