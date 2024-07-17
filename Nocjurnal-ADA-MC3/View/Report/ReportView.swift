@@ -13,10 +13,15 @@ struct ReportView: View {
     @Environment(\.modelContext) var context
     @Query private var journalModel: [JournalModel]
     
+    
     var body: some View {
         VStack{
             Text("Journal List")
                 .font(.title)
+            
+            MoodBreakDown(journals: journalModel)
+                .padding(.top)
+            
             
             List {
                 ForEach(groupedJournalEntries.keys.sorted(), id: \.self) { date in
@@ -38,7 +43,7 @@ struct ReportView: View {
                         .onDelete { indexSet in
                             for index in indexSet {
                                 if let entry = groupedJournalEntries[date]?[index] {
-                                    context.delete(entry)
+                                    //context.delete(entry)
                                 }
                             }
                         }
@@ -78,8 +83,12 @@ struct ReportView: View {
             //                }
             //            }
             //            .listStyle(PlainListStyle())
+        }.onAppear(){
+            print("print from reportview")
+            print(journalModel)
         }
     }
+    
     
     private var groupedJournalEntries: [Date: [JournalModel]] {
         let calendar = Calendar.current
