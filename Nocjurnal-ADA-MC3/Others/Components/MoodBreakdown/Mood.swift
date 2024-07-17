@@ -38,6 +38,6 @@ struct Mood: View {
 }
 
 #Preview {
-    Mood(mood: MoodData(color: .blue, mood: "Sad", percentage: 70))
+    Mood(mood: MoodData(mood: "Sad", percentage: 70))
         .frame(width: 100, height: 100)
 }

@@ -9,11 +9,11 @@ import SwiftUI
 import Charts
 
 var data: [MoodData] = [
-    MoodData(color: .yellow, mood: "Happy", percentage: 30),
-    MoodData(color: .red, mood: "Mad", percentage: 25),
-    MoodData(color: .red, mood: "Sad", percentage: 20),
-    MoodData(color: .red, mood: "Fear", percentage: 15),
-    MoodData(color: .red, mood: "Disgust", percentage: 10),
+    MoodData(mood: "Happy", percentage: 30),
+    MoodData(mood: "Mad", percentage: 25),
+    MoodData(mood: "Sad", percentage: 20),
+    MoodData(mood: "Fear", percentage: 15),
+    MoodData(mood: "Disgust", percentage: 10),
 ]
 
 

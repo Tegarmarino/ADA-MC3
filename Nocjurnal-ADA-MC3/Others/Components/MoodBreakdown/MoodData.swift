@@ -16,12 +16,29 @@ class MoodData{
     var position: CGPoint = CGPoint(x: 0, y: 0)
     var radius: CGFloat = 0
     
-    init(color: Color, mood: String, percentage: Int, focused: Bool = false) {
-        self.color = color
+    init(mood: String, percentage: Int, focused: Bool = false) {
         self.mood = mood
         self.percentage = percentage
         self.focused = focused
         radius = CGFloat(percentage * 3 / 4 + 30)
+        if focused{
+            radius *= 1.2
+        }
+        switch mood{
+        case "Happy":
+            color = .yellow
+        case "Sad":
+            color = .blue
+        case "Mad":
+            color = .red
+        case "Fear":
+            color = .purple
+        case "Disgust":
+            color = .green
+        default:
+            color = .clear
+        }
+
     }
     
     func setPosition(position: CGPoint){

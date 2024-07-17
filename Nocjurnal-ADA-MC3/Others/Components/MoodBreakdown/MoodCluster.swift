@@ -13,23 +13,18 @@ class MoodCluster{
     
     init(moods: [MoodData]) {
         self.moods = moods
+        
+        // only for generating temporary data
         generateTempData()
     }
     
     func generateTempData(){
         moods.removeAll()
-        moods.append(MoodData(color: .yellow, mood: "Happy", percentage: 80))
-        moods.append(MoodData(color: .red, mood: "Mad", percentage: 20))
-//        moods.append(MoodData(color: .blue, mood: "Sad", percentage: 10))
-//        moods.append(MoodData(color: .purple, mood: "Fear", percentage: 10))
-//        moods.append(MoodData(color: .green, mood: "Disgust", percentage: 10))
-    }
-
-    func toggleFocus(index: Int){
-        for mood in data{
-            mood.focused = false
-        }
-        data[index].focused = true
+        moods.append(MoodData(mood: "Happy", percentage: 50))
+        moods.append(MoodData(mood: "Mad", percentage: 20))
+        moods.append(MoodData(mood: "Sad", percentage: 10))
+        moods.append(MoodData(mood: "Fear", percentage: 10))
+        moods.append(MoodData(mood: "Disgust", percentage: 10))
     }
     
     

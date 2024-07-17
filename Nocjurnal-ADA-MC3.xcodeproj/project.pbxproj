@@ -100,11 +100,11 @@
 		92D189EA2C45034A0098ECD7 /* MoodBreakdown */ = {
 			isa = PBXGroup;
 			children = (
-				92D189EB2C45044A0098ECD7 /* Mood.swift */,
-				92E6350E2C45207F00BC5805 /* MoodPieChart.swift */,
 				92E635122C454D9800BC5805 /* MoodData.swift */,
 				92E635082C45080100BC5805 /* MoodCluster.swift */,
+				92D189EB2C45044A0098ECD7 /* Mood.swift */,
 				92E635142C4550A000BC5805 /* NewMoodBreakdown.swift */,
+				92E6350E2C45207F00BC5805 /* MoodPieChart.swift */,
 			);
 			path = MoodBreakdown;
 			sourceTree = "<group>";
