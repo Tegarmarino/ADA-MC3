@@ -116,6 +116,8 @@ struct JournalView: View {
     //        navigateToHome = true
     //    }
     
+//     Test teste 
+    
     private func saveText() {
         print("Saving text: \(text.string)") // Debug print to check what text is being saved
         let newJournal = JournalModel(text: text, timestamp: selectedDate)  // Initialize with selected date
