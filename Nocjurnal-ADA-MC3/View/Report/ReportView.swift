@@ -18,38 +18,7 @@ struct ReportView: View {
             Text("Report")
                 .font(.title)
                         
-            List {
-                Text("Journal List")
-                    .font(.headline)
-                    .listRowSeparator(.hidden)
-                ForEach(groupedJournalEntries.keys.sorted(), id: \.self) { date in
-                    Section(header: 
-                                Text(date, style: .date)) {
-                        ForEach(groupedJournalEntries[date]!, id: \.id) { entry in
-                            ZStack(alignment: .leading) {
-                                NavigationLink(destination: JournalDetailView(journalEntry: entry)) {
-                                   EmptyView()
-                                }
-                                .opacity(0)
-                                JournalCard(title: entry.text.string , time: entry.timestamp)
-                                    .lineLimit(1)
-                            }
-                            .listRowSeparator(.hidden)
-
-                        }
-                        .onDelete { indexSet in
-                            for index in indexSet {
-                                if let entry = groupedJournalEntries[date]?[index] {
-                                    context.delete(entry)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .listStyle(.plain)
-            
-            
+            JournalList()
             
             //            List {
             //                ForEach(groupedJournalEntries.keys.sorted(), id: \.self) { date in
@@ -83,13 +52,7 @@ struct ReportView: View {
         }
     }
     
-    private var groupedJournalEntries: [Date: [JournalModel]] {
-        let calendar = Calendar.current
-        let groups = Dictionary(grouping: journalModel) {
-            calendar.startOfDay(for: $0.timestamp)  // Group by date only
-        }
-        return groups
-    }
+    
 }
 
 #Preview {
