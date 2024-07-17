@@ -29,6 +29,10 @@ struct HomeView: View {
             .padding(.horizontal, 10)
             
             Spacer()
+            
+//            NavigationLink(destination: JournalView()){
+//                Text("Menuju ke journal view")
+//            }
         }
     }
     

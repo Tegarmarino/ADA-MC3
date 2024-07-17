@@ -5,13 +5,13 @@
 //  Created by Tegar marino on 11/07/24.
 //
 
-
-
 import SwiftUI
 import SwiftData
 
 struct ReportView: View {
+    
     @Environment(\.modelContext) var modelContext
+    @Query private var journalModel: [JournalModel]
 
     init() {
 //        self._viewModel = StateObject(wrappedValue: ReportViewModel(modelContext: modelContext))
@@ -37,6 +37,8 @@ struct ReportView: View {
                         ForEach(viewModel.groupedJournalEntries[date]!, id: \.id) { entry in
                             NavigationLink(destination: JournalDetailView(journalEntry: entry)) {
                                 VStack(alignment: .leading) {
+//                                    Untuk menampilkan text berupa stylenya
+//                                    AttributedText(attributedString: entry.text)
                                     Text(entry.text.string)
                                         .lineLimit(1)
                                         .truncationMode(.tail)

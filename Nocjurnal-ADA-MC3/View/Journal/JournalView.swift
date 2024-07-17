@@ -12,7 +12,6 @@ struct JournalView: View {
     @Environment(\.modelContext) var context
     @Environment(Application.self) private var app
     @Query private var journalModel: [JournalModel]
-    @State private var navigateToHome: Bool = false
     
     @State private var text: NSAttributedString = NSAttributedString(string: "")
     @State private var selectedDate: Date = Date() // Default to today's date
@@ -26,8 +25,6 @@ struct JournalView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                
-                
                 HStack {
                     BackButton()
                     Spacer()
@@ -64,19 +61,7 @@ struct JournalView: View {
                     .frame(height: 480)
                     .cornerRadius(8)
                     .padding(.horizontal, 10)
-                
-//                NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
-//                    EmptyView()
-//                }
-                
-                //                Button("Save") {
-                //                    print("Saving text: \(text.string)") // Debug print to check what text is being saved
-                //                    let newJournal = JournalModel(text: text)
-                //                    context.insert(newJournal)
-                //                    text = NSAttributedString(string: "") // Reset after saving
-                //                    navigateToHome = true
-                //                }
-                
+    
                 Spacer()
             }
             .padding(.horizontal, 10)
@@ -108,22 +93,11 @@ struct JournalView: View {
         }
     }
     
-    //    private func saveText() {
-    //        print("Saving text: \(text.string)") // Debug print to check what text is being saved
-    //        let newJournal = JournalModel(text: text)
-    //        context.insert(newJournal)
-    //        text = NSAttributedString(string: "") // Reset after saving
-    //        navigateToHome = true
-    //    }
-    
-//     Test teste 
-    
     private func saveText() {
         print("Saving text: \(text.string)") // Debug print to check what text is being saved
         let newJournal = JournalModel(text: text, timestamp: selectedDate)  // Initialize with selected date
         context.insert(newJournal)
         text = NSAttributedString(string: "") // Reset after saving
-//        navigateToHome = true
         let _ = app.path.popLast()
     }
     

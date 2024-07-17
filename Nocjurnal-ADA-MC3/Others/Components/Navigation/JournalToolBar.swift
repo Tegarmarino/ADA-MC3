@@ -165,15 +165,8 @@ struct JournalToolBar: View {
             .background(.white) // Optional: Change as needed
             .cornerRadius(.infinity)
             .padding(.horizontal)
+
             
-            //            Image(systemName: "checkmark")
-            //                .resizable()
-            //                .aspectRatio(contentMode: .fit)
-            //                .frame(width: 20, height: 20)
-            //                .padding(.all, 12)
-            //                .background(Color.theme.primaryColorTheme)
-            //                .clipShape(Circle())
-            //                .foregroundColor(.black)
             Button(action: {
                 saveAction()
             }) {
