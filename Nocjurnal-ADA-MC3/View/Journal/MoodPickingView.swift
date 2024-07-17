@@ -37,9 +37,9 @@ struct MoodPickingView: View {
             .padding(.vertical, 20)
             Spacer()
             
-            NavigationLink(destination: JournalView()) {
-                NextButton(title: "Begin Writing")
-            }
+//            NavigationLink(destination: JournalView()) {
+//                NextButton(title: "Begin Writing")
+//            }
             .padding(.bottom, 30)
             
         }

@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Nocjournal: App {
+    
     @State private var app = Application()
     
     var body: some Scene {
@@ -18,6 +20,7 @@ struct Nocjournal: App {
                     ContentView()
                         .navigationDestination(for: PageKind.self) { i in
                             if i == .editor {
+//                                JournalView()
                                 JournalView()
                             } else {
                                 EmptyView()

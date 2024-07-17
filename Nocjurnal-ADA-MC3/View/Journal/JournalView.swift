@@ -10,6 +10,7 @@ import SwiftData
 
 struct JournalView: View {
     @Environment(\.modelContext) var context
+    @Environment(Application.self) private var app
     @Query private var journalModel: [JournalModel]
     @State private var navigateToHome: Bool = false
     
@@ -25,6 +26,8 @@ struct JournalView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                
+                
                 HStack {
                     BackButton()
                     Spacer()
@@ -62,9 +65,9 @@ struct JournalView: View {
                     .cornerRadius(8)
                     .padding(.horizontal, 10)
                 
-                NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
-                    EmptyView()
-                }
+//                NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
+//                    EmptyView()
+//                }
                 
                 //                Button("Save") {
                 //                    print("Saving text: \(text.string)") // Debug print to check what text is being saved
@@ -118,7 +121,8 @@ struct JournalView: View {
         let newJournal = JournalModel(text: text, timestamp: selectedDate)  // Initialize with selected date
         context.insert(newJournal)
         text = NSAttributedString(string: "") // Reset after saving
-        navigateToHome = true
+//        navigateToHome = true
+        let _ = app.path.popLast()
     }
     
     
