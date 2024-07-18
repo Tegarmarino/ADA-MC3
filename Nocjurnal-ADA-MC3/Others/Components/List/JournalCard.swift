@@ -26,15 +26,15 @@ struct JournalCard: View {
                     
                 }) {
                     Image(systemName: "chevron.right")
-                        .foregroundColor(Color(red: 19 / 255, green: 112 / 255, blue: 160 / 255))
+                        .foregroundColor(Color.blueColorTheme)
                 }
             }
             .padding(10)
-            .foregroundColor(Color(red: 19 / 255, green: 112 / 255, blue: 160 / 255))
+            .foregroundColor(Color.blueColorTheme)
         }
         .frame(width: VPW - 48,height: 50)
         .padding(10)
-        .background(Color(red: 139 / 255, green: 193 / 255, blue: 222 / 255))
+        .background(Color.creamColorTheme)
         .cornerRadius(10)
         
     }

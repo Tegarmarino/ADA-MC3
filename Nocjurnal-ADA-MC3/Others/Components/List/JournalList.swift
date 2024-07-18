@@ -15,8 +15,9 @@ struct JournalList: View {
     var body: some View {
         List {
             Text("Journal List")
-                .font(.headline)
+                .font(.title2)
                 .listRowSeparator(.hidden)
+                .padding(.bottom,-20)
             ForEach(groupedJournalEntries.keys.sorted(), id: \.self) { date in
                 Section(header:
                             Text(date, style: .date)) {
@@ -30,6 +31,7 @@ struct JournalList: View {
                                 .lineLimit(1)
                         }
                         .listRowSeparator(.hidden)
+                        .padding(.bottom,-10)
 
                     }
                     .onDelete { indexSet in

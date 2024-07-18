@@ -23,4 +23,15 @@ struct ColorTheme {
     let fontSecondaryColorTheme = Color("FontSecondaryColorTheme").opacity(0.5)
     let fontTertiaryColorTheme = Color("FontTertiaryColorTheme").opacity(0.5)
     let errorColorTheme = Color("ErrorColorTheme")
+    let redColorTheme = Color("RedColorTheme")
+    let blueColorTheme = Color("BlueColorTheme")
+    let yellowColorTheme = Color("YellowColorTheme")
+    let creamColorTheme = Color("CreamColorTheme")
+    let greenColorTheme = Color("GreenColorTheme")
+    let orangeColorTheme = Color("OrangeColorTheme")
+    let lightBlueColorTheme = Color("LightBlueColorTheme")
+    let lightBirdColorTheme = Color("LightBirdColorTheme")
+    let darkBirdColorTheme = Color("DarkBirdColorTheme")
+    let purpleColorTheme = Color("PurpleColorTheme")
+
 }

@@ -24,6 +24,9 @@ struct HomeView: View {
                 ButtonIcon("person", state: $buttonState, type: .secondary) {
                     
                 }
+                
+                Text("Testing")
+                    .foregroundColor(Color.redColorTheme)
             }
             .frame(width: VPW - 48)
             .padding(.horizontal, 10)
