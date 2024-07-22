@@ -39,6 +39,8 @@ struct Nocjournal: App {
                 app.tabBarShown = false
             }
         }
-        .modelContainer(for: JournalModel.self)
+//        .modelContainer(for: JournalModel.self)
+//        .modelContainer(for: [UserInventoryItem.self])
+        .modelContainer(for: [JournalModel.self, UserInventoryItem.self, User.self])
     }
 }

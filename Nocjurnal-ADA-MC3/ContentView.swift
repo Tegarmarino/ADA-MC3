@@ -9,10 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(Application.self) private var app
+    @Environment(\.modelContext) var context
     
     var body: some View {
         if app.page == .home {
             HomeView()
+                .onAppear {
+                    let newUser = User()
+                    context.insert(newUser)
+                }
         } else if app.page == .growth {
             ReportView()
         } else if app.page == .sharing {
