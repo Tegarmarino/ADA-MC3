@@ -19,7 +19,7 @@ struct HomeView: View {
     let VPH = UIScreen.main.bounds.size.height
     
     var body: some View {
-        NavigationStack{
+//        NavigationStack{
             ZStack(alignment: .topLeading) {
                 VStack(spacing: 0) {
                     Spacer()
@@ -50,7 +50,7 @@ struct HomeView: View {
             .frame(width: VPW, height: VPH, alignment: .topLeading)
             .ignoresSafeArea()
             .background(Color.theme.backgroundColorTwoTheme)
-        }
+//        }
     }
     
 }

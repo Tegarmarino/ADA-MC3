@@ -40,7 +40,7 @@ struct JournalView: View {
                 }
                 TaggingView($draft.tags) {
                     saveJournal()
-                    let _ = app.path.popLast()
+                    app.path.append(.reward)
                 }
             }
             .padding(EdgeInsets(top: pageHeaderHeight, leading: 0, bottom: 0, trailing: 0))
