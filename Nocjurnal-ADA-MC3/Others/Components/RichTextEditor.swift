@@ -8,7 +8,15 @@
 import SwiftUI
 import UIKit
 
+// MARK: Kegunaan RichTextEditor
+// RichTextEditor adalah struct yang mengimplementasikan UIViewRepresentable, memungkinkan penggunaan komponen UIKit UITextView dalam SwiftUI. Komponen ini adalah editor teks kaya yang mendukung pengaturan teks tebal, miring, dan bergaris bawah.
+
 struct RichTextEditor: UIViewRepresentable {
+// MARK: Attribute
+// @Binding var text: Mengikat teks berformat yang akan diedit.
+// @Binding var isBold, isItalic, isUnderline: Status gaya teks saat ini.
+// var placeholder: Placeholder teks ketika UITextView kosong.
+    
     @Binding var text: NSAttributedString
     @Binding var isBold: Bool
     @Binding var isItalic: Bool
@@ -16,6 +24,9 @@ struct RichTextEditor: UIViewRepresentable {
     
     var placeholder: String
     
+// MARK: Kegunaan Coordinator
+// Coordinator bertugas sebagai delegasi UITextView, mengelola interaksi pengguna dan sinkronisasi data antara SwiftUI dan UIKit.
+
     class Coordinator: NSObject, UITextViewDelegate {
         var parent: RichTextEditor
         var textView: UITextView?
