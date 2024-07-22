@@ -55,7 +55,7 @@ struct RichTextEditor: UIViewRepresentable {
         let placeholderLabel = UILabel()
         
         placeholderLabel.text = placeholder
-        placeholderLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        placeholderLabel.font = UIFont(name: "Kodchasan-Medium", size: 14)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -63,6 +63,7 @@ struct RichTextEditor: UIViewRepresentable {
         textView.isEditable = true
         textView.isScrollEnabled = true
         textView.attributedText = text
+        textView.font = UIFont(name: "Kodchasan-Medium", size: 14)
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.backgroundColor = UIColor(Color.theme.backgroundColorOneTheme)
         

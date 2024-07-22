@@ -32,6 +32,13 @@ struct Nocjournal: App {
             }
             .environment(app)
         }
+        .onChange(of: app.path) {
+            if app.path.isEmpty {
+                app.tabBarShown = true
+            } else {
+                app.tabBarShown = false
+            }
+        }
         .modelContainer(for: JournalModel.self)
     }
 }

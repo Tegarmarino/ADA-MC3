@@ -9,120 +9,144 @@ import SwiftUI
 import SwiftData
 
 struct JournalView: View {
+    @Environment(Application.self) private var app
     @Environment(\.modelContext) var context
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
+    
     @Query private var journalModel: [JournalModel]
-    @State private var navigateToHome: Bool = false
     
-    @State private var text: NSAttributedString = NSAttributedString(string: "")
-    @State private var selectedDate: Date = Date() // Default to today's date
+    @State private var draft = JournalDraft()
     
-    @State private var isBold: Bool = false
-    @State private var isItalic: Bool = false
-    @State private var isUnderline: Bool = false
+    @State private var pageHeaderHeight = 107.0
+    @State private var pageIndex = 0
+    @State private var pageOffset = 0.0
+    @State private var pageState = ((0.0, 0.0, 1.0, 1.0, 1.0), (36.0, 10.0, 0.0, 0.85, 0.2), (36.0, 10.0, 0.0, 0.85, 0.2))
     
-    @State private var keyboardHeight: CGFloat = 100
+    @State private var backButtonState = ButtonState.idle
+    @State private var submitButtonState = ButtonState.idle
+
+    let VPW = UIScreen.main.bounds.size.width
+    let VPH = UIScreen.main.bounds.size.height
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                HStack {
-                    BackButton()
+        ZStack(alignment: .topLeading) {
+            HStack(spacing: 0) {
+                MoodPickingView($draft.mood) {
+                    pageNext()
+                }
+                EditingView($draft.contents) {
+                    closeKeyboard()
+                    pageNext()
+                }
+                TaggingView($draft.tags) {
+                    saveJournal()
+                    let _ = app.path.popLast()
+                }
+            }
+            .padding(EdgeInsets(top: pageHeaderHeight, leading: 0, bottom: 0, trailing: 0))
+            .frame(width: 3 * VPW)
+            .offset(x: pageOffset)
+            
+            VStack(alignment: .leading, spacing: 24) {
+                HStack(spacing: 0) {
+                    ButtonIcon("arrow.left", state: $backButtonState, type: .secondary) {
+                        closeKeyboard()
+                        if pageIndex != 0 {
+                            pagePrev()
+                        } else {
+                            let _ = app.path.popLast()
+                        }
+                    }
                     Spacer()
                 }
-                .padding(.top, geometry.safeAreaInsets.top)
-                
-                VStack {
-                    Text("What's on your mind?")
-                        .font(FontWeightFormat().textHeadlineOne)
-                    HStack(spacing: 10) {
-                        Rectangle()
-                            .fill(Color.theme.primaryColorTheme)
-                            .frame(height: 7)
-                            .cornerRadius(5)
-                        
-                        Rectangle()
-                            .fill(Color.theme.primaryColorTheme)
-                            .frame(height: 7)
-                            .cornerRadius(5)
-                        
-                        Rectangle()
-                            .fill(Color.theme.primaryColorTheme.opacity(0.2))
-                            .frame(height: 7)
-                            .cornerRadius(5)
+                VStack(alignment: .leading, spacing: 12) {
+                    ZStack(alignment: .leading) {
+                        Text("How are you feeling today")
+                            .font(Font.format.textHeadlineOne)
+                            .offset(y: pageState.0.0)
+                            .blur(radius: pageState.0.1)
+                            .opacity(pageState.0.2)
+                            .scaleEffect(pageState.0.3, anchor: .leading)
+                        Text("What's on your mind?")
+                            .font(Font.format.textHeadlineOne)
+                            .offset(y: pageState.1.0)
+                            .blur(radius: pageState.1.1)
+                            .opacity(pageState.1.2)
+                            .scaleEffect(pageState.1.3, anchor: .leading)
+                        Text("Additional information")
+                            .font(Font.format.textHeadlineOne)
+                            .offset(y: pageState.2.0)
+                            .blur(radius: pageState.2.1)
+                            .opacity(pageState.2.2)
+                            .scaleEffect(pageState.2.3, anchor: .leading)
                     }
-                    .padding(.vertical, 20)
+                    HStack(spacing: 12) {
+                        Rectangle()
+                            .fill(Color.theme.primaryColorTheme)
+                            .frame(height: 4)
+                            .cornerRadius(2)
+                            .opacity(pageState.0.4)
+                        Rectangle()
+                            .fill(Color.theme.primaryColorTheme)
+                            .frame(height: 4)
+                            .cornerRadius(2)
+                            .opacity(pageState.1.4)
+                        Rectangle()
+                            .fill(Color.theme.primaryColorTheme)
+                            .frame(height: 4)
+                            .cornerRadius(2)
+                            .opacity(pageState.2.4)
+                    }
                 }
-                
-                DatePicker("Entry Date", selection: $selectedDate, displayedComponents: .date)
-                    .padding()
-                
-                
-                RichTextEditor(text: $text, isBold: $isBold, isItalic: $isItalic, isUnderline: $isUnderline, placeholder: "Type in here...")
-                    .frame(height: 480)
-                    .cornerRadius(8)
-                    .padding(.horizontal, 10)
-                
-                NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
-                    EmptyView()
-                }
-                
-                //                Button("Save") {
-                //                    print("Saving text: \(text.string)") // Debug print to check what text is being saved
-                //                    let newJournal = JournalModel(text: text)
-                //                    context.insert(newJournal)
-                //                    text = NSAttributedString(string: "") // Reset after saving
-                //                    navigateToHome = true
-                //                }
-                
-                Spacer()
             }
-            .padding(.horizontal, 10)
-            .background(Color.theme.backgroundColorOneTheme.ignoresSafeArea())
-            .navigationBarBackButtonHidden(true)
-            .overlay(
-                JournalToolBar(
-                    JournalToolBarIcon: ["photo.badge.plus", "mic.badge.plus", "bold", "italic", "underline", "keyboard.chevron.compact.down"],
-                    isBold: $isBold,
-                    isItalic: $isItalic,
-                    isUnderline: $isUnderline,
-                    closeKeyboardAction: closeKeyboard,
-                    saveAction: saveText
-                )
-                .padding(.bottom, geometry.safeAreaInsets.bottom)
-                .background(Color.white)
-                .frame(height: 50)
-                .offset(y: keyboardHeight == 0 ? 200 : -keyboardHeight)
-                ,alignment: .bottom
-            )
-            .onAppear {
-                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (notification) in
-                    keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
-                }
-                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
-                    keyboardHeight = 0
-                }
+            .padding(EdgeInsets(top: safeAreaInsets.top, leading: 24, bottom: 0, trailing: 24))
+            .frame(width: VPW)
+            .ignoresSafeArea()
+        }
+        .frame(width: VPW, alignment: .topLeading)
+        .background(Color.theme.backgroundColorOneTheme)
+        .navigationBarBackButtonHidden(true)
+    }
+    
+    private func saveJournal() {
+        context.insert(JournalModel(mood: draft.mood, contents: draft.contents, tags: draft.tags, timestamp: Date()))
+    }
+    
+    private func pageNext() {
+        withAnimation(.spring(duration: 0.5)) {
+            if pageIndex == 0 {
+                pageState = ((-36.0, 10.0, 0.0, 0.85, 1.0), (0.0, 0.0, 1.0, 1.0, 1.0), (36.0, 10.0, 0.0, 0.85, 0.2))
+                pageOffset = CGFloat(-VPW)
+            } else {
+                pageState = ((-36.0, 10.0, 0.0, 0.85, 1.0), (-36.0, 10.0, 0.0, 0.85, 1.0), (0.0, 0.0, 1.0, 1.0, 1.0))
+                pageOffset = CGFloat(-VPW * 2)
+            }
+        } completion: {
+            if pageIndex == 0 {
+                pageIndex = 1
+            } else {
+                pageIndex = 2
             }
         }
     }
-    
-    //    private func saveText() {
-    //        print("Saving text: \(text.string)") // Debug print to check what text is being saved
-    //        let newJournal = JournalModel(text: text)
-    //        context.insert(newJournal)
-    //        text = NSAttributedString(string: "") // Reset after saving
-    //        navigateToHome = true
-    //    }
-    
-    private func saveText() {
-        print("Saving text: \(text.string)") // Debug print to check what text is being saved
-        let newJournal = JournalModel(text: text, timestamp: selectedDate)  // Initialize with selected date
-        context.insert(newJournal)
-        text = NSAttributedString(string: "") // Reset after saving
-        navigateToHome = true
+    private func pagePrev() {
+        withAnimation(.spring(duration: 0.5)) {
+            if pageIndex == 2 {
+                pageState = ((-36.0, 10.0, 0.0, 0.85, 1.0), (0.0, 0.0, 1.0, 1.0, 1.0), (36.0, 10.0, 0.0, 0.85, 0.2))
+                pageOffset = CGFloat(-VPW)
+            } else {
+                pageState = ((0.0, 0.0, 1.0, 1.0, 1.0), (36.0, 10.0, 0.0, 0.85, 0.2), (36.0, 10.0, 0.0, 0.85, 0.2))
+                pageOffset = CGFloat(0)
+            }
+        } completion: {
+            if pageIndex == 2 {
+                pageIndex = 1
+            } else {
+                pageIndex = 0
+            }
+        }
     }
-    
-    
-    
+
     private func closeKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }

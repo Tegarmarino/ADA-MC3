@@ -29,7 +29,7 @@ struct TabBar: View {
                             .animation(.spring(duration: 0.25), value: page.0 == app.page)
                         
                         Text(page.2)
-                            .font(.custom("Kodchasan-Bold", size: 10))
+                            .font(.custom("Kodchasan-Bold", size: 12))
                             .foregroundStyle(page.0 == app.page ? Color.theme.primaryColorTheme : Color.theme.fontTertiaryColorTheme)
                             .scaleEffect(page.0 == app.page ? 1 : 0.9)
                             .animation(.spring(duration: 0.25), value: page.0 == app.page)
@@ -66,5 +66,7 @@ struct TabBar: View {
             .buttonStyle(NocjournalButtonStyle(.fab))
         }
         .frame(width: VPW - 48, height: 60)
+        .offset(y: app.tabBarShown ? 0 : 72 + VPH * 0.25)
+        .animation(.spring(duration: 0.5), value: app.tabBarShown)
     }
 }

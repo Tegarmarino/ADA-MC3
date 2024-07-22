@@ -8,10 +8,10 @@
 import SwiftUI
 
 extension Font {
-    static let format = FontWeightFormat()
+    static let format = FontFormat()
 }
 
-struct FontWeightFormat {
+struct FontFormat {
     let textHeadlineOne = Font.custom("Kodchasan-Bold", size: 24)
     let textHeadlineTwo = Font.custom("Kodchasan-Bold", size: 20)
     let textHeadlineThree = Font.custom("Kodchasan-Bold", size: 18)
@@ -21,4 +21,5 @@ struct FontWeightFormat {
     let textBodyTwo = Font.custom("Kodchasan-Medium", size: 18)
     let textBodyThree = Font.custom("Kodchasan-Medium", size: 16)
     let textBodyFour = Font.custom("Kodchasan-Medium", size: 14)
+    let textCaption = Font.custom("Kodchasan-Medium", size: 12)
 }

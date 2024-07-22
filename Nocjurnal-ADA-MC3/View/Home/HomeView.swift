@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
+    
     @State private var buttonState = ButtonState.idle
     @State private var selectedIndex = 0
     
@@ -15,21 +17,25 @@ struct HomeView: View {
     let VPH = UIScreen.main.bounds.size.height
     
     var body: some View {
-        VStack(spacing: 0) {
+        ZStack(alignment: .topLeading) {
+            VStack(spacing: 0) {
+                Spacer()
+            }
+
             HStack{
                 ButtonIcon("bag", state: $buttonState, type: .secondary) {
-                    
                 }
                 Spacer()
                 ButtonIcon("person", state: $buttonState, type: .secondary) {
-                    
                 }
             }
-            .frame(width: VPW - 48)
-            .padding(.horizontal, 10)
-            
-            Spacer()
+            .padding(EdgeInsets(top: safeAreaInsets.top, leading: 24, bottom: 0, trailing: 24))
+            .frame(width: VPW)
+            .ignoresSafeArea()
         }
+        .frame(width: VPW, height: VPH, alignment: .topLeading)
+        .ignoresSafeArea()
+        .background(Color.theme.backgroundColorTwoTheme)
     }
     
 }

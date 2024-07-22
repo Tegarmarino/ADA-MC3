@@ -14,6 +14,13 @@
 		8C29651C2C4669A40027E79D /* JournalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29651B2C4669A40027E79D /* JournalModel.swift */; };
 		8C29651F2C466A100027E79D /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29651E2C466A100027E79D /* AttributedText.swift */; };
 		8C2965212C466A8A0027E79D /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965202C466A8A0027E79D /* JournalDetailView.swift */; };
+		8C2965232C47A7350027E79D /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965222C47A7350027E79D /* EditingView.swift */; };
+		8C2965252C47B8850027E79D /* TaggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965242C47B8850027E79D /* TaggingView.swift */; };
+		8C4249BE2C4A343700709111 /* VerticalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4249BD2C4A343700709111 /* VerticalFlow.swift */; };
+		8CBD2CCB2C4DCE4A00D4A502 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD2CCA2C4DCE4A00D4A502 /* Mood.swift */; };
+		8CBD2CCD2C4DF90600D4A502 /* MoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD2CCC2C4DF90600D4A502 /* MoodData.swift */; };
+		8CBD2CCF2C4DF93E00D4A502 /* MoodCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD2CCE2C4DF93E00D4A502 /* MoodCluster.swift */; };
+		8CBD2CD12C4DFAA400D4A502 /* MoodPositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD2CD02C4DFAA400D4A502 /* MoodPositioning.swift */; };
 		9B0614B62C44D56B00C6736F /* RichTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0614B52C44D56B00C6736F /* RichTextEditor.swift */; };
 		9B0ECA112C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */; };
 		9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA122C3FC4AC0098E196 /* ContentView.swift */; };
@@ -30,7 +37,7 @@
 		9B0ECA562C3FD7340098E196 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA552C3FD7340098E196 /* NextButton.swift */; };
 		9B0ECA582C3FD93C0098E196 /* JournalToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA572C3FD93C0098E196 /* JournalToolBar.swift */; };
 		9B8398152C3FDE8D00399E19 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8398142C3FDE8D00399E19 /* TabBar.swift */; };
-		9B8398172C3FE35700399E19 /* FontWeightFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8398162C3FE35700399E19 /* FontWeightFormat.swift */; };
+		9B8398172C3FE35700399E19 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8398162C3FE35700399E19 /* Font.swift */; };
 		9B8398282C3FEBBA00399E19 /* Kodchasan-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8398202C3FE7D200399E19 /* Kodchasan-Bold.ttf */; };
 		9B8398292C3FEBBA00399E19 /* Kodchasan-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8398232C3FE7D200399E19 /* Kodchasan-BoldItalic.ttf */; };
 		9B83982A2C3FEBBA00399E19 /* Kodchasan-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B83981B2C3FE7D200399E19 /* Kodchasan-ExtraLight.ttf */; };
@@ -55,6 +62,13 @@
 		8C29651B2C4669A40027E79D /* JournalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalModel.swift; sourceTree = "<group>"; };
 		8C29651E2C466A100027E79D /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 		8C2965202C466A8A0027E79D /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
+		8C2965222C47A7350027E79D /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
+		8C2965242C47B8850027E79D /* TaggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggingView.swift; sourceTree = "<group>"; };
+		8C4249BD2C4A343700709111 /* VerticalFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalFlow.swift; sourceTree = "<group>"; };
+		8CBD2CCA2C4DCE4A00D4A502 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		8CBD2CCC2C4DF90600D4A502 /* MoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodData.swift; sourceTree = "<group>"; };
+		8CBD2CCE2C4DF93E00D4A502 /* MoodCluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCluster.swift; sourceTree = "<group>"; };
+		8CBD2CD02C4DFAA400D4A502 /* MoodPositioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPositioning.swift; sourceTree = "<group>"; };
 		9B0614B52C44D56B00C6736F /* RichTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextEditor.swift; sourceTree = "<group>"; };
 		9B0ECA0D2C3FC4AC0098E196 /* Nocjurnal-ADA-MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nocjurnal-ADA-MC3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nocjurnal_ADA_MC3App.swift; sourceTree = "<group>"; };
@@ -72,7 +86,7 @@
 		9B0ECA552C3FD7340098E196 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		9B0ECA572C3FD93C0098E196 /* JournalToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalToolBar.swift; sourceTree = "<group>"; };
 		9B8398142C3FDE8D00399E19 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		9B8398162C3FE35700399E19 /* FontWeightFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeightFormat.swift; sourceTree = "<group>"; };
+		9B8398162C3FE35700399E19 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		9B8398192C3FE7D200399E19 /* Kodchasan-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-Light.ttf"; sourceTree = "<group>"; };
 		9B83981A2C3FE7D200399E19 /* Kodchasan-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		9B83981B2C3FE7D200399E19 /* Kodchasan-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kodchasan-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -123,6 +137,17 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8CBD2CC92C4DCE3A00D4A502 /* MoodBreakdown */ = {
+			isa = PBXGroup;
+			children = (
+				8CBD2CCA2C4DCE4A00D4A502 /* Mood.swift */,
+				8CBD2CCC2C4DF90600D4A502 /* MoodData.swift */,
+				8CBD2CCE2C4DF93E00D4A502 /* MoodCluster.swift */,
+				8CBD2CD02C4DFAA400D4A502 /* MoodPositioning.swift */,
+			);
+			path = MoodBreakdown;
 			sourceTree = "<group>";
 		};
 		9B0ECA042C3FC4AC0098E196 = {
@@ -201,6 +226,8 @@
 			children = (
 				9B0ECA3E2C3FCE1A0098E196 /* JournalView.swift */,
 				9B0ECA442C3FCF390098E196 /* MoodPickingView.swift */,
+				8C2965222C47A7350027E79D /* EditingView.swift */,
+				8C2965242C47B8850027E79D /* TaggingView.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -234,11 +261,14 @@
 		9B0ECA4C2C3FD2910098E196 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8CBD2CC92C4DCE3A00D4A502 /* MoodBreakdown */,
 				8C2965152C4661040027E79D /* Buttons */,
 				9B0ECA592C3FD9490098E196 /* Navigation */,
 				9B0ECA502C3FD4F60098E196 /* NavigationButton */,
 				9B0614B52C44D56B00C6736F /* RichTextEditor.swift */,
 				8C29651E2C466A100027E79D /* AttributedText.swift */,
+				9B0ECA572C3FD93C0098E196 /* JournalToolBar.swift */,
+				8C4249BD2C4A343700709111 /* VerticalFlow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -247,7 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				9B0ECA4E2C3FD2A30098E196 /* Color.swift */,
-				9B8398162C3FE35700399E19 /* FontWeightFormat.swift */,
+				9B8398162C3FE35700399E19 /* Font.swift */,
 				8C29650D2C45123F0027E79D /* Style.swift */,
 			);
 			path = Extensions;
@@ -266,7 +296,6 @@
 		9B0ECA592C3FD9490098E196 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				9B0ECA572C3FD93C0098E196 /* JournalToolBar.swift */,
 				9B8398142C3FDE8D00399E19 /* TabBar.swift */,
 			);
 			path = Navigation;
@@ -386,6 +415,7 @@
 				9B8398352C401E0900399E19 /* CircleButton.swift in Sources */,
 				8C2965172C46611B0027E79D /* ButtonIcon.swift in Sources */,
 				9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */,
+				8C2965232C47A7350027E79D /* EditingView.swift in Sources */,
 				9B0ECA582C3FD93C0098E196 /* JournalToolBar.swift in Sources */,
 				9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */,
 				9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */,
@@ -393,15 +423,21 @@
 				9B0ECA542C3FD5380098E196 /* BackButton.swift in Sources */,
 				8C29650E2C45123F0027E79D /* Style.swift in Sources */,
 				8C2965212C466A8A0027E79D /* JournalDetailView.swift in Sources */,
-				9B8398172C3FE35700399E19 /* FontWeightFormat.swift in Sources */,
+				9B8398172C3FE35700399E19 /* Font.swift in Sources */,
 				9B0614B62C44D56B00C6736F /* RichTextEditor.swift in Sources */,
+				8CBD2CCF2C4DF93E00D4A502 /* MoodCluster.swift in Sources */,
+				8C4249BE2C4A343700709111 /* VerticalFlow.swift in Sources */,
 				9B0ECA412C3FCE240098E196 /* FriendView.swift in Sources */,
 				9B0ECA562C3FD7340098E196 /* NextButton.swift in Sources */,
+				8CBD2CCD2C4DF90600D4A502 /* MoodData.swift in Sources */,
 				8C2965122C45184C0027E79D /* Application.swift in Sources */,
+				8CBD2CD12C4DFAA400D4A502 /* MoodPositioning.swift in Sources */,
+				8C2965252C47B8850027E79D /* TaggingView.swift in Sources */,
 				9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */,
 				9B8398152C3FDE8D00399E19 /* TabBar.swift in Sources */,
 				9B0ECA112C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift in Sources */,
 				9B0ECA452C3FCF390098E196 /* MoodPickingView.swift in Sources */,
+				8CBD2CCB2C4DCE4A00D4A502 /* Mood.swift in Sources */,
 				8C29651F2C466A100027E79D /* AttributedText.swift in Sources */,
 				9B8398382C401EB300399E19 /* ShopView.swift in Sources */,
 				9B0ECA4F2C3FD2A30098E196 /* Color.swift in Sources */,
@@ -540,7 +576,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = 5KY76F9T73;
+				DEVELOPMENT_TEAM = 4784A2Z39F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
@@ -570,7 +606,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = 5KY76F9T73;
+				DEVELOPMENT_TEAM = 4784A2Z39F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;

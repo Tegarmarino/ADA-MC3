@@ -9,78 +9,79 @@ import SwiftUI
 import SwiftData
 
 struct ReportView: View {
-    
     @Environment(\.modelContext) var context
     @Query private var journalModel: [JournalModel]
     
+    let VPW = UIScreen.main.bounds.size.width
+    
     var body: some View {
-        VStack{
-            Text("Journal List")
-                .font(.title)
-            
-            List {
-                ForEach(groupedJournalEntries.keys.sorted(), id: \.self) { date in
-                    Section(header: Text(date, style: .date)) {
-                        ForEach(groupedJournalEntries[date]!, id: \.id) { entry in
-                            NavigationLink(destination: JournalDetailView(journalEntry: entry)) {
-                                VStack(alignment: .leading) {
-                                    Text(entry.text.string)  // Convert NSAttributedString to String for use in Text view
-                                        .lineLimit(1)
-                                        .truncationMode(.tail)
-                                        .foregroundColor(.primary)
-                                    
-                                    Text(entry.timestamp, style: .time)
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                }
-                            }
-                        }
-                        .onDelete { indexSet in
-                            for index in indexSet {
-                                if let entry = groupedJournalEntries[date]?[index] {
-                                    context.delete(entry)
-                                }
-                            }
-                        }
+        ZStack(alignment: .topLeading) {
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 24) {
+                    HStack {
+                        Text("My Journals")
+                            .font(Font.format.textHeadlineOne)
+                            .foregroundStyle(Color.theme.fontPrimaryColorTheme)
+                        Spacer()
                     }
+                    .padding(.horizontal, 24)
+                    .frame(width: VPW, height: 48)
+                    
+                    MoodBreakDown(journals: journalModel)
+                        .padding(.horizontal, 24)
+
+                    ForEach(groupedJournalEntries.keys.sorted(), id: \.self) { date in
+                        Section(header: Text(date, style: .date).font(Font.format.textHeadlineFour)) {
+                            ForEach(groupedJournalEntries[date]!, id: \.id) { journal in
+                                VStack(alignment: .leading, spacing: 3) {
+                                    if let content = journal.contents.first {
+                                        switch content {
+                                            case .text(let data):
+                                                Text(convertToString(data))// Convert NSAttributedString to String for use in Text view
+                                                    .font(Font.format.textHeadlineFour)
+                                                    .lineLimit(1)
+                                                    .truncationMode(.tail)
+                                                    .foregroundStyle(Color.theme.fontPrimaryColorTheme)
+                                            case .image(_):
+                                                Text("Image ...")  // Convert NSAttributedString to String for use in Text view
+                                                    .font(Font.format.textHeadlineFour)
+                                                    .lineLimit(1)
+                                                    .truncationMode(.tail)
+                                                    .foregroundStyle(Color.theme.fontPrimaryColorTheme)
+                                            case .audio(_):
+                                                Text("Audio ...")  // Convert NSAttributedString to String for use in Text view
+                                                    .font(Font.format.textHeadlineFour)
+                                                    .lineLimit(1)
+                                                    .truncationMode(.tail)
+                                                    .foregroundStyle(Color.theme.fontPrimaryColorTheme)
+                                        }
+                                    }
+                                    
+                                    Text(journal.timestamp, style: .time)
+                                        .font(Font.format.textCaption)
+                                        .foregroundStyle(Color.theme.fontSecondaryColorTheme)
+                                }
+                            }
+                            //                            .onDelete { indexSet in
+                            //                                for index in indexSet {
+                            //                                    if let entry = groupedJournalEntries[date]?[index] {
+                            //                                        context.delete(entry)
+                            //                                    }
+                            //                                }
+                            //                            }
+                        }
+                        .padding(.horizontal, 24)
+                        .frame(width: VPW, alignment: .leading)
+                    }
+                    
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(width: VPW, height: 72)
                 }
             }
-            .listStyle(.plain)
-            
-            
-            
-            //            List {
-            //                ForEach(groupedJournalEntries.keys.sorted(), id: \.self) { date in
-            //                    Section(header: Text(date, style: .date)) {
-            //                        ForEach(groupedJournalEntries[date]!, id: \.id) { entry in
-            //                            VStack(alignment: .leading) {
-            ////                                                MARK : Untuk menampilkan styled text
-            ////                                                AttributedText(attributedString: entry.text) // Display styled text
-            ////                                                    .lineLimit(1)
-            ////                                                    .truncationMode(.tail)
-            //                                Text(entry.text.string)  // Convert NSAttributedString to String for use in Text view
-            //                                    .lineLimit(1)
-            //                                    .truncationMode(.tail)
-            //
-            //
-            //                                Text(entry.timestamp, style: .time)
-            //                                    .font(.caption)
-            //                            }
-            //                        }
-            //                        .onDelete { indexSet in
-            //                            for index in indexSet {
-            //                                if let entry = groupedJournalEntries[date]?[index] {
-            //                                    context.delete(entry)
-            //                                }
-            //                            }
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //            .listStyle(PlainListStyle())
         }
     }
-    
+        
     private var groupedJournalEntries: [Date: [JournalModel]] {
         let calendar = Calendar.current
         let groups = Dictionary(grouping: journalModel) {
@@ -88,8 +89,4 @@ struct ReportView: View {
         }
         return groups
     }
-}
-
-#Preview {
-    ReportView()
 }

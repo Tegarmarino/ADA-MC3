@@ -20,9 +20,11 @@ enum PageKind: Hashable {
 @Observable class Application {
     var page: MainPageKind
     var path: [PageKind]
+    var tabBarShown: Bool
     
     init() {
         self.page = .home
         self.path = []
+        self.tabBarShown = true
     }
 }

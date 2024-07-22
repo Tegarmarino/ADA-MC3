@@ -9,15 +9,20 @@ import SwiftUI
 
 struct JournalDetailView: View {
     
-    var journalEntry: JournalModel
+    var entry: JournalModel
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text(journalEntry.text.string)  // Display the complete NSAttributedString as a String
-                    .padding()
+                ForEach(Array(entry.contents.enumerated()), id: \.offset) { index, content in
+                    if case let .text(data) = content {
+                        Text(convertToString(data))
+                    }
+                }
+//                Text(journalEntry.text.string)  // Display the complete NSAttributedString as a String
+//                    .padding()
                 
-                Text("Created at: \(journalEntry.timestamp, style: .date) \(journalEntry.timestamp, style: .time)")
+                Text("Created at: \(entry.timestamp, style: .date) \(entry.timestamp, style: .time)")
                     .font(.caption)
                     .foregroundColor(.gray)
                     .padding()
