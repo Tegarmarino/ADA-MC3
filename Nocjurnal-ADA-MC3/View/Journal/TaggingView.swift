@@ -88,6 +88,16 @@ struct TaggingView: View {
             VStack(spacing: 0) {
                 Spacer()
                 ButtonRegular("Finish writing", state: $submitState) {
+                    if let activity = selected.0 {
+                         tags.append(activity)
+                     }
+                     if let company = selected.1 {
+                         tags.append(company)
+                     }
+                     if let place = selected.2 {
+                         tags.append(place)
+                     }
+                     
                     action()
                 }
             }
