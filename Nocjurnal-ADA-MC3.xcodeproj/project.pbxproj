@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30D297152C4F9FB600496B5E /* reportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D297142C4F9FB600496B5E /* reportCard.swift */; };
 		8C29650E2C45123F0027E79D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650D2C45123F0027E79D /* Style.swift */; };
 		8C2965102C4514450027E79D /* ButtonRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650F2C4514450027E79D /* ButtonRegular.swift */; };
 		8C2965122C45184C0027E79D /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965112C45184C0027E79D /* Application.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30D297142C4F9FB600496B5E /* reportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reportCard.swift; sourceTree = "<group>"; };
 		8C29650D2C45123F0027E79D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		8C29650F2C4514450027E79D /* ButtonRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRegular.swift; sourceTree = "<group>"; };
 		8C2965112C45184C0027E79D /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30D297132C4F9DA000496B5E /* ReportCard */ = {
+			isa = PBXGroup;
+			children = (
+				30D297142C4F9FB600496B5E /* reportCard.swift */,
+			);
+			path = ReportCard;
+			sourceTree = "<group>";
+		};
 		8C2965152C4661040027E79D /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +296,7 @@
 		9B0ECA4C2C3FD2910098E196 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				30D297132C4F9DA000496B5E /* ReportCard */,
 				921118922C4E60860047C4EE /* XPBar */,
 				8CBD2CC92C4DCE3A00D4A502 /* MoodBreakdown */,
 				8C2965152C4661040027E79D /* Buttons */,
@@ -481,6 +492,7 @@
 				8CBD2CCD2C4DF90600D4A502 /* MoodData.swift in Sources */,
 				8C2965122C45184C0027E79D /* Application.swift in Sources */,
 				8CBD2CD12C4DFAA400D4A502 /* MoodPositioning.swift in Sources */,
+				30D297152C4F9FB600496B5E /* reportCard.swift in Sources */,
 				8C2965252C47B8850027E79D /* TaggingView.swift in Sources */,
 				9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */,
 				9B8398152C3FDE8D00399E19 /* TabBar.swift in Sources */,
@@ -628,7 +640,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = RSBCF2NM6N;
+				DEVELOPMENT_TEAM = C8496U3L79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
@@ -658,7 +670,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = RSBCF2NM6N;
+				DEVELOPMENT_TEAM = C8496U3L79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
