@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct JournalRewardView: View {
     @Environment(Application.self) private var app
-
+    @Environment(\.modelContext) var modelContext // SwiftData environment
+    
+    @Query(sort: \User.money, order: .reverse) var users: [User] // Fetch user data
+    
     @State private var submitState = ButtonState.idle
 
     var body: some View {
@@ -55,7 +59,7 @@ struct JournalRewardView: View {
                     VStack{
                         Text("The Nowl")
                             .font(Font.format.textHeadlineFour)
-                        Text("Level 3")
+                        Text("Level " + String(users.first!.lvl))
                             .font(Font.format.textBodyFour)
                             .foregroundColor(.gray)
                     }
@@ -66,7 +70,7 @@ struct JournalRewardView: View {
                 XPBarView()
                 
                 HStack{
-                    Text("300")
+                    Text(String(users.first!.xp))
                         .font(Font.format.textBodyFour)
                     Spacer()
                     Text("1000")
@@ -87,6 +91,7 @@ struct JournalRewardView: View {
                 Spacer()
                 ButtonRegular("Home", state: $submitState) {
                     app.path = []
+                    users[0].money += 500
                 }
                 .padding(.bottom, 34)
             }

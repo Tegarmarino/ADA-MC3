@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct XPBarView: View {
     @State private var currentXP: CGFloat = 0
     let maxXP: CGFloat = 1000
     let gainedXP: CGFloat = 300
+    @Environment(\.modelContext) var modelContext // SwiftData environment
+    
+    @Query(sort: \User.money, order: .reverse) var users: [User] // Fetch user data
 
     var body: some View {
         VStack {
@@ -47,8 +51,10 @@ struct XPBarView: View {
             .frame(height: 30)
         }
         .onAppear(){
+            currentXP = CGFloat(users.first!.xp)
             withAnimation {
-                currentXP = gainedXP
+                users[0].gainXP(xp: 300)
+                currentXP = CGFloat(users.first!.xp)
             }
         }
     }
