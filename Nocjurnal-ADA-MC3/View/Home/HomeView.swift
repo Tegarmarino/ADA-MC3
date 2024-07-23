@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     @Environment(\.safeAreaInsets) private var safeAreaInsets
+    @Environment(\.modelContext) var modelContext // SwiftData environment
+    
+    @Query(sort: \User.money, order: .reverse) var users: [User] // Fetch user data
     
     @State private var buttonState = ButtonState.idle
     @State private var selectedIndex = 0
@@ -19,38 +23,40 @@ struct HomeView: View {
     let VPH = UIScreen.main.bounds.size.height
     
     var body: some View {
-        NavigationStack{
+        VStack{
             ZStack(alignment: .topLeading) {
                 VStack(spacing: 0) {
                     Spacer()
                 }
-
+                
                 HStack{
                     ButtonIcon("bag", state: $buttonState, type: .secondary) {
                         showShopView.toggle()  // Toggle the modal sheet
                     }
-                        .sheet(isPresented: $showShopView) {
-                            ShopView()
-                        }
-                    Spacer()
-                        ButtonIcon("xmark.bin", state: $buttonState, type: .secondary) {
-                            showtInventoryView.toggle()
+                    .sheet(isPresented: $showShopView) {
+                        ShopView()
                     }
-                        .sheet(isPresented: $showtInventoryView) {
-                            InventoryView()
-                        }
-//                    Spacer()
-//                    ButtonIcon("person", state: $buttonState, type: .secondary) {
-//                    }
+                    Spacer()
+                    ButtonIcon("xmark.bin", state: $buttonState, type: .secondary) {
+                        showtInventoryView.toggle()
+                    }
+                    .sheet(isPresented: $showtInventoryView) {
+                        InventoryView()
+                    }
                 }
                 .padding(EdgeInsets(top: safeAreaInsets.top, leading: 24, bottom: 0, trailing: 24))
                 .frame(width: VPW)
                 .ignoresSafeArea()
             }
-            .frame(width: VPW, height: VPH, alignment: .topLeading)
-            .ignoresSafeArea()
-            .background(Color.theme.backgroundColorTwoTheme)
+            
+            Image("Nocy")
+            Text("Level " + String(users.first?.lvl ?? 100))
+            Text("Money " + String(users.first?.money ?? 100))
+
         }
+        .frame(width: VPW, height: VPH, alignment: .topLeading)
+        .ignoresSafeArea()
+        .background(Color.theme.backgroundColorTwoTheme)
     }
     
 }

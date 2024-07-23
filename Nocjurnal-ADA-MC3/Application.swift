@@ -15,6 +15,7 @@ enum MainPageKind {
 enum PageKind: Hashable {
     case editor
     case shop
+    case reward
 }
 
 @Observable class Application {
