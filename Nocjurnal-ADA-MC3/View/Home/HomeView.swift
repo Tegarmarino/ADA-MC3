@@ -59,6 +59,13 @@ struct HomeView: View {
             Text("Cur Streak:\(streaks.currentStreak)")
                 .font(Font.format.textHeadlineThree)
             
+            Text("Total Word Count: \(calculateTotalWordCount(journals: journalModel))")
+                .font(Font.format.textHeadlineThree)
+
+            Text("Total Journal Entries: \(calculateTotalJournalEntries(journals: journalModel))")
+                .font(Font.format.textHeadlineThree)
+
+            
             Image("Nocy")
                         
             HomeXPBarView(curXP: CGFloat(users.first?.xp ?? 0))
