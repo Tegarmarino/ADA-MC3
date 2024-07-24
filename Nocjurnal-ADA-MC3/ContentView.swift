@@ -19,7 +19,7 @@ struct ContentView: View {
                     context.insert(newUser)
                 }
         } else if app.page == .growth {
-            ReportView()
+            AuthenticationView()
         } else if app.page == .sharing {
             FriendView()
         }

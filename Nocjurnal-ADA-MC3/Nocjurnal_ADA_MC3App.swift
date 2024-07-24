@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct Nocjournal: App {
     @State private var app = Application()
+    @StateObject private var viewModel = AuthenticationViewModel()
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some Scene {
         WindowGroup {
@@ -23,6 +25,11 @@ struct Nocjournal: App {
                                 JournalRewardView()
                             } else {
                                 EmptyView()
+                            }
+                        }// yang dibawah buat authentication
+                        .onChange(of: scenePhase) { newPhase in
+                            if newPhase == .background {
+                                viewModel.clearAuthentication()
                             }
                         }
                 }
@@ -41,8 +48,8 @@ struct Nocjournal: App {
                 app.tabBarShown = false
             }
         }
-//        .modelContainer(for: JournalModel.self)
-//        .modelContainer(for: [UserInventoryItem.self])
+        //        .modelContainer(for: JournalModel.self)
+        //        .modelContainer(for: [UserInventoryItem.self])
         .modelContainer(for: [JournalModel.self, UserInventoryItem.self, User.self])
     }
 }
