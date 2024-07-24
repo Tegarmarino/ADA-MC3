@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		305C736B2C4FA488001B439A /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C736A2C4FA488001B439A /* CardDetailView.swift */; };
+		305C736D2C4FBB29001B439A /* getColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C736C2C4FBB29001B439A /* getColor.swift */; };
+		305C73712C50E04D001B439A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C73702C50E04D001B439A /* OnboardingView.swift */; };
 		30D297152C4F9FB600496B5E /* reportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D297142C4F9FB600496B5E /* reportCard.swift */; };
 		8C29650E2C45123F0027E79D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650D2C45123F0027E79D /* Style.swift */; };
 		8C2965102C4514450027E79D /* ButtonRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650F2C4514450027E79D /* ButtonRegular.swift */; };
@@ -63,6 +66,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		305C736A2C4FA488001B439A /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
+		305C736C2C4FBB29001B439A /* getColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getColor.swift; sourceTree = "<group>"; };
+		305C73702C50E04D001B439A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		30D297142C4F9FB600496B5E /* reportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reportCard.swift; sourceTree = "<group>"; };
 		8C29650D2C45123F0027E79D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		8C29650F2C4514450027E79D /* ButtonRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRegular.swift; sourceTree = "<group>"; };
@@ -131,6 +137,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		305C736E2C4FD00C001B439A /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				305C736C2C4FBB29001B439A /* getColor.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		305C736F2C50DFF2001B439A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				305C73702C50E04D001B439A /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		30D297132C4F9DA000496B5E /* ReportCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,8 +183,9 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = ViewModel;
-			sourceTree = "<group>";
+			name = ViewModel;
+			path = "Nocjurnal-ADA-MC3/ViewModel";
+			sourceTree = SOURCE_ROOT;
 		};
 		8CBD2CC92C4DCE3A00D4A502 /* MoodBreakdown */ = {
 			isa = PBXGroup;
@@ -227,6 +250,7 @@
 		9B0ECA362C3FCCD40098E196 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				305C736F2C50DFF2001B439A /* Onboarding */,
 				9BCD24D22C4E46300089FB47 /* User */,
 				9B8398362C401EA400399E19 /* Shop */,
 				9B0ECA3B2C3FCD040098E196 /* Profile */,
@@ -251,6 +275,7 @@
 			children = (
 				9B0ECA3C2C3FCE110098E196 /* ReportView.swift */,
 				8C2965202C466A8A0027E79D /* JournalDetailView.swift */,
+				305C736A2C4FA488001B439A /* CardDetailView.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -286,6 +311,7 @@
 		9B0ECA4B2C3FD28B0098E196 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				305C736E2C4FD00C001B439A /* Functions */,
 				9B8398182C3FE79C00399E19 /* Fonts */,
 				9B0ECA4D2C3FD2980098E196 /* Extensions */,
 				9B0ECA4C2C3FD2910098E196 /* Components */,
@@ -473,6 +499,8 @@
 				9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */,
 				8C2965232C47A7350027E79D /* EditingView.swift in Sources */,
 				9B0ECA582C3FD93C0098E196 /* JournalToolBar.swift in Sources */,
+				305C736D2C4FBB29001B439A /* getColor.swift in Sources */,
+				305C736B2C4FA488001B439A /* CardDetailView.swift in Sources */,
 				9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */,
 				9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */,
 				9B0ECA3D2C3FCE110098E196 /* ReportView.swift in Sources */,
@@ -491,6 +519,7 @@
 				9B0ECA562C3FD7340098E196 /* NextButton.swift in Sources */,
 				8CBD2CCD2C4DF90600D4A502 /* MoodData.swift in Sources */,
 				8C2965122C45184C0027E79D /* Application.swift in Sources */,
+				305C73712C50E04D001B439A /* OnboardingView.swift in Sources */,
 				8CBD2CD12C4DFAA400D4A502 /* MoodPositioning.swift in Sources */,
 				30D297152C4F9FB600496B5E /* reportCard.swift in Sources */,
 				8C2965252C47B8850027E79D /* TaggingView.swift in Sources */,

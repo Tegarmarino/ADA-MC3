@@ -27,14 +27,15 @@ struct MoodCard: View {
                             RoundedRectangle(cornerRadius: 24)
                                 .stroke(Color.black, lineWidth: 1)
                         )
-                        .font(.caption)
+                        .font(Font.format.textCaption)
                 }
             }
             Spacer()
             
             VStack(alignment: .leading){
                 Text(date)
-                    .font(.caption)
+                    .font(Font.format.textCaption)
+                    .foregroundColor(.secondary)
                 HStack{
                     VStack(alignment: .leading){
                         Text("I'm feeling")
@@ -48,6 +49,9 @@ struct MoodCard: View {
                         .resizable()
                         .frame(width: 72, height: 48)
                 }
+                .font(Font.format.textHeadlineFour)
+                .padding(.top,-5)
+
             }
         }
         .padding(24)

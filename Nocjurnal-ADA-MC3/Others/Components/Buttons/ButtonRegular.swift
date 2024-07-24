@@ -33,7 +33,7 @@ struct ButtonRegular: View {
                 } else {
                     Text(label)
                         .font(Font.format.textHeadlineFive)
-                        .foregroundColor(type == .primary || type == .tertiary ? Color.theme.fontSecondaryColorTheme : Color.theme.fontPrimaryColorTheme)
+                        .foregroundColor(type == .primary || type == .tertiary ? Color.white : Color.white)
                 }
                 Spacer()
             }
