@@ -52,7 +52,7 @@ struct HomeView: View {
             
             Image("Nocy")
                         
-            HomeXPBarView(curXP: CGFloat(users.first!.xp))
+            HomeXPBarView(curXP: CGFloat(users.first?.xp ?? 0))
             
             Spacer()
 

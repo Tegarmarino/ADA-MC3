@@ -25,7 +25,7 @@ struct HomeXPBarView: View {
                         .frame(width: 80, height: 80)
                         .zIndex(3)
                     
-                    Text("Level \(users.first!.lvl)")
+                    Text("Level \(users.first?.lvl ?? 1)")
                         .foregroundColor(.white)
                         .font(.headline)
                         .zIndex(4)
