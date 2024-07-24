@@ -10,26 +10,33 @@ import SwiftUI
 @main
 struct Nocjournal: App {
     @State private var app = Application()
-    
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
+    @State private var showJournalView = false
+
     var body: some Scene {
         WindowGroup {
             ZStack {
-                NavigationStack(path: $app.path) {
-                    ContentView()
-                        .navigationDestination(for: PageKind.self) { i in
-                            if i == .editor {
-                                JournalView()
-                            } else if(i == .reward) {
-                                JournalRewardView()
-                            } else {
-                                EmptyView()
+                if hasCompletedOnboarding {
+                    NavigationStack(path: $app.path) {
+                        ContentView()
+                            .navigationDestination(for: PageKind.self) { i in
+                                if i == .editor {
+                                    JournalView()
+                                } else if(i == .reward) {
+                                    JournalRewardView()
+                                } else {
+                                    EmptyView()
+                                }
                             }
-                        }
+                    }
+                    
+                    VStack(spacing: 0) {
+                        Spacer()
+                        TabBar()
+                    }
                 }
-                
-                VStack(spacing: 0) {
-                    Spacer()
-                    TabBar()
+                else{
+                    OnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding)
                 }
             }
             .environment(app)

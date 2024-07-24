@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @Environment(Application.self) private var app
     @Environment(\.modelContext) var context
-    
+    @AppStorage("passcodeState") private var passcodeState: Bool = false // Use AppStorage for global state
+
     var body: some View {
         if app.page == .home {
             HomeView()
