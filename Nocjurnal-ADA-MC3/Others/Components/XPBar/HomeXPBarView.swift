@@ -27,7 +27,7 @@ struct HomeXPBarView: View {
                     
                     Text("Level \(users.first?.lvl ?? 1)")
                         .foregroundColor(.white)
-                        .font(.headline)
+                        .font(Font.format.textHeadlineFour)
                         .zIndex(4)
                 }
                 .zIndex(2)

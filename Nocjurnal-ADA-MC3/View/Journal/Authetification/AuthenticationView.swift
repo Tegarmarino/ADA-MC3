@@ -18,6 +18,7 @@ struct AuthenticationView: View {
             } else {
                 VStack(spacing: 20) {
                     Text("hoo are u?")
+                        .font(Font.format.textHeadlineOne)
                     
                     Image("Nocy")
 

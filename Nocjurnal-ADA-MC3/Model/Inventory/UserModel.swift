@@ -20,7 +20,6 @@ class User {
         self.xp = xp
     }
     
-    // sambungo iki sesok
     func gainXP(xp: Int){
         if self.xp + xp >= 1000{
             lvl += 1

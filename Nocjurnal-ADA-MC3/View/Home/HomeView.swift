@@ -13,6 +13,7 @@ struct HomeView: View {
     @Environment(\.modelContext) var modelContext // SwiftData environment
     
     @Query(sort: \User.money, order: .reverse) var users: [User] // Fetch user data
+    @Query private var journalModel: [JournalModel]
     
     @State private var buttonState = ButtonState.idle
     @State private var selectedIndex = 0
@@ -49,6 +50,14 @@ struct HomeView: View {
                 .ignoresSafeArea()
             }
             Spacer()
+            
+            let streaks = calculateStreaks(for: journalModel)
+
+            Text("Max Streak:\(streaks.highestStreak)")
+                .font(Font.format.textHeadlineThree)
+
+            Text("Cur Streak:\(streaks.currentStreak)")
+                .font(Font.format.textHeadlineThree)
             
             Image("Nocy")
                         
