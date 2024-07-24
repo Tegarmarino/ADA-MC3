@@ -37,7 +37,8 @@ struct XPBarView: View {
 
                     // XP Indicator
                     HStack {
-                        Text("\(Int(currentXP)) XP")
+                        //Text("\(Int(currentXP)) XP")
+                        Text("   ")
                             .font(.caption)
                             .foregroundColor(.black)
                             .padding(7)

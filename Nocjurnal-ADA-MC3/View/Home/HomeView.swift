@@ -48,10 +48,13 @@ struct HomeView: View {
                 .frame(width: VPW)
                 .ignoresSafeArea()
             }
+            Spacer()
             
             Image("Nocy")
-            Text("Level " + String(users.first?.lvl ?? 100))
-            Text("Money " + String(users.first?.money ?? 100))
+                        
+            HomeXPBarView(curXP: CGFloat(users.first!.xp))
+            
+            Spacer()
 
         }
         .frame(width: VPW, height: VPH, alignment: .topLeading)

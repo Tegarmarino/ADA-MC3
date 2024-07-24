@@ -23,6 +23,8 @@
 		8CBD2CD12C4DFAA400D4A502 /* MoodPositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD2CD02C4DFAA400D4A502 /* MoodPositioning.swift */; };
 		921118932C4E60860047C4EE /* XPBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921118912C4E60860047C4EE /* XPBarView.swift */; };
 		921118952C4E60B20047C4EE /* JournalRewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921118942C4E60B20047C4EE /* JournalRewardView.swift */; };
+		921118972C4F8D130047C4EE /* HomeXPBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921118962C4F8D130047C4EE /* HomeXPBarView.swift */; };
+		922689122C4FB5C300DA30F4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922689112C4FB5C300DA30F4 /* Notification.swift */; };
 		9B0614B62C44D56B00C6736F /* RichTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0614B52C44D56B00C6736F /* RichTextEditor.swift */; };
 		9B0ECA112C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */; };
 		9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0ECA122C3FC4AC0098E196 /* ContentView.swift */; };
@@ -78,6 +80,8 @@
 		8CBD2CD02C4DFAA400D4A502 /* MoodPositioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPositioning.swift; sourceTree = "<group>"; };
 		921118912C4E60860047C4EE /* XPBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPBarView.swift; sourceTree = "<group>"; };
 		921118942C4E60B20047C4EE /* JournalRewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalRewardView.swift; sourceTree = "<group>"; };
+		921118962C4F8D130047C4EE /* HomeXPBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeXPBarView.swift; sourceTree = "<group>"; };
+		922689112C4FB5C300DA30F4 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		9B0614B52C44D56B00C6736F /* RichTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextEditor.swift; sourceTree = "<group>"; };
 		9B0ECA0D2C3FC4AC0098E196 /* Nocjurnal-ADA-MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nocjurnal-ADA-MC3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0ECA102C3FC4AC0098E196 /* Nocjurnal_ADA_MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nocjurnal_ADA_MC3App.swift; sourceTree = "<group>"; };
@@ -169,8 +173,17 @@
 			isa = PBXGroup;
 			children = (
 				921118912C4E60860047C4EE /* XPBarView.swift */,
+				921118962C4F8D130047C4EE /* HomeXPBarView.swift */,
 			);
 			path = XPBar;
+			sourceTree = "<group>";
+		};
+		922689102C4FB5B000DA30F4 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				922689112C4FB5C300DA30F4 /* Notification.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		9B0ECA042C3FC4AC0098E196 = {
@@ -286,6 +299,7 @@
 		9B0ECA4C2C3FD2910098E196 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				922689102C4FB5B000DA30F4 /* Notification */,
 				921118922C4E60860047C4EE /* XPBar */,
 				8CBD2CC92C4DCE3A00D4A502 /* MoodBreakdown */,
 				8C2965152C4661040027E79D /* Buttons */,
@@ -461,6 +475,7 @@
 				8C2965172C46611B0027E79D /* ButtonIcon.swift in Sources */,
 				9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */,
 				8C2965232C47A7350027E79D /* EditingView.swift in Sources */,
+				921118972C4F8D130047C4EE /* HomeXPBarView.swift in Sources */,
 				9B0ECA582C3FD93C0098E196 /* JournalToolBar.swift in Sources */,
 				9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */,
 				9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */,
@@ -490,6 +505,7 @@
 				8CBD2CCB2C4DCE4A00D4A502 /* Mood.swift in Sources */,
 				921118932C4E60860047C4EE /* XPBarView.swift in Sources */,
 				8C29651F2C466A100027E79D /* AttributedText.swift in Sources */,
+				922689122C4FB5C300DA30F4 /* Notification.swift in Sources */,
 				9B8398382C401EB300399E19 /* ShopView.swift in Sources */,
 				9BCD24D62C4E544F0089FB47 /* UserModel.swift in Sources */,
 				9B0ECA4F2C3FD2A30098E196 /* Color.swift in Sources */,
