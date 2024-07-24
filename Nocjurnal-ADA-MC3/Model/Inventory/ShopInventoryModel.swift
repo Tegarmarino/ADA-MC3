@@ -9,6 +9,12 @@ import Foundation
 import SwiftUI
 import SwiftData
 
+struct ShopItem: Identifiable { // Conforming to Identifiable
+    let id = UUID() // Unique identifier
+    let type: ItemType
+    let price: Int
+    let image: String
+}
 //enum ItemType: String, CaseIterable, Codable {
 //    case clothes = "Clothes"
 //    case hat = "Hat"

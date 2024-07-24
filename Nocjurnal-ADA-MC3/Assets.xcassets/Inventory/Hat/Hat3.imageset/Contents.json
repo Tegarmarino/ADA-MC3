@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "CowboyHat.png",
+      "filename" : "Asset 37.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CowboyHat 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "CowboyHat 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
