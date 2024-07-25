@@ -53,20 +53,16 @@ struct HomeView: View {
             
             let streaks = calculateStreaks(for: journalModel)
 
-            Text("Max Streak:\(streaks.highestStreak)")
-                .font(Font.format.textHeadlineThree)
-
-            Text("Cur Streak:\(streaks.currentStreak)")
+            Text("Max Streak:\(streaks.highestStreak) | Cur Streak:\(streaks.currentStreak)")
                 .font(Font.format.textHeadlineThree)
             
-            Text("Total Word Count: \(calculateTotalWordCount(journals: journalModel))")
+            Text("Total Words: \(calculateTotalWordCount(journals: journalModel)) | Total Journals: \(calculateTotalJournalEntries(journals: journalModel))")
                 .font(Font.format.textHeadlineThree)
-
-            Text("Total Journal Entries: \(calculateTotalJournalEntries(journals: journalModel))")
-                .font(Font.format.textHeadlineThree)
+                .padding(.bottom, 35)
 
             
             Image("Nocy")
+                .offset(y: -30)
                         
             HomeXPBarView(curXP: CGFloat(users.first?.xp ?? 0))
             
@@ -75,7 +71,12 @@ struct HomeView: View {
         }
         .frame(width: VPW, height: VPH, alignment: .topLeading)
         .ignoresSafeArea()
-        .background(Color.theme.backgroundColorTwoTheme)
+        .background(
+            Image("Background")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+        )
     }
     
 }

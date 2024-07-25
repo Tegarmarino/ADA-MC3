@@ -18,14 +18,16 @@ struct JournalRewardView: View {
 
     var body: some View {
         VStack{
-            Image("Confetti")
             
             Text("Congratulations")
                 .font(Font.format.textHeadlineOne)
-            Text("You have written 500 words in this journalling session!")
+                .padding(.top, 96)
+            Text("You completed this journal entry!")
                 .font(Font.format.textBodyThree)
                 .padding(.vertical, 10)
                 .multilineTextAlignment(.center)
+            
+            Image("RewardOwl")
             
             HStack{
                 Image("Coins")
@@ -79,7 +81,7 @@ struct JournalRewardView: View {
                 }
                 .foregroundColor(.gray)
             }
-            .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
+            .padding(EdgeInsets(top:0, leading: 12, bottom: 0, trailing: 12))
             .padding(20)
             .background(.white)
             .padding(.vertical)

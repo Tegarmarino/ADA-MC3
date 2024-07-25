@@ -33,6 +33,12 @@ struct HomeXPBarView: View {
                 .zIndex(2)
                 
                 Rectangle()
+                    .fill(.white)
+                    .frame(width: geometry.size.width - 36,height: 45)
+                    .cornerRadius(20)
+                    .offset(x: 24)
+                
+                Rectangle()
                     .fill(Color.theme.warningColorTheme.opacity(0.5))
                     .frame(width: geometry.size.width - 36,height: 45)
                     .cornerRadius(20)
@@ -60,7 +66,7 @@ struct HomeXPBarView: View {
                 
                 Text("Nocy")
                     .font(Font.format.textHeadlineThree)
-                    .foregroundColor(Color.theme.primaryColorTheme)
+                    .foregroundColor(.white)
                     .offset(x: 80, y: -50)
 
                 
