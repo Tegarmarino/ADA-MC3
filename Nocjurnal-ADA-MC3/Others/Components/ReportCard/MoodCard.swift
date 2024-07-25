@@ -58,4 +58,3 @@ struct MoodCard: View {
     }
     
 }
-

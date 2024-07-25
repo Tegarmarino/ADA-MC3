@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @Environment(Application.self) private var app
     @Environment(\.modelContext) var context
-    
+    @AppStorage("passcodeState") private var passcodeState: Bool = false
+
     var body: some View {
         if app.page == .home {
             HomeView()
@@ -19,7 +20,7 @@ struct ContentView: View {
                     context.insert(newUser)
                 }
         } else if app.page == .growth {
-            AuthenticationView()
+            AuthenticationView(passcodeState: $passcodeState)
         } else if app.page == .sharing {
             FriendView()
         }

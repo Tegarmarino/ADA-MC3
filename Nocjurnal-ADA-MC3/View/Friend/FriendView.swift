@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct FriendView: View {
+    
     var body: some View {
-        Notification()
+        Notification(isDone: .constant(false))
     }
 }
 

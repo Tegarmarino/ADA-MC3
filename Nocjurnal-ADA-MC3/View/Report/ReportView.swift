@@ -126,7 +126,10 @@ struct ReportView: View {
                     
 //                  MOOD CARD
                     ForEach(journalModel, id: \.self) { journal in
-                        MoodCard(date: formatDateTime(journal.timestamp), mood: journal.mood.rawValue.capitalized, moodColor: getColor(for: journal.mood).color , moodImgColor: getColor(for: journal.mood).imageName, tags: journal.tags)
+                        NavigationLink(destination: CardDetailView(journal: journal)) {
+                            MoodCard(date: formatDateTime(journal.timestamp), mood: journal.mood.rawValue.capitalized, moodColor: getColor(for: journal.mood).color, moodImgColor: getColor(for: journal.mood).imageName, tags: journal.tags)
+                        }
+                        .foregroundColor(.black)
                     }
                     .padding(.horizontal, 24)
 
@@ -166,18 +169,4 @@ struct ReportView: View {
         return dateFormatter.string(from: date)
     }
     
-    func getColor(for mood: JournalMood) -> (color: Color, imageName: String) {
-            switch mood {
-            case .happy:
-                return (.yellow, "Joy")
-            case .sad:
-                return (.blue, "Sad")
-            case .angry:
-                return (.red, "Anger")
-            case .scared:
-                return (.purple, "Fear")
-            case .disgusted:
-                return (.green, "Disgust")
-            }
-        }
 }
