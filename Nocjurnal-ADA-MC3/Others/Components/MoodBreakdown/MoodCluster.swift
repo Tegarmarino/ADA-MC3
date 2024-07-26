@@ -26,9 +26,6 @@ class MoodCluster{
     func loadJournals() {
         moods.removeAll()
         
-        print("journals")
-        print(journals)
-        
         for journal in journals {
             rawMoods.append(journal.mood)
         }
@@ -51,6 +48,5 @@ class MoodCluster{
             tempMood.setPercentage(percentage: Int(floor(moodPercentages[mood] ?? 0)))
             moods.append(tempMood)
         }
-        print(moods)
     }
 }

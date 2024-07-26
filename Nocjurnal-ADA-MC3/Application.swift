@@ -14,6 +14,7 @@ enum MainPageKind {
 }
 enum PageKind: Hashable {
     case editor
+    case entries
     case shop
     case reward
 }

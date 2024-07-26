@@ -95,6 +95,10 @@ struct NocjournalButtonStyle: ButtonStyle {
                                         content.foregroundStyle(Color.theme.backgroundColorTwoTheme)
                                 }
                             }
+                        
+                        RoundedRectangle(cornerRadius: 18)
+                            .strokeBorder(Color.theme.borderColorTheme, lineWidth: type == .quartenary ? 1.0 : 0.0)
+                            .animation(.spring(duration: 0.25), value: type == .quartenary)
                         RoundedRectangle(cornerRadius: 18)
                             .fill(Color.theme.fontPrimaryColorTheme)
                             .opacity(opacity)

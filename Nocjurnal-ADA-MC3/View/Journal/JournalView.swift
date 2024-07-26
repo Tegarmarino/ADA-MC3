@@ -46,7 +46,7 @@ struct JournalView: View {
             .padding(EdgeInsets(top: pageHeaderHeight, leading: 0, bottom: 0, trailing: 0))
             .frame(width: 3 * VPW)
             .offset(x: pageOffset)
-            
+
             VStack(alignment: .leading, spacing: 24) {
                 HStack(spacing: 0) {
                     ButtonIcon("arrow.left", state: $backButtonState, type: .secondary) {
@@ -109,7 +109,8 @@ struct JournalView: View {
     }
     
     private func saveJournal() {
-        context.insert(JournalModel(mood: draft.mood, contents: draft.contents, tags: draft.tags, timestamp: Date()))
+        let model = JournalModel(mood: draft.mood, contents: draft.contents, tags: draft.tags, timestamp: Date())
+        context.insert(model)
     }
     
     private func pageNext() {

@@ -55,7 +55,6 @@ struct TabBar: View {
             
             Button {
                 app.path.append(.editor)
-                print(app.path)
             } label: {
                 Image(systemName: "pencil.and.scribble")
                     .resizable()

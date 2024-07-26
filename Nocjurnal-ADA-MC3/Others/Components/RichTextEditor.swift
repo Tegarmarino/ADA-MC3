@@ -99,7 +99,6 @@ struct RichTextEditor: UIViewRepresentable {
         guard let textView = context.coordinator.textView else { return }
         
         if textView.attributedText.length == 0 && textView.text.isEmpty {
-            print("Attributed Text is empty")
             // Ensure we do not apply attributes when there is no text
             return
         }
@@ -111,7 +110,6 @@ struct RichTextEditor: UIViewRepresentable {
             
             // Check if nsRange is valid before attempting to apply attributes
             if nsRange.location != NSNotFound && nsRange.location < textView.attributedText.length {
-                print("Applying attributes: Location = \(nsRange.location), Length = \(nsRange.length)")
                 let currentAttributes = textView.attributedText.attributes(at: nsRange.location, effectiveRange: nil)
                 var newAttributes = currentAttributes
                 
@@ -120,8 +118,6 @@ struct RichTextEditor: UIViewRepresentable {
                 if nsRange.location + nsRange.length <= textView.attributedText.length {
                     textView.attributedText = updateAttributedString(textView.attributedText, range: nsRange, attributes: newAttributes)
                 }
-            } else {
-                print("Attempted to apply attributes out of bounds")
             }
         }
         
