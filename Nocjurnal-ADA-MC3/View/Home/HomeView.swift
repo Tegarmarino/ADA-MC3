@@ -39,6 +39,10 @@ struct HomeView: View {
                             .scaledToFit() // Or adjust to your preferred sizing
                     }
                     .buttonStyle(.plain)
+                } else {
+                    Image("Wallpaper1")
+                        .resizable()
+                        .scaledToFit()
                 }
                 VStack(spacing: 0) {
                     Spacer()
@@ -103,28 +107,30 @@ struct HomeView: View {
                     
                     
                     Image(journalModel.last?.mood == JournalMood.angry ? "FaceAngry" : journalModel.last?.mood == JournalMood.disgusted ? "FaceDisgusted" : journalModel.last?.mood == JournalMood.happy ? "FaceJoyful" : journalModel.last?.mood == JournalMood.sad ? "FaceSad" : journalModel.last?.mood == JournalMood.scared ? "FaceScared" : "FaceNormal")
-                        .position(x:200, y: 426)
+                        .position(x:200, y: 425)
                         .zIndex(2.0)
                     Image("NocyNoFace") // Nocy will be centered by default
                         .position(x:200, y: 455)
                         .zIndex(1.0)
                     
-                    VStack{
-                        Spacer()
-                        
-                        let streaks = calculateStreaks(for: journalModel)
-                        
-                        Text("Max Streak:\(streaks.highestStreak) | Cur Streak:\(streaks.currentStreak)")
-                            .font(Font.format.textHeadlineThree)
-                        
-                        Text("Total Words: \(calculateTotalWordCount(journals: journalModel)) | Total Journals: \(calculateTotalJournalEntries(journals: journalModel))")
-                            .font(Font.format.textHeadlineThree)
-                            .padding(.bottom, 35)
-                        
-                        HomeXPBarView(curXP: CGFloat(users.first?.xp ?? 0))
-                        
-                        Spacer()
-                    }
+                    HomeXPBarView(curXP: CGFloat(users.first?.xp ?? 0))
+                        .offset(y: 150)
+//                    VStack{
+//
+//                        
+//                        // ini buat nantik jika bener perlu statisticsnya
+//                        
+////                        let streaks = calculateStreaks(for: journalModel)
+////                        
+////                        Text("Max Streak:\(streaks.highestStreak) | Cur Streak:\(streaks.currentStreak)")
+////                            .font(Font.format.textHeadlineThree)
+////                        
+////                        Text("Total Words: \(calculateTotalWordCount(journals: journalModel)) | Total Journals: \(calculateTotalJournalEntries(journals: journalModel))")
+////                            .font(Font.format.textHeadlineThree)
+////                            .padding(.bottom, 35)
+//                        
+//                        
+//                    }
                 }
             }
         }

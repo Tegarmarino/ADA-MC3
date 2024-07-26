@@ -31,6 +31,7 @@ struct Notification: View {
                 let hour = calendar.component(.hour, from: selectedTime)
                 let minute = calendar.component(.minute, from: selectedTime)
                 setReminderIfNeeded(title: "Daily Reminder", body: "This is your daily reminder to do your daily journaling session! :D", hour: hour, minute: minute)
+                isDone = true
 
             }
         }
