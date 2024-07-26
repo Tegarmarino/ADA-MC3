@@ -74,32 +74,14 @@ struct HomeView: View {
                             Image(activeClothesImage)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 241) // Customizable size
-                                .position(x: 201, y: 490) // Customizable position
+//                                .frame(width: 240) // Customizable size
+                                .frame(width: activeClothesImage == "Clothes2" ? 220 : 240)
+                                .position(x: 201, y: 479) // Customizable position
                         }
                         .buttonStyle(.plain)
                         .zIndex(3.0)
                     }
                     
-//                    if let activeHatImage = users.first?.activeHatImage {
-//                        Button(action: {
-//                            unselectType = .hat
-//                            showUnselectConfirmation = true
-//                        }) {
-//                            Image(activeHatImage)
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 100, height: 80) // Customizable size
-//                                .position(x: 200, y: 350) // Customizable position
-//                            if activeHatImage == "Hat2" {
-//                                .frame(width: 100, height: 80) // Customizable size
-//                                .position(x: 200, y: 350) // Customizable position
-//                            }
-//                                
-//                        }
-//                        .buttonStyle(.plain)
-//                        .zIndex(2.0)
-//                    }
                     if let activeHatImage = users.first?.activeHatImage {
                         Button(action: {
                             unselectType = .hat
@@ -109,56 +91,44 @@ struct HomeView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(
-                                    width: activeHatImage == "Hat1" ? 130 : activeHatImage == "Hat2" ? 135 : activeHatImage == "Hat3" ? 150 : activeHatImage == "Hat4" ? 190 : 200,
-                                    height: activeHatImage == "Hat1" ? 110 : activeHatImage == "Hat2" ? 115 : activeHatImage == "Hat3" ? 120 : activeHatImage == "Hat4" ? 190 : 200
+                                    width: activeHatImage == "Hat1" ? 130 : activeHatImage == "Hat2" ? 135 : activeHatImage == "Hat3" ? 130 : activeHatImage == "Hat4" ? 190 : 200,
+                                    height: activeHatImage == "Hat1" ? 110 : activeHatImage == "Hat2" ? 115 : activeHatImage == "Hat3" ? 110 : activeHatImage == "Hat4" ? 190 : 200
                                 )
                                 .position(
                                     x: activeHatImage == "Hat1" ? 200 : activeHatImage == "Hat2" ? 200 : activeHatImage == "Hat3" ? 201 : activeHatImage == "Hat4" ? 200 : 200,
-                                    y: activeHatImage == "Hat1" ? 315 : activeHatImage == "Hat2" ? 366 : activeHatImage == "Hat3" ? 425 : activeHatImage == "Hat4" ? 375 : 200
+                                    y: activeHatImage == "Hat1" ? 315 : activeHatImage == "Hat2" ? 366 : activeHatImage == "Hat3" ? 370 : activeHatImage == "Hat4" ? 375 : 200
                                 )
                         }
                         .buttonStyle(.plain)
                         .zIndex(3.0)
                     }
-
-
-                    Image("FaceNormal")
+                    
+                    
+                    Image("FaceAngry")
                         .position(x:200, y: 427)
                         .zIndex(2.0)
                     Image("NocyNoFace") // Nocy will be centered by default
                         .position(x:200, y: 455)
                         .zIndex(1.0)
-                    Text("Level " + String(users.first?.lvl ?? 100))
-                        .position(x: 200, y: 590)
-                        .zIndex(3.0)
+                    
+                    VStack{
+                        Spacer()
                         
-                    Text("Money " + String(users.first?.money ?? 100))
-                        .position(x: 200, y: 610)
-                        .zIndex(3.0)
+                        let streaks = calculateStreaks(for: journalModel)
+                        
+                        Text("Max Streak:\(streaks.highestStreak) | Cur Streak:\(streaks.currentStreak)")
+                            .font(Font.format.textHeadlineThree)
+                        
+                        Text("Total Words: \(calculateTotalWordCount(journals: journalModel)) | Total Journals: \(calculateTotalJournalEntries(journals: journalModel))")
+                            .font(Font.format.textHeadlineThree)
+                            .padding(.bottom, 35)
+                        
+                        HomeXPBarView(curXP: CGFloat(users.first?.xp ?? 0))
+                        
+                        Spacer()
+                    }
                 }
             }
-            Spacer()
-            
-            let streaks = calculateStreaks(for: journalModel)
-
-            Text("Max Streak:\(streaks.highestStreak) | Cur Streak:\(streaks.currentStreak)")
-                .font(Font.format.textHeadlineThree)
-            
-            Text("Total Words: \(calculateTotalWordCount(journals: journalModel)) | Total Journals: \(calculateTotalJournalEntries(journals: journalModel))")
-                .font(Font.format.textHeadlineThree)
-                .padding(.bottom, 35)
-
-            
-            Image("Nocy")
-                .offset(y: -30)
-                        
-            HomeXPBarView(curXP: CGFloat(users.first?.xp ?? 0))
-            
-            Spacer()
-
-            
-            
-            
         }
         .frame(width: VPW, height: VPH, alignment: .topLeading)
         .ignoresSafeArea()

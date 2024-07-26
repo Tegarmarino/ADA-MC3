@@ -173,14 +173,6 @@
 			path = Functions;
 			sourceTree = "<group>";
 		};
-		30D297132C4F9DA000496B5E /* ReportCard */ = {
-			isa = PBXGroup;
-			children = (
-				30D297142C4F9FB600496B5E /* MoodCard.swift */,
-			);
-			path = ReportCard;
-			sourceTree = "<group>";
-		};
 		8C2965152C4661040027E79D /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -740,7 +732,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = 5KY76F9T73;
+				DEVELOPMENT_TEAM = RSBCF2NM6N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
@@ -770,7 +762,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = 5KY76F9T73;
+				DEVELOPMENT_TEAM = RSBCF2NM6N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
