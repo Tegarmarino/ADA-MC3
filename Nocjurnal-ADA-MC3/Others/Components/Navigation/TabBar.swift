@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBar: View {
     @Environment(Application.self) private var app
     
-    @State private var pages: [(MainPageKind, String, String)] = [(.home, "house", "Home"), (.growth, "chart.bar", "Growth"), (.sharing, "gear", "Setting")]
+    @State private var pages: [(MainPageKind, String, String)] = [(.home, "house", "Home"), (.growth, "chart.bar", "Report"), (.sharing, "gearshape", "Setting")]
     
     let VPW = UIScreen.main.bounds.size.width
     let VPH = UIScreen.main.bounds.size.height
