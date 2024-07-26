@@ -5,32 +5,32 @@
 //  Created by Tegar marino on 11/07/24.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct ReportView: View {
     @Environment(\.modelContext) var context
     @Environment(\.safeAreaInsets) private var safeAreaInsets
-    
+
     @Query private var journalModel: [JournalModel]
     @State private var currentDate = Date()
     @State private var dateRange: String = ""
-    
+
     @State private var dictCompanies: [String: ([JournalMood: Int], Int)] = [:]
     @State private var dictActivities: [String: ([JournalMood: Int], Int)] = [:]
     @State private var dictPlaces: [String: ([JournalMood: Int], Int)] = [:]
 
     @State private var datePrevState = ButtonState.idle
     @State private var dateNextState = ButtonState.idle
-    
+
     @State private var scrollState = CGFloat(0.0)
     @State private var scroll: CGPoint = .zero
-    
+
     var color = Color.white
 
     private let VPW = UIScreen.main.bounds.size.width
     private let VPH = UIScreen.main.bounds.size.height
-    
+
     var scrollPassed: Bool {
         if scroll.y <= -24 {
             return true
@@ -38,7 +38,7 @@ struct ReportView: View {
             return false
         }
     }
-    
+
     var body: some View {
         ZStack(alignment: .topLeading) {
             ScrollView {
@@ -98,12 +98,12 @@ struct ReportView: View {
                     //                        MoodCard(journal)
                     //                    }
                     //                    .padding(.horizontal, 24)
-                    
+
                     VStack(alignment: .leading, spacing: 18) {
                         Text("What you do and what you feel")
                             .font(Font.format.textHeadlineThree)
                             .foregroundStyle(.fontColorPrimaryTheme)
-                        
+
                         ForEach(dictActivities.keys.sorted(), id: \.self) { key in
                             VStack(alignment: .leading, spacing: 6) {
                                 if let value = dictActivities[key] {
@@ -148,7 +148,6 @@ struct ReportView: View {
                                                         .onAppear {
                                                             print("\(key) - SAD: \(count) / \(value.1) = \(CGFloat(count) / CGFloat(value.1))")
                                                         }
-                                                    
                                                 }
                                                 if let count = value.0[.disgusted] {
                                                     Rectangle()
@@ -162,7 +161,6 @@ struct ReportView: View {
                                                         .onAppear {
                                                             print("\(key) - DISGUSTED: \(count) / \(value.1) = \(CGFloat(count) / CGFloat(value.1))")
                                                         }
-                                                    
                                                 }
                                                 if let count = value.0[.happy] {
                                                     Rectangle()
@@ -204,12 +202,12 @@ struct ReportView: View {
                             .fill(Color.theme.backgroundColorOneTheme)
                     )
                     .frame(width: VPW - 48, alignment: .topLeading)
-                    
+
                     VStack(alignment: .leading, spacing: 18) {
                         Text("Who are you with and what you feel")
                             .font(Font.format.textHeadlineThree)
                             .foregroundStyle(.fontColorPrimaryTheme)
-                        
+
                         ForEach(dictCompanies.keys.sorted(), id: \.self) { key in
                             VStack(alignment: .leading, spacing: 6) {
                                 if let value = dictCompanies[key] {
@@ -256,7 +254,6 @@ struct ReportView: View {
                                                         .onAppear {
                                                             print("\(key) - SAD: \(count) / \(value.1) = \(CGFloat(count) / CGFloat(value.1))")
                                                         }
-                                                    
                                                 }
                                                 if let count = value.0[.disgusted] {
                                                     Rectangle()
@@ -270,7 +267,6 @@ struct ReportView: View {
                                                         .onAppear {
                                                             print("\(key) - DISGUSTED: \(count) / \(value.1) = \(CGFloat(count) / CGFloat(value.1))")
                                                         }
-                                                    
                                                 }
                                                 if let count = value.0[.happy] {
                                                     Rectangle()
@@ -317,7 +313,7 @@ struct ReportView: View {
                         Text("Where are you and what you feel")
                             .font(Font.format.textHeadlineThree)
                             .foregroundStyle(.fontColorPrimaryTheme)
-                        
+
                         ForEach(dictPlaces.keys.sorted(), id: \.self) { key in
                             VStack(alignment: .leading, spacing: 6) {
                                 if let value = dictPlaces[key] {
@@ -365,7 +361,6 @@ struct ReportView: View {
                                                         .onAppear {
                                                             print("\(key) - SAD: \(count) / \(value.1) = \(CGFloat(count) / CGFloat(value.1))")
                                                         }
-                                                    
                                                 }
                                                 if let count = value.0[.disgusted] {
                                                     Rectangle()
@@ -379,7 +374,6 @@ struct ReportView: View {
                                                         .onAppear {
                                                             print("\(key) - DISGUSTED: \(count) / \(value.1) = \(CGFloat(count) / CGFloat(value.1))")
                                                         }
-                                                    
                                                 }
                                                 if let count = value.0[.happy] {
                                                     Rectangle()
@@ -437,7 +431,7 @@ struct ReportView: View {
                 }
             }
             .coordinateSpace(name: "scroll")
-            
+
             VStack(spacing: 0) {
                 HStack {
                     Text("Weekly")
@@ -446,7 +440,7 @@ struct ReportView: View {
                     Spacer()
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0))
-                
+
                 HStack {
                     ButtonIcon("arrow.left", state: $datePrevState, type: .secondary) {
                         updateDateRange(byAdding: -7)
@@ -459,7 +453,6 @@ struct ReportView: View {
                         updateDateRange(byAdding: 7)
                     }
                 }
-                
             }
             .padding(EdgeInsets(top: safeAreaInsets.top, leading: 24, bottom: 24, trailing: 24))
             .background(
@@ -487,36 +480,36 @@ struct ReportView: View {
             getCharts()
         }
     }
-    
+
     func updateDateRange(byAdding days: Int) {
         currentDate = Calendar.current.date(byAdding: .day, value: days, to: currentDate) ?? Date()
         let startOfWeek = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentDate)) ?? Date()
         let endOfWeek = Calendar.current.date(byAdding: .day, value: 6, to: startOfWeek) ?? Date()
-        
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d"
-        
+
         let startDateString = dateFormatter.string(from: startOfWeek)
-        
+
         dateFormatter.dateFormat = "d, yyyy"
         let endDateString = dateFormatter.string(from: endOfWeek)
         dateRange = "\(startDateString) - \(endDateString)"
     }
-    
+
     private var groupedJournalEntries: [Date: [JournalModel]] {
         let calendar = Calendar.current
         let groups = Dictionary(grouping: journalModel) {
-            calendar.startOfDay(for: $0.timestamp)  // Group by date only
+            calendar.startOfDay(for: $0.timestamp) // Group by date only
         }
         return groups
     }
-    
+
     private func formatDateTime(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d, HH:mm"
         return dateFormatter.string(from: date)
     }
-    
+
     private func getCharts() {
         for journal in journalModel {
             if let activity = journal.tags[0] {
@@ -554,34 +547,34 @@ struct ReportView: View {
             }
         }
     }
-    
+
     private func moodColor(_ mood: JournalMood) -> LinearGradient {
         switch mood {
-            case .happy:
-                return Color.mood.happy
-            case .angry:
-                return Color.mood.angry
-            case .disgusted:
-                return Color.mood.disgusted
-            case .sad:
-                return Color.mood.sad
-            case .scared:
-                return Color.mood.scared
+        case .happy:
+            return Color.mood.happy
+        case .angry:
+            return Color.mood.angry
+        case .disgusted:
+            return Color.mood.disgusted
+        case .sad:
+            return Color.mood.sad
+        case .scared:
+            return Color.mood.scared
         }
     }
-    
+
     func getColor(for mood: JournalMood) -> (color: Color, imageName: String) {
         switch mood {
-            case .happy:
-                return (.yellow, "Joy")
-            case .sad:
-                return (.blue, "Sad")
-            case .angry:
-                return (.red, "Anger")
-            case .scared:
-                return (.purple, "Fear")
-            case .disgusted:
-                return (.green, "Disgust")
+        case .happy:
+            return (.yellow, "Joy")
+        case .sad:
+            return (.blue, "Sad")
+        case .angry:
+            return (.red, "Anger")
+        case .scared:
+            return (.purple, "Fear")
+        case .disgusted:
+            return (.green, "Disgust")
         }
     }
 }

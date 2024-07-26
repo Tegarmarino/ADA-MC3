@@ -13,7 +13,8 @@ struct Notification: View {
     @State private var selectedTime = Date()
     @State private var showAlert = false
     @State private var alertMessage = ""
-    
+    @Binding var isDone: Bool
+
     var body: some View {
         VStack(spacing: 20) {
             
@@ -30,11 +31,18 @@ struct Notification: View {
                 let hour = calendar.component(.hour, from: selectedTime)
                 let minute = calendar.component(.minute, from: selectedTime)
                 setReminderIfNeeded(title: "Daily Reminder", body: "This is your daily reminder to do your daily journaling session! :D", hour: hour, minute: minute)
+
             }
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 72, trailing: 24))
         .alert(isPresented: $showAlert) {
-            Alert(title: Text("Reminder Status"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            Alert(
+               title: Text("Reminder Status"),
+               message: Text(alertMessage),
+               dismissButton: .default(Text("OK")) {
+                   isDone = true
+               }
+           )
         }
     }
     
@@ -105,5 +113,5 @@ struct Notification: View {
 
 
 #Preview {
-    Notification()
+    Notification(isDone: .constant(false))
 }
