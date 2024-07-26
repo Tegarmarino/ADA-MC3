@@ -107,7 +107,9 @@ struct HomeView: View {
                     
                     
                     Image(journalModel.last?.mood == JournalMood.angry ? "FaceAngry" : journalModel.last?.mood == JournalMood.disgusted ? "FaceDisgusted" : journalModel.last?.mood == JournalMood.happy ? "FaceJoyful" : journalModel.last?.mood == JournalMood.sad ? "FaceSad" : journalModel.last?.mood == JournalMood.scared ? "FaceScared" : "FaceNormal")
-                        .position(x:200, y: 425)
+                        .position(x:200,
+                                  y: journalModel.last?.mood == JournalMood.angry ? 428 : journalModel.last?.mood == JournalMood.disgusted ? 425 : journalModel.last?.mood == JournalMood.scared ? 425 : 426
+                        )
                         .zIndex(2.0)
                     Image("NocyNoFace") // Nocy will be centered by default
                         .position(x:200, y: 455)
