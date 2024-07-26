@@ -17,18 +17,11 @@ struct Mood: View {
     var body: some View {
         ZStack{
             Circle()
-                .fill(
-                    LinearGradient(
-                        gradient: Gradient(colors: [.white, mood.color]),
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                )
+                .fill(mood.color)
             
-            VStack{
+            VStack(spacing: 0) {
                 Text(String(mood.percentage) + "%")
-                    .font(Font.format.textBodyFour)
-                
+                    .font(Font.format.textHeadlineFour)
                 switch mood.mood {
                     case .sad:
                         Text("Sad")
@@ -47,7 +40,6 @@ struct Mood: View {
                             .font(Font.format.textBodyFour)
                 }
             }
-            
         }
     }
 }
