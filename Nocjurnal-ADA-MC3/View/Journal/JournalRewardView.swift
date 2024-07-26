@@ -93,6 +93,7 @@ struct JournalRewardView: View {
                 Spacer()
                 ButtonRegular("Home", state: $submitState) {
                     app.path = []
+                    app.page = .home
                     users[0].money += 500
                 }
                 .padding(.bottom, 34)

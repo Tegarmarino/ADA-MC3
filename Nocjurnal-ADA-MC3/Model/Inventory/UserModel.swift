@@ -9,10 +9,13 @@ import Foundation
 import SwiftData
 
 @Model
-class User {
+class User: Identifiable, ObservableObject {
     var money: Int
     var lvl: Int
     var xp: Int
+    var activeClothesImage: String?
+    var activeHatImage: String?
+    var activeWallpaperImage: String?
 
     init(money: Int = 100, lvl : Int = 1, xp: Int = 0) { // Default money is 100
         self.money = money

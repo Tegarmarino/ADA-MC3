@@ -26,6 +26,11 @@ struct ShopView: View {
         ShopItem(type: .hat, price: 100, image: "Hat2"),
         ShopItem(type: .hat, price: 150, image: "Hat3"),
         ShopItem(type: .hat, price: 200, image: "Hat4"),
+        ShopItem(type: .wallpaper, price: 50, image: "Wallpaper1"),
+        ShopItem(type: .wallpaper, price: 100, image: "Wallpaper2"),
+        ShopItem(type: .wallpaper, price: 150, image: "Wallpaper3"),
+        ShopItem(type: .wallpaper, price: 200, image: "Wallpaper4"),
+        ShopItem(type: .wallpaper, price: 250, image: "Wallpaper5"),
         // ... other items ...
     ]
 
@@ -72,6 +77,18 @@ struct ShopView: View {
                     LazyVStack(spacing: 10) {
                         ForEach(shopItems) { item in
                             if item.type == .hat && !purchasedItems.contains(where: { $0.image == item.image }) {
+                                ShopItemView(item: item) {
+                                    buyItem(item)
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Wallpaper category (apply the same change as above)
+                    Text("Wallpaper").font(.headline).padding(.top, 20)
+                    LazyVStack(spacing: 10) {
+                        ForEach(shopItems) { item in
+                            if item.type == .wallpaper && !purchasedItems.contains(where: { $0.image == item.image }) {
                                 ShopItemView(item: item) {
                                     buyItem(item)
                                 }

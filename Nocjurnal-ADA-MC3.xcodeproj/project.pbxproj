@@ -71,6 +71,8 @@
 		9BCD24D12C4E460C0089FB47 /* ShopItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD24D02C4E460C0089FB47 /* ShopItemView.swift */; };
 		9BCD24D42C4E46440089FB47 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD24D32C4E46440089FB47 /* InventoryView.swift */; };
 		9BCD24D62C4E544F0089FB47 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD24D52C4E544F0089FB47 /* UserModel.swift */; };
+		9BF7CA092C4FA35E0080518C /* InventoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7CA082C4FA35E0080518C /* InventoryRow.swift */; };
+		9BF7CA122C52421B0080518C /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7CA112C52421B0080518C /* InventoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +142,8 @@
 		9BCD24D02C4E460C0089FB47 /* ShopItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemView.swift; sourceTree = "<group>"; };
 		9BCD24D32C4E46440089FB47 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		9BCD24D52C4E544F0089FB47 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		9BF7CA082C4FA35E0080518C /* InventoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryRow.swift; sourceTree = "<group>"; };
+		9BF7CA112C52421B0080518C /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				30514C6A2C52471400FA8AA0 /* Onboarding */,
+				9BF7CA102C52420E0080518C /* Inventory */,
 				9BCD24D22C4E46300089FB47 /* User */,
 				9B8398362C401EA400399E19 /* Shop */,
 				9B0ECA3B2C3FCD040098E196 /* Profile */,
@@ -349,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				30514C6F2C52479600FA8AA0 /* Functions */,
+				9BF7CA0A2C50E4B30080518C /* Helpers */,
 				9B8398182C3FE79C00399E19 /* Fonts */,
 				9B0ECA4D2C3FD2980098E196 /* Extensions */,
 				9B0ECA4C2C3FD2910098E196 /* Components */,
@@ -445,8 +451,24 @@
 			isa = PBXGroup;
 			children = (
 				9BCD24D32C4E46440089FB47 /* InventoryView.swift */,
+				9BF7CA082C4FA35E0080518C /* InventoryRow.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		9BF7CA0A2C50E4B30080518C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9BF7CA102C52420E0080518C /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				9BF7CA112C52421B0080518C /* InventoryViewModel.swift */,
+			);
+			path = Inventory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,8 +555,10 @@
 			files = (
 				8C2965102C4514450027E79D /* ButtonRegular.swift in Sources */,
 				8C29651C2C4669A40027E79D /* JournalModel.swift in Sources */,
+				9BF7CA092C4FA35E0080518C /* InventoryRow.swift in Sources */,
 				9B8398352C401E0900399E19 /* CircleButton.swift in Sources */,
 				8C2965172C46611B0027E79D /* ButtonIcon.swift in Sources */,
+				9BF7CA122C52421B0080518C /* InventoryViewModel.swift in Sources */,
 				9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */,
 				922689172C50DFD500DA30F4 /* AuthenticationViewModel.swift in Sources */,
 				8C2965232C47A7350027E79D /* EditingView.swift in Sources */,
@@ -716,7 +740,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = RSBCF2NM6N;
+				DEVELOPMENT_TEAM = 5KY76F9T73;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
@@ -746,7 +770,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = RSBCF2NM6N;
+				DEVELOPMENT_TEAM = 5KY76F9T73;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
