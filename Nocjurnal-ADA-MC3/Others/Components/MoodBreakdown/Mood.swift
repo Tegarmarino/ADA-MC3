@@ -23,21 +23,21 @@ struct Mood: View {
                 Text(String(mood.percentage) + "%")
                     .font(Font.format.textHeadlineFour)
                 switch mood.mood {
-                    case .sad:
-                        Text("Sad")
-                            .font(Font.format.textBodyFour)
-                    case .angry:
-                        Text("Angry")
-                            .font(Font.format.textBodyFour)
-                    case .scared:
-                        Text("Scared")
-                            .font(Font.format.textBodyFour)
-                    case .disgusted:
-                        Text("Disgusted")
-                            .font(Font.format.textBodyFour)
-                    case .happy:
-                        Text("Happy")
-                            .font(Font.format.textBodyFour)
+                case .sad:
+                    Text("Sad")
+                        .font(Font.format.textBodyFour)
+                case .angry:
+                    Text("Angry")
+                        .font(Font.format.textBodyFour)
+                case .scared:
+                    Text("Scared")
+                        .font(Font.format.textBodyFour)
+                case .disgusted:
+                    Text("Disgusted")
+                        .font(Font.format.textBodyFour)
+                case .happy:
+                    Text("Happy")
+                        .font(Font.format.textBodyFour)
                 }
             }
         }

@@ -19,7 +19,7 @@ class MoodData{
     init(mood: JournalMood, focused: Bool = false) {
         self.mood = mood
         self.focused = focused
-        radius = CGFloat(percentage * 3 / 4 + 30)
+        radius = CGFloat(percentage * 3 / 4 + 20)
         
         switch mood {
             case .happy:
@@ -41,6 +41,6 @@ class MoodData{
     
     func setPercentage(percentage: Int){
         self.percentage = percentage
-        radius = CGFloat(percentage * 3 / 4 + 30)
+        radius = CGFloat(percentage * 3 / 4 + 20)
     }
 }
