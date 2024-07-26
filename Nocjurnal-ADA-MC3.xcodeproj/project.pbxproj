@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30D297152C4F9FB600496B5E /* reportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D297142C4F9FB600496B5E /* reportCard.swift */; };
+		30D297152C4F9FB600496B5E /* MoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D297142C4F9FB600496B5E /* MoodCard.swift */; };
 		8C29650E2C45123F0027E79D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650D2C45123F0027E79D /* Style.swift */; };
 		8C2965102C4514450027E79D /* ButtonRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650F2C4514450027E79D /* ButtonRegular.swift */; };
 		8C2965122C45184C0027E79D /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965112C45184C0027E79D /* Application.swift */; };
@@ -18,6 +18,8 @@
 		8C2965232C47A7350027E79D /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965222C47A7350027E79D /* EditingView.swift */; };
 		8C2965252C47B8850027E79D /* TaggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2965242C47B8850027E79D /* TaggingView.swift */; };
 		8C4249BE2C4A343700709111 /* VerticalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4249BD2C4A343700709111 /* VerticalFlow.swift */; };
+		8C9B9A2D2C5230DE000258DA /* JournalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B9A2C2C5230DE000258DA /* JournalListView.swift */; };
+		8C9B9A2F2C52338E000258DA /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B9A2E2C52338E000258DA /* Collection.swift */; };
 		8CBD2CCB2C4DCE4A00D4A502 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD2CCA2C4DCE4A00D4A502 /* Mood.swift */; };
 		8CBD2CCD2C4DF90600D4A502 /* MoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD2CCC2C4DF90600D4A502 /* MoodData.swift */; };
 		8CBD2CCF2C4DF93E00D4A502 /* MoodCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD2CCE2C4DF93E00D4A502 /* MoodCluster.swift */; };
@@ -63,7 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		30D297142C4F9FB600496B5E /* reportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reportCard.swift; sourceTree = "<group>"; };
+		30D297142C4F9FB600496B5E /* MoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCard.swift; sourceTree = "<group>"; };
 		8C29650D2C45123F0027E79D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		8C29650F2C4514450027E79D /* ButtonRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRegular.swift; sourceTree = "<group>"; };
 		8C2965112C45184C0027E79D /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -74,6 +76,8 @@
 		8C2965222C47A7350027E79D /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
 		8C2965242C47B8850027E79D /* TaggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggingView.swift; sourceTree = "<group>"; };
 		8C4249BD2C4A343700709111 /* VerticalFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalFlow.swift; sourceTree = "<group>"; };
+		8C9B9A2C2C5230DE000258DA /* JournalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListView.swift; sourceTree = "<group>"; };
+		8C9B9A2E2C52338E000258DA /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		8CBD2CCA2C4DCE4A00D4A502 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		8CBD2CCC2C4DF90600D4A502 /* MoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodData.swift; sourceTree = "<group>"; };
 		8CBD2CCE2C4DF93E00D4A502 /* MoodCluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCluster.swift; sourceTree = "<group>"; };
@@ -131,14 +135,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30D297132C4F9DA000496B5E /* ReportCard */ = {
-			isa = PBXGroup;
-			children = (
-				30D297142C4F9FB600496B5E /* reportCard.swift */,
-			);
-			path = ReportCard;
-			sourceTree = "<group>";
-		};
 		8C2965152C4661040027E79D /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +247,7 @@
 			children = (
 				9B0ECA3C2C3FCE110098E196 /* ReportView.swift */,
 				8C2965202C466A8A0027E79D /* JournalDetailView.swift */,
+				8C9B9A2C2C5230DE000258DA /* JournalListView.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -296,7 +293,6 @@
 		9B0ECA4C2C3FD2910098E196 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				30D297132C4F9DA000496B5E /* ReportCard */,
 				921118922C4E60860047C4EE /* XPBar */,
 				8CBD2CC92C4DCE3A00D4A502 /* MoodBreakdown */,
 				8C2965152C4661040027E79D /* Buttons */,
@@ -304,6 +300,7 @@
 				9B0ECA502C3FD4F60098E196 /* NavigationButton */,
 				9B0614B52C44D56B00C6736F /* RichTextEditor.swift */,
 				8C29651E2C466A100027E79D /* AttributedText.swift */,
+				30D297142C4F9FB600496B5E /* MoodCard.swift */,
 				9B0ECA572C3FD93C0098E196 /* JournalToolBar.swift */,
 				8C4249BD2C4A343700709111 /* VerticalFlow.swift */,
 			);
@@ -316,6 +313,7 @@
 				9B0ECA4E2C3FD2A30098E196 /* Color.swift */,
 				9B8398162C3FE35700399E19 /* Font.swift */,
 				8C29650D2C45123F0027E79D /* Style.swift */,
+				8C9B9A2E2C52338E000258DA /* Collection.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -473,9 +471,11 @@
 				9B0ECA332C3FCC780098E196 /* HomeView.swift in Sources */,
 				8C2965232C47A7350027E79D /* EditingView.swift in Sources */,
 				9B0ECA582C3FD93C0098E196 /* JournalToolBar.swift in Sources */,
+				8C9B9A2F2C52338E000258DA /* Collection.swift in Sources */,
 				9B0ECA3F2C3FCE1A0098E196 /* JournalView.swift in Sources */,
 				9B0ECA132C3FC4AC0098E196 /* ContentView.swift in Sources */,
 				9B0ECA3D2C3FCE110098E196 /* ReportView.swift in Sources */,
+				8C9B9A2D2C5230DE000258DA /* JournalListView.swift in Sources */,
 				9B0ECA542C3FD5380098E196 /* BackButton.swift in Sources */,
 				9BCD24D42C4E46440089FB47 /* InventoryView.swift in Sources */,
 				8C29650E2C45123F0027E79D /* Style.swift in Sources */,
@@ -492,7 +492,7 @@
 				8CBD2CCD2C4DF90600D4A502 /* MoodData.swift in Sources */,
 				8C2965122C45184C0027E79D /* Application.swift in Sources */,
 				8CBD2CD12C4DFAA400D4A502 /* MoodPositioning.swift in Sources */,
-				30D297152C4F9FB600496B5E /* reportCard.swift in Sources */,
+				30D297152C4F9FB600496B5E /* MoodCard.swift in Sources */,
 				8C2965252C47B8850027E79D /* TaggingView.swift in Sources */,
 				9B0ECA432C3FCE2B0098E196 /* ProfileView.swift in Sources */,
 				9B8398152C3FDE8D00399E19 /* TabBar.swift in Sources */,
@@ -640,7 +640,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = C8496U3L79;
+				DEVELOPMENT_TEAM = 4784A2Z39F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;
@@ -670,7 +670,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nocjurnal-ADA-MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = C8496U3L79;
+				DEVELOPMENT_TEAM = 4784A2Z39F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Nocjournal;

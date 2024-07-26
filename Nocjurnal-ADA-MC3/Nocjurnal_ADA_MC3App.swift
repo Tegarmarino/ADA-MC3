@@ -19,8 +19,10 @@ struct Nocjournal: App {
                         .navigationDestination(for: PageKind.self) { i in
                             if i == .editor {
                                 JournalView()
-                            } else if(i == .reward) {
+                            } else if i == .reward {
                                 JournalRewardView()
+                            } else if i == .entries {
+                                JournalListView()
                             } else {
                                 EmptyView()
                             }

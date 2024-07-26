@@ -14,7 +14,7 @@ struct MoodBreakDown: View {
     @State var currentPositions: [CGPoint] = []
     var journals: [JournalModel]
     
-    private let containerSize: CGSize = CGSize(width: UIScreen.main.bounds.size.width - 48, height: UIScreen.main.bounds.size.width - 48)
+    private let containerSize: CGSize = CGSize(width: UIScreen.main.bounds.size.width - 84, height: UIScreen.main.bounds.size.width - 84)
     
     var body: some View {
         ZStack {

@@ -10,7 +10,7 @@ import SwiftUI
 
 class MoodData{
     var mood: JournalMood
-    var color = Color.white
+    var color: LinearGradient
     var percentage = 0
     var focused = false
     var position = CGPoint(x: UIScreen.main.bounds.width / 2 - 24, y: UIScreen.main.bounds.width / 2 - 24)
@@ -23,15 +23,15 @@ class MoodData{
         
         switch mood {
             case .happy:
-                color = .yellow
+                self.color = Color.mood.happy
             case .sad:
-                color = .blue
+                self.color = Color.mood.sad
             case .angry:
-                color = .red
+                self.color = Color.mood.angry
             case .scared:
-                color = .purple
+                self.color = Color.mood.scared
             case .disgusted:
-                color = .green
+                self.color = Color.mood.disgusted
         }
     }
     

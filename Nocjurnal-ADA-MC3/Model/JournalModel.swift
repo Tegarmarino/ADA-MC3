@@ -68,12 +68,12 @@ enum JournalContent: Codable {
 struct JournalDraft {
     var mood: JournalMood
     var contents: [JournalContent]
-    var tags: [String]
+    var tags: [String?]
     
     init() {
         self.mood = .happy
         self.contents = []
-        self.tags = []
+        self.tags = [nil, nil, nil]
     }
 }
 
@@ -82,10 +82,10 @@ class JournalModel {
     var id: UUID
     var mood: JournalMood
     var contents: [JournalContent]
-    var tags: [String]
+    var tags: [String?]
     var timestamp: Date
     
-    init(mood: JournalMood, contents: [JournalContent], tags: [String], timestamp: Date = Date()) {
+    init(mood: JournalMood, contents: [JournalContent], tags: [String?], timestamp: Date = Date()) {
         self.id = UUID()
         self.mood = mood
         self.contents = contents
