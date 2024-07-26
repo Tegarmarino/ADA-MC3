@@ -30,6 +30,7 @@ struct ReportView: View {
                     MoodBreakDown(journals: journalModel)
                         .padding(.horizontal, 24)
 
+                    
                     ForEach(groupedJournalEntries.keys.sorted(), id: \.self) { date in
                         Section(header: Text(date, style: .date).font(Font.format.textHeadlineFour)) {
                             ForEach(groupedJournalEntries[date]!, id: \.id) { journal in

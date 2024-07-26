@@ -91,6 +91,7 @@ struct JournalRewardView: View {
                 Spacer()
                 ButtonRegular("Home", state: $submitState) {
                     app.path = []
+                    app.page = .home
                     users[0].money += 500
                 }
                 .padding(.bottom, 34)
@@ -100,6 +101,6 @@ struct JournalRewardView: View {
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
         .ignoresSafeArea()
         .background(Color.theme.backgroundColorOneTheme)
-        
+        .navigationBarBackButtonHidden(true)
     }
 }

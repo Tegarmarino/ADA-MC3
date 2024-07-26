@@ -12,6 +12,7 @@ import SwiftData
 enum ItemType: String {
     case clothes = "Clothes"
     case hat = "Hat"
+    case wallpaper = "Wallpaper"
 }
 
 // Model untuk menyimpan item yang sudah dibeli (SwiftData)
