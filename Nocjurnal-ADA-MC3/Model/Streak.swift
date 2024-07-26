@@ -13,47 +13,77 @@ func filterUniqueDates(from journals: [JournalModel]) -> [JournalModel] {
 
     for journal in journals {
         let dateComponents = calendar.dateComponents([.year, .month, .day], from: journal.timestamp)
-        let normalizedDate = calendar.date(from: dateComponents)!
-
-        // Update the dictionary with the latest journal entry for each unique date
-        dateDict[normalizedDate] = journal
+        if let normalizedDate = calendar.date(from: dateComponents) {
+            // Update the dictionary with the latest journal entry for each unique date
+            dateDict[normalizedDate] = journal
+        }
     }
 
     return Array(dateDict.values)
+}
+
+func checkAndResetStreakIfMissedYesterday(for journals: [JournalModel]) -> Int {
+    // Filter to unique dates
+    let uniqueJournals = filterUniqueDates(from: journals)
+    
+    // Sort journals by timestamp in ascending order (earliest to latest)
+    let sortedJournals = uniqueJournals.sorted { $0.timestamp < $1.timestamp }
+    
+    let calendar = Calendar.current
+    let today = calendar.startOfDay(for: Date())
+    let yesterday = calendar.date(byAdding: .day, value: -1, to: today)!
+    
+    var didJournalYesterday = false
+    
+    for journal in sortedJournals {
+        let journalDate = calendar.startOfDay(for: journal.timestamp)
+        if journalDate == yesterday {
+            didJournalYesterday = true
+            break
+        }
+    }
+    
+    if !didJournalYesterday {
+        return 0
+    }
+    
+    return calculateStreaks(for: journals).currentStreak
 }
 
 func calculateStreaks(for journals: [JournalModel]) -> (highestStreak: Int, currentStreak: Int) {
     // Filter to unique dates
     let uniqueJournals = filterUniqueDates(from: journals)
     
-    // Sort journals by timestamp in descending order
-    let sortedJournals = uniqueJournals.sorted { $0.timestamp > $1.timestamp }
+    // Sort journals by timestamp in ascending order (earliest to latest)
+    let sortedJournals = uniqueJournals.sorted { $0.timestamp < $1.timestamp }
     
     var highestStreak = 0
     var currentStreak = 0
-    var lastDate = Date.distantFuture
+    var lastDate: Date?
     
     let calendar = Calendar.current
 
     for journal in sortedJournals {
-        let journalDate = journal.timestamp
+        let journalDate = calendar.startOfDay(for: journal.timestamp) // Normalize to start of the day
         
-        // Calculate the difference in days between current journal and the last date
-        let components = calendar.dateComponents([.day], from: journalDate, to: lastDate)
-        let dayDifference = components.day ?? 0
-        
-        if dayDifference == 1 {
-            // Consecutive day
-            currentStreak += 1
-        } else if dayDifference == 0 {
-            // Same day, continue streak
-            currentStreak = max(currentStreak, 1)
+        if let lastDate = lastDate {
+            let components = calendar.dateComponents([.day], from: lastDate, to: journalDate)
+            let dayDifference = components.day ?? 0
+            
+            if dayDifference == 1 {
+                // Consecutive day
+                currentStreak += 1
+            } else if dayDifference > 1 {
+                // Not consecutive, reset streak
+                currentStreak = 1
+            }
+            // Else if dayDifference == 0, it's the same day, do nothing
         } else {
-            // Not consecutive, reset streak
+            // First entry, start streak
             currentStreak = 1
         }
-        highestStreak = max(highestStreak, currentStreak)
         
+        highestStreak = max(highestStreak, currentStreak)
         lastDate = journalDate
     }
     
