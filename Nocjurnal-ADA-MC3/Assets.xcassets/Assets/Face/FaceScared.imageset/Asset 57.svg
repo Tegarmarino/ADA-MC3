@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 150.04 101.53">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-5, .cls-6 {
+        stroke-width: 1.03px;
+      }
+
+      .cls-1, .cls-4 {
+        fill: #4582af;
+      }
+
+      .cls-1, .cls-4, .cls-5, .cls-6 {
+        stroke: #4582af;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+        stroke: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: #b8b89f;
+        stroke: #b8b89f;
+      }
+
+      .cls-4 {
+        stroke-width: .71px;
+      }
+
+      .cls-5 {
+        fill: none;
+      }
+
+      .cls-6 {
+        fill: #fff;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="75.02" y1="101.01" x2="75.02" y2="7.32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f9f3e2"/>
+      <stop offset=".36" stop-color="#f6efe2"/>
+      <stop offset=".65" stop-color="#f0e5e3"/>
+      <stop offset=".92" stop-color="#e4d4e4"/>
+      <stop offset="1" stop-color="#e0cee5"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="101.53" y2="6.81" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-2" d="M149.53,50.6c0-23.9-19.38-43.28-43.28-43.28-12.28,0-23.35,5.12-31.23,13.33-7.88-8.21-18.95-13.33-31.23-13.33C19.89,7.32.51,26.7.51,50.6c0,17.41,10.28,32.41,25.1,39.28,12.77,6.89,30.19,11.14,49.4,11.14s36.63-4.24,49.4-11.14c14.82-6.87,25.1-21.87,25.1-39.28Z"/>
+      <g>
+        <g>
+          <ellipse class="cls-6" cx="29.47" cy="48.91" rx="23.91" ry="28.99"/>
+          <ellipse class="cls-4" cx="22.74" cy="40.76" rx="4.53" ry="5.5"/>
+        </g>
+        <g>
+          <ellipse class="cls-6" cx="120.54" cy="48.91" rx="23.91" ry="28.99"/>
+          <ellipse class="cls-4" cx="127.28" cy="40.76" rx="4.53" ry="5.5"/>
+        </g>
+      </g>
+      <g>
+        <ellipse class="cls-1" cx="43.36" cy="7.58" rx="11.4" ry="4.81" transform="translate(2.02 22.7) rotate(-30)"/>
+        <ellipse class="cls-1" cx="106.67" cy="7.58" rx="4.81" ry="11.4" transform="translate(46.78 96.17) rotate(-60)"/>
+      </g>
+      <g>
+        <ellipse class="cls-3" cx="75.04" cy="48.91" rx="5.77" ry="14.25"/>
+        <path class="cls-5" d="M91.05,72.82c-3.58-15.18-7.05-22.75-10.41-22.69-1.86.03-3.69,2.4-5.47,7.11h-.24c-1.79-4.71-3.61-7.08-5.47-7.11-3.35-.05-6.82,7.51-10.41,22.69"/>
+      </g>
+    </g>
+  </g>
+</svg>

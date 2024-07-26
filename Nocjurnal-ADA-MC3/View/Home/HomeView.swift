@@ -63,7 +63,6 @@ struct HomeView: View {
                 .frame(width: VPW)
                 .ignoresSafeArea()
                 
-                
                 ZStack(alignment: .center){
                     Spacer() // Push hat and clothes to the top left
                     if let activeClothesImage = users.first?.activeClothesImage {
@@ -74,7 +73,6 @@ struct HomeView: View {
                             Image(activeClothesImage)
                                 .resizable()
                                 .scaledToFit()
-//                                .frame(width: 240) // Customizable size
                                 .frame(width: activeClothesImage == "Clothes2" ? 220 : 240)
                                 .position(x: 201, y: 479) // Customizable position
                         }
@@ -104,8 +102,8 @@ struct HomeView: View {
                     }
                     
                     
-                    Image("FaceAngry")
-                        .position(x:200, y: 427)
+                    Image(journalModel.last?.mood == JournalMood.angry ? "FaceAngry" : journalModel.last?.mood == JournalMood.disgusted ? "FaceDisgusted" : journalModel.last?.mood == JournalMood.happy ? "FaceJoyful" : journalModel.last?.mood == JournalMood.sad ? "FaceSad" : journalModel.last?.mood == JournalMood.scared ? "FaceScared" : "FaceNormal")
+                        .position(x:200, y: 426)
                         .zIndex(2.0)
                     Image("NocyNoFace") // Nocy will be centered by default
                         .position(x:200, y: 455)
