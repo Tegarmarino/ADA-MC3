@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30514C6C2C52472300FA8AA0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30514C6B2C52472300FA8AA0 /* OnboardingView.swift */; };
+		30514C6E2C52476F00FA8AA0 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30514C6D2C52476F00FA8AA0 /* CardDetailView.swift */; };
+		30514C712C5247A300FA8AA0 /* getColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30514C702C5247A300FA8AA0 /* getColor.swift */; };
 		30D297152C4F9FB600496B5E /* MoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D297142C4F9FB600496B5E /* MoodCard.swift */; };
 		8C29650E2C45123F0027E79D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650D2C45123F0027E79D /* Style.swift */; };
 		8C2965102C4514450027E79D /* ButtonRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29650F2C4514450027E79D /* ButtonRegular.swift */; };
@@ -71,6 +74,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30514C6B2C52472300FA8AA0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		30514C6D2C52476F00FA8AA0 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
+		30514C702C5247A300FA8AA0 /* getColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getColor.swift; sourceTree = "<group>"; };
 		30D297142C4F9FB600496B5E /* MoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCard.swift; sourceTree = "<group>"; };
 		8C29650D2C45123F0027E79D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		8C29650F2C4514450027E79D /* ButtonRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRegular.swift; sourceTree = "<group>"; };
@@ -147,6 +153,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30514C6A2C52471400FA8AA0 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				30514C6B2C52472300FA8AA0 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		30514C6F2C52479600FA8AA0 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				30514C702C5247A300FA8AA0 /* getColor.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		30D297132C4F9DA000496B5E /* ReportCard */ = {
+			isa = PBXGroup;
+			children = (
+				30D297142C4F9FB600496B5E /* MoodCard.swift */,
+			);
+			path = ReportCard;
+			sourceTree = "<group>";
+		};
 		8C2965152C4661040027E79D /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +285,7 @@
 		9B0ECA362C3FCCD40098E196 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				30514C6A2C52471400FA8AA0 /* Onboarding */,
 				9BCD24D22C4E46300089FB47 /* User */,
 				9B8398362C401EA400399E19 /* Shop */,
 				9B0ECA3B2C3FCD040098E196 /* Profile */,
@@ -280,6 +311,7 @@
 				9B0ECA3C2C3FCE110098E196 /* ReportView.swift */,
 				8C2965202C466A8A0027E79D /* JournalDetailView.swift */,
 				8C9B9A2C2C5230DE000258DA /* JournalListView.swift */,
+				30514C6D2C52476F00FA8AA0 /* CardDetailView.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -316,6 +348,7 @@
 		9B0ECA4B2C3FD28B0098E196 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				30514C6F2C52479600FA8AA0 /* Functions */,
 				9B8398182C3FE79C00399E19 /* Fonts */,
 				9B0ECA4D2C3FD2980098E196 /* Extensions */,
 				9B0ECA4C2C3FD2910098E196 /* Components */,
@@ -518,9 +551,11 @@
 				8C2965212C466A8A0027E79D /* JournalDetailView.swift in Sources */,
 				9B8398172C3FE35700399E19 /* Font.swift in Sources */,
 				922689192C50EEE700DA30F4 /* Streak.swift in Sources */,
+				30514C6E2C52476F00FA8AA0 /* CardDetailView.swift in Sources */,
 				9BCD24CB2C4E411C0089FB47 /* UserInventoryModel.swift in Sources */,
 				9B0614B62C44D56B00C6736F /* RichTextEditor.swift in Sources */,
 				8CBD2CCF2C4DF93E00D4A502 /* MoodCluster.swift in Sources */,
+				30514C6C2C52472300FA8AA0 /* OnboardingView.swift in Sources */,
 				9BCD24D12C4E460C0089FB47 /* ShopItemView.swift in Sources */,
 				8C4249BE2C4A343700709111 /* VerticalFlow.swift in Sources */,
 				9B0ECA412C3FCE240098E196 /* FriendView.swift in Sources */,
@@ -538,6 +573,7 @@
 				9226891B2C50FF6B00DA30F4 /* JournalStatisticObserver.swift in Sources */,
 				9BCD24CD2C4E44720089FB47 /* ShopInventoryModel.swift in Sources */,
 				8CBD2CCB2C4DCE4A00D4A502 /* Mood.swift in Sources */,
+				30514C712C5247A300FA8AA0 /* getColor.swift in Sources */,
 				921118932C4E60860047C4EE /* XPBarView.swift in Sources */,
 				8C29651F2C466A100027E79D /* AttributedText.swift in Sources */,
 				922689122C4FB5C300DA30F4 /* Notification.swift in Sources */,
