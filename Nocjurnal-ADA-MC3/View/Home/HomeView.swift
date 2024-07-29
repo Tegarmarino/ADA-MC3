@@ -28,7 +28,11 @@ struct HomeView: View {
     var body: some View {
         VStack{
             ZStack(alignment:.top) {
-                if let activeWallpaperImage = users.first?.activeWallpaperImage {
+                if users.first?.activeWallpaperImage == nil {
+                            Image("Wallpaper1") // Load "Wallpaper1" initially
+                              .resizable()
+                              .scaledToFit()
+                } else if let activeWallpaperImage = users.first?.activeWallpaperImage {
                     Button(action: {
                         unselectType = .wallpaper
                         showUnselectConfirmation = true
@@ -39,6 +43,17 @@ struct HomeView: View {
                     }
                     .buttonStyle(.plain)
                 }
+//                if let activeWallpaperImage = users.first?.activeWallpaperImage {
+//                    Button(action: {
+//                        unselectType = .wallpaper
+//                        showUnselectConfirmation = true
+//                    }) {
+//                        Image(activeWallpaperImage)
+//                            .resizable()
+//                            .scaledToFit() // Or adjust to your preferred sizing
+//                    }
+//                    .buttonStyle(.plain)
+//                }
                 VStack(spacing: 0) {
                     Spacer()
                 }
@@ -49,6 +64,7 @@ struct HomeView: View {
                     }
                     .sheet(isPresented: $showShopView) {
                         ShopView()
+                            .presentationDetents([.medium])
                     }
                     Spacer()
                     ButtonIcon("xmark.bin", state: $buttonState, type: .secondary) {
@@ -56,6 +72,7 @@ struct HomeView: View {
                     }
                     .sheet(isPresented: $showtInventoryView) {
                         InventoryView(modelContext: modelContext) // Pass modelContext here
+                            .presentationDetents([.medium])
                     }
                 }
                 .padding(EdgeInsets(top: safeAreaInsets.top, leading: 24, bottom: 0, trailing: 24))
@@ -79,26 +96,6 @@ struct HomeView: View {
                         .buttonStyle(.plain)
                         .zIndex(3.0)
                     }
-                    
-//                    if let activeHatImage = users.first?.activeHatImage {
-//                        Button(action: {
-//                            unselectType = .hat
-//                            showUnselectConfirmation = true
-//                        }) {
-//                            Image(activeHatImage)
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 100, height: 80) // Customizable size
-//                                .position(x: 200, y: 350) // Customizable position
-//                            if activeHatImage == "Hat2" {
-//                                .frame(width: 100, height: 80) // Customizable size
-//                                .position(x: 200, y: 350) // Customizable position
-//                            }
-//                                
-//                        }
-//                        .buttonStyle(.plain)
-//                        .zIndex(2.0)
-//                    }
                     if let activeHatImage = users.first?.activeHatImage {
                         Button(action: {
                             unselectType = .hat
