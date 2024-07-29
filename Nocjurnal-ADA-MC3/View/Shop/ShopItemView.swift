@@ -78,11 +78,13 @@ struct ShopItemView: View {
                     .frame(width: 80, height: 80)
                     .padding(.top, 10) // Add padding to the top of the image
 
-                VStack(alignment: .leading) {
-                    //Text(item.type.rawValue)
-                    Text("$\(item.price)")
-                        .font(.headline)
-                        .padding(.bottom, 10) // Add padding to the bottom of the price
+                HStack() {
+                    Text("\(item.price)")
+                        .font(Font.format.textBodyThree)
+                    Image("Coins")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .padding(.leading, -5)
                 }
 
                 //Spacer() // Removed Spacer - Button will now fill the available space
