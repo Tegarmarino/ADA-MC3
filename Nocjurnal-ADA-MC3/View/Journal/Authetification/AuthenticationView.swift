@@ -11,7 +11,7 @@ struct AuthenticationView: View {
     @StateObject private var viewModel = AuthenticationViewModel()
     @State private var submitState = ButtonState.idle
     @Binding var passcodeState: Bool
-
+    
     var body: some View {
         if !passcodeState{
             ReportView() // Navigate to your main view here
@@ -22,15 +22,12 @@ struct AuthenticationView: View {
                     ReportView() // Navigate to your main view here
                 } else {
                     VStack(spacing: 20) {
-                        Text("hoo are u?")
-                            .font(Font.format.textHeadlineOne)
-                        
-                        Image("Nocy")
                         
                         ButtonRegular("Authenticate", state: $submitState){
                             viewModel.authenticate()
                         }
                         .padding(.horizontal, 72)
+                        .padding(.top, 186)
                         
                         if let error = viewModel.authError {
                             Text(error)
@@ -38,6 +35,11 @@ struct AuthenticationView: View {
                                 .padding()
                         }
                     }
+                    .background(
+                        Image("AuthBackground")
+                            .resizable()
+                            .scaledToFill()
+                    )
                 }
             }
         }
@@ -45,5 +47,5 @@ struct AuthenticationView: View {
 }
 
 #Preview {
-    AuthenticationView(passcodeState: .constant(false))
+    AuthenticationView(passcodeState: .constant(true))
 }
