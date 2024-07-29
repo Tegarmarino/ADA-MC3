@@ -34,19 +34,19 @@ struct ShopView: View {
     //    @Query var purchasedItems: [UserInventoryItem] // Fetch purchased items
     
     let shopItems: [ShopItem] = [
-        ShopItem(type: .clothes, price: 50, image: "Clothes1"),
-        ShopItem(type: .clothes, price: 100, image: "Clothes2"),
-        ShopItem(type: .clothes, price: 150, image: "Clothes3"),
-        ShopItem(type: .clothes, price: 200, image: "Clothes4"),
-        ShopItem(type: .hat, price: 50, image: "Hat1"),
-        ShopItem(type: .hat, price: 100, image: "Hat2"),
-        ShopItem(type: .hat, price: 150, image: "Hat3"),
-        ShopItem(type: .hat, price: 200, image: "Hat4"),
-        ShopItem(type: .wallpaper, price: 50, image: "Wallpaper1"),
-        ShopItem(type: .wallpaper, price: 100, image: "Wallpaper2"),
-        ShopItem(type: .wallpaper, price: 150, image: "Wallpaper3"),
-        ShopItem(type: .wallpaper, price: 200, image: "Wallpaper4"),
-        ShopItem(type: .wallpaper, price: 250, image: "Wallpaper5"),
+        ShopItem(type: .clothes, price: 150, image: "Clothes1"),
+        ShopItem(type: .clothes, price: 300, image: "Clothes2"),
+        ShopItem(type: .clothes, price: 450, image: "Clothes3"),
+        ShopItem(type: .clothes, price: 600, image: "Clothes4"),
+        ShopItem(type: .hat, price: 150, image: "Hat1"),
+        ShopItem(type: .hat, price: 300, image: "Hat2"),
+        ShopItem(type: .hat, price: 450, image: "Hat3"),
+        ShopItem(type: .hat, price: 600, image: "Hat4"),
+        ShopItem(type: .wallpaper, price: 150, image: "Wallpaper1"),
+        ShopItem(type: .wallpaper, price: 300, image: "Wallpaper2"),
+        ShopItem(type: .wallpaper, price: 450, image: "Wallpaper3"),
+        ShopItem(type: .wallpaper, price: 600, image: "Wallpaper4"),
+        ShopItem(type: .wallpaper, price: 850, image: "Wallpaper5"),
         // ... other items ...
     ]
     
@@ -125,25 +125,35 @@ struct ShopView: View {
             VStack(spacing: 0) {
                 // Custom Navigation Bar (Removed the close button)
                 HStack {
-                    HStack(spacing: 30) {
+                    HStack(spacing: 20) {
                         Spacer()
                         Button("Hats") { selectedTab = 0 }
                             .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 0 ? Font.format.textHeadlineTwo : Font.format.textHeadlineFive) // Corrected font selection
+                            .font(selectedTab == 0 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
                             .fontWeight(selectedTab == 0 ? .bold : .regular) // Simplified fontWeight
 
                         Button("Clothes") { selectedTab = 1 }
                             .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 1 ? Font.format.textHeadlineTwo : Font.format.textHeadlineFive) // Corrected font selection
+                            .font(selectedTab == 1 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
                             .fontWeight(selectedTab == 1 ? .bold : .regular)
 
                         Button("Wallpaper") { selectedTab = 2 }
                             .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 2 ? Font.format.textHeadlineTwo : Font.format.textHeadlineFive) // Corrected font selection
+                            .font(selectedTab == 2 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
                             .fontWeight(selectedTab == 2 ? .bold : .regular)
                         Spacer()
                     }
-                    .padding(.vertical, 20)
+                    .padding(.vertical, 25)
+                    HStack{
+                        Text("\(users.first!.money)")
+                            .font(Font.format.textHeadlineFour)
+                            .foregroundColor(Color.theme.warningColorTheme)
+
+                        Image("Coins")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }
+                    .padding(.trailing)
                 }
 
                 .padding(.horizontal)
