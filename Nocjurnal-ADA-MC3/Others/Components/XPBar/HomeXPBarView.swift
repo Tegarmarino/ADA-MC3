@@ -62,12 +62,12 @@ struct HomeXPBarView: View {
                 }
                 Spacer()
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.theme.secondaryColorTheme)
+                    .fill(Color(hex: 0xB8B89F, alpha: 0.5))
                     .frame(width: VPW - 132, height: 24, alignment: .topLeading)
                     .background(
                         HStack {
                             Rectangle()
-                                .fill(Color.theme.primaryColorTheme)
+                                .fill(Color(hex: 0xB8B89F))
                                 .frame(width: (VPW - 120) * curXP / 1000, height: 24)
                                 .cornerRadius(12)
                             Spacer()

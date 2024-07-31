@@ -127,28 +127,38 @@ struct ShopView: View {
             VStack(spacing: 0) {
                 // Custom Navigation Bar (Removed the close button)
                 HStack {
-                    HStack(spacing: 20) {
+                    HStack(spacing: 24) {
                         Spacer()
                         Button("Hats") { selectedTab = 0 }
-                            .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 0 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
-                            .fontWeight(selectedTab == 0 ? .bold : .regular) // Simplified fontWeight
-                        
+                            .foregroundColor(selectedTab == 0 ? Color.theme.primaryColorTheme : Color.theme.fontPrimaryColorTheme)
+                            .opacity(selectedTab == 0 ? 1.0 : 0.5)
+                            .font(Font.format.textHeadlineFive) // Corrected font selection
+                            .animation(.spring(duration: 0.25), value: selectedTab == 0)
                         Button("Clothes") { selectedTab = 1 }
-                            .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 1 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
-                            .fontWeight(selectedTab == 1 ? .bold : .regular)
-                        
+                            .foregroundColor(selectedTab == 1 ? Color.theme.primaryColorTheme : Color.theme.fontPrimaryColorTheme)
+                            .opacity(selectedTab == 1 ? 1.0 : 0.5)
+                            .font(Font.format.textHeadlineFive) // Corrected font selection
+                            .animation(.spring(duration: 0.25), value: selectedTab == 1)
                         Button("Wallpaper") { selectedTab = 2 }
-                            .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 2 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
-                            .fontWeight(selectedTab == 2 ? .bold : .regular)
+                            .foregroundColor(selectedTab == 2 ? Color.theme.primaryColorTheme : Color.theme.fontPrimaryColorTheme)
+                            .opacity(selectedTab == 2 ? 1.0 : 0.5)
+                            .font(Font.format.textHeadlineFive) // Corrected font selection
+                            .animation(.spring(duration: 0.25), value: selectedTab == 2)
                         Spacer()
                     }
-                    .padding(.vertical, 25)
+                    .padding(.bottom, 12)
                 }
                 .padding(.horizontal)
-                .background(Color.theme.primaryColorTheme) // Set the blue background
+                .background(Color.theme.backgroundColorOneTheme)
+                .overlay(
+                    VStack {
+                        Spacer()
+                        Rectangle()
+                            .fill(Color.theme.borderColorTheme)
+                            .frame(height: 1)
+                        
+                    }
+                )
                 
                 
                 TabView(selection: $selectedTab) {

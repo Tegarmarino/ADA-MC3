@@ -85,7 +85,7 @@ struct HomeView: View {
                             }
                             .frame(width: VPW / 3)
                         }
-                        .padding(24)
+                        .padding(EdgeInsets(top: 24, leading: 24, bottom: 12, trailing: 24))
                         .frame(width: VPW, alignment: .topLeading)
                         HStack(spacing: 0) {
                             ShopView()

@@ -21,134 +21,43 @@ struct InventoryView: View {
     }
     
     var body: some View {
-        //        NavigationView {
-        //            ScrollView {
-        //                LazyVStack(alignment: .leading, spacing: 20) {
-        //                    // Clothes section
-        //                    if !viewModel.purchasedItems.filter({ $0.type == .clothes }).isEmpty {
-        //                        Text("Clothes")
-        //                            .font(.headline)
-        //
-        //                        ForEach(viewModel.purchasedItems.filter { $0.type == .clothes }) { item in
-        //                            InventoryItemRow(
-        //                                item: item,
-        //                                selectedItem: $viewModel.selectedClothesItem,
-        //                                itemType: .clothes,
-        //                                isDisabled: viewModel.selectedClothesItem != nil && viewModel.selectedClothesItem?.id != item.id, isActiveItem: viewModel.activeClothesItems.contains(item)
-        //                            )
-        //                        }
-        //                        .onDelete(perform: deleteItems) // Pass the delete function
-        //                    }
-        //
-        //                    // Hats section (similar modifications)
-        //                    if !viewModel.purchasedItems.filter({ $0.type == .hat }).isEmpty {
-        //                        Text("Hats")
-        //                            .font(.headline)
-        //                            .padding(.top, 20)
-        //
-        //                        ForEach(viewModel.purchasedItems.filter { $0.type == .hat }) { item in
-        //                            InventoryItemRow(
-        //                                item: item,
-        //                                selectedItem: $viewModel.selectedHatItem,
-        //                                itemType: .hat,
-        //                                isDisabled: viewModel.selectedHatItem != nil && viewModel.selectedHatItem?.id != item.id, isActiveItem: viewModel.activeHatItems.contains(item)
-        //                            )
-        //                        }
-        //                        .onDelete(perform: deleteItems) // Pass the delete function
-        //                    }
-        //
-        //                    // Hats section (similar modifications)
-        //                    if !viewModel.purchasedItems.filter({ $0.type == .wallpaper }).isEmpty {
-        //                        Text("Wallpapers")
-        //                            .font(.headline)
-        //                            .padding(.top, 20)
-        //
-        //                        ForEach(viewModel.purchasedItems.filter { $0.type == .wallpaper }) { item in
-        //                            InventoryItemRow(
-        //                                item: item,
-        //                                selectedItem: $viewModel.selectedWallpaperItem,
-        //                                itemType: .wallpaper,
-        //                                isDisabled: viewModel.selectedWallpaperItem != nil && viewModel.selectedWallpaperItem?.id != item.id, isActiveItem: viewModel.activeWallpaperItems.contains(item)
-        //                            )
-        //                        }
-        //                        .onDelete(perform: deleteItems) // Pass the delete function
-        //                    }
-        //                }
-        //                .padding()
-        //            }
-        //            // ... the rest of your view code
-        //        }
-        //        .onChange(of: viewModel.selectedClothesItem) { newItem in
-        //            viewModel.updateActiveItem(newItem: newItem, itemType: .clothes) // Update but don't dismiss yet
-        //        }
-        //        .onChange(of: viewModel.selectedHatItem) { newItem in
-        //            viewModel.updateActiveItem(newItem: newItem, itemType: .hat) // Update but don't dismiss yet
-        //        }
-        //        .onChange(of: viewModel.selectedWallpaperItem) { newItem in
-        //            viewModel.updateActiveItem(newItem: newItem, itemType: .wallpaper) // Update but don't dismiss yet
-        //        }
-        //        .confirmationDialog("Replace Item?", isPresented: $viewModel.showReplaceConfirmation, titleVisibility: .visible) {
-        //            Button("Replace") {
-        //                viewModel.replaceItem()
-        //                dismiss() // Dismiss only after confirmation
-        //            }
-        //            Button("Cancel", role: .cancel) { }
-        //        }
-        //        //        .confirmationDialog("Replace Item?", isPresented: $viewModel.showReplaceConfirmation, titleVisibility: .visible) {
-        //        //            Button("Replace") {
-        //        //                viewModel.replaceItem()
-        //        //                dismiss()
-        //        //            }
-        //        //            Button("Cancel", role: .cancel) { }
-        //    message: {
-        //        Text("Are you sure you want to replace the currently equipped \(viewModel.replacingItemType?.rawValue ?? "")?")
-        //    }
-        //
-        //
-        //
-        //
-        //
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        NavigationView { // Use NavigationView to take over the full screen
+       NavigationView { // Use NavigationView to take over the full screen
             VStack(spacing: 0) {
                 // Custom Navigation Bar (Removed the close button)
                 HStack {
-                    HStack(spacing: 20) {
+                    HStack(spacing: 24) {
                         Spacer()
                         Button("Hats") { selectedTab = 0 }
-                            .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 0 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
-                            .fontWeight(selectedTab == 0 ? .bold : .regular) // Simplified fontWeight
-                        
+                            .foregroundColor(selectedTab == 0 ? Color.theme.primaryColorTheme : Color.theme.fontPrimaryColorTheme)
+                            .opacity(selectedTab == 0 ? 1.0 : 0.5)
+                            .font(Font.format.textHeadlineFive) // Corrected font selection
+                            .animation(.spring(duration: 0.25), value: selectedTab == 0)
                         Button("Clothes") { selectedTab = 1 }
-                            .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 1 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
-                            .fontWeight(selectedTab == 1 ? .bold : .regular)
-                        
+                            .foregroundColor(selectedTab == 1 ? Color.theme.primaryColorTheme : Color.theme.fontPrimaryColorTheme)
+                            .opacity(selectedTab == 1 ? 1.0 : 0.5)
+                            .font(Font.format.textHeadlineFive) // Corrected font selection
+                            .animation(.spring(duration: 0.25), value: selectedTab == 1)
                         Button("Wallpaper") { selectedTab = 2 }
-                            .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 2 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
-                            .fontWeight(selectedTab == 2 ? .bold : .regular)
+                            .foregroundColor(selectedTab == 2 ? Color.theme.primaryColorTheme : Color.theme.fontPrimaryColorTheme)
+                            .opacity(selectedTab == 2 ? 1.0 : 0.5)
+                            .font(Font.format.textHeadlineFive) // Corrected font selection
+                            .animation(.spring(duration: 0.25), value: selectedTab == 2)
                         Spacer()
                     }
-                    .padding(.vertical, 25)
+                    .padding(.bottom, 12)
                 }
                 .padding(.horizontal)
-                .background(Color.theme.primaryColorTheme)
+                .background(Color.theme.backgroundColorOneTheme)
+                .overlay(
+                    VStack {
+                        Spacer()
+                        Rectangle()
+                            .fill(Color.theme.borderColorTheme)
+                            .frame(height: 1)
+
+                    }
+                )
+                
                 
                 
 //                TabView(selection: $selectedTab) {
