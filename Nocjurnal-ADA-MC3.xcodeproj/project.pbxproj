@@ -346,7 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				30514C6F2C52479600FA8AA0 /* Functions */,
-				9BF7CA0A2C50E4B30080518C /* Helpers */,
 				9B8398182C3FE79C00399E19 /* Fonts */,
 				9B0ECA4D2C3FD2980098E196 /* Extensions */,
 				9B0ECA4C2C3FD2910098E196 /* Components */,
@@ -446,13 +445,6 @@
 				9BF7CA082C4FA35E0080518C /* InventoryRow.swift */,
 			);
 			path = User;
-			sourceTree = "<group>";
-		};
-		9BF7CA0A2C50E4B30080518C /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9BF7CA102C52420E0080518C /* Inventory */ = {

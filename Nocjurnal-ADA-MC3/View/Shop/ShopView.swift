@@ -50,6 +50,8 @@ struct ShopView: View {
         // ... other items ...
     ]
     
+    let VPW = UIScreen.main.bounds.size.width
+    
     var body: some View {
         //        VStack {
         //            HStack {
@@ -131,12 +133,12 @@ struct ShopView: View {
                             .foregroundColor(Color.theme.warningColorTheme)
                             .font(selectedTab == 0 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
                             .fontWeight(selectedTab == 0 ? .bold : .regular) // Simplified fontWeight
-
+                        
                         Button("Clothes") { selectedTab = 1 }
                             .foregroundColor(Color.theme.warningColorTheme)
                             .font(selectedTab == 1 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
                             .fontWeight(selectedTab == 1 ? .bold : .regular)
-
+                        
                         Button("Wallpaper") { selectedTab = 2 }
                             .foregroundColor(Color.theme.warningColorTheme)
                             .font(selectedTab == 2 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
@@ -144,34 +146,22 @@ struct ShopView: View {
                         Spacer()
                     }
                     .padding(.vertical, 25)
-                    HStack{
-                        Text("\(users.first!.money)")
-                            .font(Font.format.textHeadlineFour)
-                            .foregroundColor(Color.theme.warningColorTheme)
-
-                        Image("Coins")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                    }
-                    .padding(.trailing)
                 }
-
                 .padding(.horizontal)
-
                 .background(Color.theme.primaryColorTheme) // Set the blue background
-
+                
                 
                 TabView(selection: $selectedTab) {
                     ShopItemsPage(shopItems: shopItems.filter { $0.type == .hat },
-                              purchasedItems: purchasedItems, buyAction: buyItem)
+                                  purchasedItems: purchasedItems, buyAction: buyItem)
                     .tag(0)
                     
                     ShopItemsPage(shopItems: shopItems.filter { $0.type == .clothes },
-                              purchasedItems: purchasedItems, buyAction: buyItem)
+                                  purchasedItems: purchasedItems, buyAction: buyItem)
                     .tag(1)
                     
                     ShopItemsPage(shopItems: shopItems.filter { $0.type == .wallpaper && $0.image != "Wallpaper1" },
-                              purchasedItems: purchasedItems, buyAction: buyItem)
+                                  purchasedItems: purchasedItems, buyAction: buyItem)
                     .tag(2)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
@@ -180,6 +170,7 @@ struct ShopView: View {
             .navigationTitle("") // Hide the default navigation title
             .navigationBarHidden(true) // Hide the default navigation bar
         } // End of NavigationView
+        .frame(width: VPW)
         .alert("Insufficient Funds", isPresented: $showAlert) {
             Button("OK", role: .cancel) { }
         } message: {
@@ -285,7 +276,7 @@ struct ShopItemsPage: View {
     let shopItems: [ShopItem]
     let purchasedItems: [UserInventoryItem]
     let buyAction: (ShopItem) -> Void
-
+    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {

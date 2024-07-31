@@ -127,30 +127,28 @@ struct InventoryView: View {
             VStack(spacing: 0) {
                 // Custom Navigation Bar (Removed the close button)
                 HStack {
-                    HStack(spacing: 30) {
+                    HStack(spacing: 20) {
                         Spacer()
                         Button("Hats") { selectedTab = 0 }
                             .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 0 ? Font.format.textHeadlineTwo : Font.format.textHeadlineFive) // Corrected font selection
+                            .font(selectedTab == 0 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
                             .fontWeight(selectedTab == 0 ? .bold : .regular) // Simplified fontWeight
                         
                         Button("Clothes") { selectedTab = 1 }
                             .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 1 ? Font.format.textHeadlineTwo : Font.format.textHeadlineFive) // Corrected font selection
+                            .font(selectedTab == 1 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
                             .fontWeight(selectedTab == 1 ? .bold : .regular)
                         
                         Button("Wallpaper") { selectedTab = 2 }
                             .foregroundColor(Color.theme.warningColorTheme)
-                            .font(selectedTab == 2 ? Font.format.textHeadlineTwo : Font.format.textHeadlineFive) // Corrected font selection
+                            .font(selectedTab == 2 ? Font.format.textHeadlineFour : Font.format.textBodyFour) // Corrected font selection
                             .fontWeight(selectedTab == 2 ? .bold : .regular)
                         Spacer()
                     }
-                    .padding(.vertical, 20)
+                    .padding(.vertical, 25)
                 }
-                
                 .padding(.horizontal)
-                
-                .background(Color.theme.primaryColorTheme) // Set the blue background
+                .background(Color.theme.primaryColorTheme)
                 
                 
 //                TabView(selection: $selectedTab) {

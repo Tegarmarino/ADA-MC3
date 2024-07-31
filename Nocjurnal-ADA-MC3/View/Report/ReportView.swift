@@ -439,7 +439,7 @@ struct ReportView: View {
                         .foregroundStyle(Color.theme.fontPrimaryColorTheme)
                     Spacer()
                 }
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0))
+                .frame(height: 48)
 
                 HStack {
                     ButtonIcon("arrow.left", state: $datePrevState, type: .secondary) {
